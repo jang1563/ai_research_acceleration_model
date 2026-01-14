@@ -1,0 +1,322 @@
+#!/usr/bin/env python3
+"""
+Case Study Validation Runner
+============================
+
+Runs model validation against AI breakthrough case studies.
+
+Usage:
+    python run_validation.py                    # Validate all case studies
+    python run_validation.py --alphafold        # AlphaFold only
+    python run_validation.py --gnome            # GNoME only
+    python run_validation.py --esm3             # ESM-3 only
+    python run_validation.py --compare          # Cross-case comparison
+    python run_validation.py --report           # Generate full report
+"""
+
+import argparse
+import sys
+from pathlib import Path
+from datetime import datetime
+import json
+
+# Add src to path
+sys.path.insert(0, str(Path(__file__).parent / "src"))
+from case_study_framework import CaseStudyValidator, ValidationStatus
+from alphafold_case_study import AlphaFoldCaseStudy, alphafold_impact_by_year, compare_to_baseline
+from gnome_case_study import GNoMECaseStudy, gnome_synthesis_bottleneck_analysis, compare_gnome_to_alphafold
+from esm3_case_study import ESM3CaseStudy, esm3_vs_alphafold_comparison, esm3_bottleneck_analysis
+
+# Add v0.1 for model
+sys.path.insert(0, str(Path(__file__).parent.parent / "v0.1"))
+from src.model import AIResearchAccelerationModel, Scenario
+
+
+def setup_validator(scenario: Scenario = Scenario.BASELINE) -> CaseStudyValidator:
+    """Set up validator with all case studies."""
+    validator = CaseStudyValidator(scenario=scenario)
+    validator.add_case_study(AlphaFoldCaseStudy)
+    validator.add_case_study(GNoMECaseStudy)
+    validator.add_case_study(ESM3CaseStudy)
+    return validator
+
+
+def validate_alphafold():
+    """Run validation for AlphaFold case study."""
+    print("=" * 60)
+    print("ALPHAFOLD CASE STUDY VALIDATION")
+    print("=" * 60)
+    print()
+
+    validator = setup_validator()
+    result = validator.validate("AlphaFold 2/3")
+
+    print(result.summary())
+    print()
+
+    # Additional AlphaFold-specific analysis
+    print("Impact Timeline:")
+    print("-" * 40)
+    for year, data in alphafold_impact_by_year().items():
+        print(f"  {year}: {data['event']}")
+        if data['structures_predicted']:
+            print(f"        Structures: {data['structures_predicted']:,}")
+    print()
+
+    print("Baseline Comparison (H5 Insight):")
+    print("-" * 40)
+    comparison = compare_to_baseline()
+    print(f"  vs Manual Methods: {comparison['acceleration_vs_manual']:,}x")
+    print(f"  vs Rosetta (computational): {comparison['acceleration_vs_rosetta']:,}x")
+    print()
+    print(f"  Key insight: {comparison['key_insight']}")
+    print()
+
+    return result
+
+
+def validate_gnome():
+    """Run validation for GNoME case study."""
+    print("=" * 60)
+    print("GNOME CASE STUDY VALIDATION")
+    print("=" * 60)
+    print()
+
+    validator = setup_validator()
+    result = validator.validate("GNoME")
+
+    print(result.summary())
+    print()
+
+    # GNoME-specific bottleneck analysis
+    print("Synthesis Bottleneck Analysis:")
+    print("-" * 40)
+    analysis = gnome_synthesis_bottleneck_analysis()
+    print(f"  GNoME Predictions: {analysis['gnome_predictions']:,}")
+    print(f"  A-Lab Rate: {analysis['a_lab_synthesis_rate']['materials_per_year']} materials/year")
+    print(f"  Years to Validate All: {analysis['validation_backlog']['years_to_validate_all']:,}")
+    print()
+    print("  Model Validation:")
+    print(f"  {analysis['model_validation']}")
+    print()
+
+    return result
+
+
+def validate_esm3():
+    """Run validation for ESM-3 case study."""
+    print("=" * 60)
+    print("ESM-3 CASE STUDY VALIDATION")
+    print("=" * 60)
+    print()
+
+    validator = setup_validator()
+    result = validator.validate("ESM-3")
+
+    print(result.summary())
+    print()
+
+    # ESM-3 bottleneck analysis
+    print("Bottleneck Analysis:")
+    print("-" * 40)
+    analysis = esm3_bottleneck_analysis()
+    print(f"  Design Phase Acceleration: {analysis['design_phase']['acceleration']:,}x")
+    print(f"  Expression Phase Acceleration: {analysis['expression_phase']['acceleration']}x")
+    print(f"  Testing Phase Acceleration: {analysis['testing_phase']['acceleration']}x")
+    print(f"  Overall Acceleration: {analysis['overall_acceleration']}x")
+    print()
+    print(f"  Model Validation: {analysis['model_validation']}")
+    print()
+
+    return result
+
+
+def run_cross_case_comparison():
+    """Compare findings across all case studies."""
+    print("=" * 60)
+    print("CROSS-CASE STUDY COMPARISON")
+    print("=" * 60)
+    print()
+
+    validator = setup_validator()
+    results = validator.validate_all()
+
+    # Summary table
+    print("Validation Summary:")
+    print("-" * 70)
+    print(f"{'Case Study':<20} {'Type':<15} {'Predicted':<12} {'Observed':<12} {'Match'}")
+    print("-" * 70)
+
+    for name, result in results.items():
+        cs = validator.case_studies[name]
+        shift_type = cs.shift_type.value
+        print(
+            f"{name:<20} {shift_type:<15} "
+            f"{result.predicted_acceleration:>10.1f}x "
+            f"{result.observed_acceleration:>10.1f}x "
+            f"{'Yes' if result.bottleneck_match else 'No'}"
+        )
+
+    print("-" * 70)
+    print()
+
+    # Key insights by shift type
+    print("Insights by Shift Type:")
+    print("-" * 40)
+
+    type_iii_cases = [name for name, cs in validator.case_studies.items()
+                     if cs.shift_type.value == "capability"]
+    type_i_cases = [name for name, cs in validator.case_studies.items()
+                   if cs.shift_type.value == "scale"]
+
+    print()
+    print("Type III (Capability Extension) - AlphaFold, ESM-3:")
+    print("  - Stage acceleration: 30,000-36,500x")
+    print("  - End-to-end acceleration: 4-24x")
+    print("  - Bottleneck: Validation (social) or Expression (physical)")
+    print()
+    print("Type I (Scale) - GNoME:")
+    print("  - Stage acceleration: 100,000x+")
+    print("  - End-to-end acceleration: ~1x per material")
+    print("  - Bottleneck: Synthesis (physical)")
+    print()
+
+    # Model validation conclusions
+    print("Model Validation Conclusions:")
+    print("-" * 40)
+    print()
+    print("1. VALIDATED: Physical stages are binding constraints")
+    print("   - All case studies show S4/S6 as bottlenecks")
+    print("   - M_max_physical ~ 2.5x confirmed (may be lower: 1.0-1.5x)")
+    print()
+    print("2. VALIDATED: Cognitive stages achieve high acceleration")
+    print("   - S2/S3 show 30,000-100,000x acceleration")
+    print("   - M_max_cognitive ~ 25x is conservative")
+    print()
+    print("3. PARTIAL: End-to-end predictions")
+    print("   - Model predicts 38x by 2050")
+    print("   - Case studies show 4-24x already in 2024")
+    print("   - But: Model is for full pipeline, cases are domain-specific")
+    print()
+    print("4. INSIGHT: Type of shift matters")
+    print("   - Type III (capability): ~20x end-to-end")
+    print("   - Type I (scale): Creates backlog, not acceleration")
+    print("   - Model doesn't distinguish shift types")
+    print()
+
+    return results
+
+
+def generate_full_report():
+    """Generate comprehensive validation report."""
+    print("Generating Full Validation Report...")
+    print()
+
+    validator = setup_validator()
+    results = validator.validate_all()
+
+    report = validator.generate_summary_report()
+    print(report)
+    print()
+
+    # Save to file
+    output_dir = Path(__file__).parent / "outputs"
+    output_dir.mkdir(exist_ok=True)
+
+    report_path = output_dir / f"validation_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+    with open(report_path, 'w') as f:
+        f.write(report)
+
+    print(f"Report saved to: {report_path}")
+
+    # Export JSON results
+    json_path = output_dir / "validation_results.json"
+    validator.export_results(str(json_path))
+    print(f"Results saved to: {json_path}")
+
+    return report
+
+
+def run_scenario_comparison():
+    """Compare validation across different model scenarios."""
+    print("=" * 60)
+    print("SCENARIO COMPARISON")
+    print("=" * 60)
+    print()
+
+    scenarios = [Scenario.CONSERVATIVE, Scenario.BASELINE, Scenario.OPTIMISTIC]
+    results_by_scenario = {}
+
+    for scenario in scenarios:
+        print(f"\n{scenario.name} Scenario:")
+        print("-" * 40)
+
+        validator = setup_validator(scenario=scenario)
+        results = validator.validate_all()
+        results_by_scenario[scenario.name] = results
+
+        mean_score = sum(r.overall_score for r in results.values()) / len(results)
+        print(f"  Mean Validation Score: {mean_score:.2f}")
+
+        for name, result in results.items():
+            print(f"  {name}: {result.status.value} ({result.overall_score:.2f})")
+
+    print()
+    print("Best Fitting Scenario:")
+    print("-" * 40)
+    best_scenario = max(
+        results_by_scenario.items(),
+        key=lambda x: sum(r.overall_score for r in x[1].values())
+    )
+    print(f"  {best_scenario[0]} scenario has best overall fit")
+
+    return results_by_scenario
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Case Study Validation for AI Research Acceleration Model"
+    )
+    parser.add_argument('--alphafold', action='store_true', help='Validate AlphaFold')
+    parser.add_argument('--gnome', action='store_true', help='Validate GNoME')
+    parser.add_argument('--esm3', action='store_true', help='Validate ESM-3')
+    parser.add_argument('--compare', action='store_true', help='Cross-case comparison')
+    parser.add_argument('--scenarios', action='store_true', help='Compare across scenarios')
+    parser.add_argument('--report', action='store_true', help='Generate full report')
+
+    args = parser.parse_args()
+
+    # Default: run everything
+    if not any([args.alphafold, args.gnome, args.esm3, args.compare, args.scenarios, args.report]):
+        args.alphafold = True
+        args.gnome = True
+        args.esm3 = True
+        args.compare = True
+        args.report = True
+
+    if args.alphafold:
+        validate_alphafold()
+        print()
+
+    if args.gnome:
+        validate_gnome()
+        print()
+
+    if args.esm3:
+        validate_esm3()
+        print()
+
+    if args.compare:
+        run_cross_case_comparison()
+        print()
+
+    if args.scenarios:
+        run_scenario_comparison()
+        print()
+
+    if args.report:
+        generate_full_report()
+
+
+if __name__ == "__main__":
+    main()

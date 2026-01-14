@@ -1,0 +1,34 @@
+{
+  "scenario": "BASELINE",
+  "timestamp": "2026-01-14T05:07:57.909669",
+  "case_studies": 3,
+  "results": {
+    "AlphaFold 2/3": {
+      "status": "rejected",
+      "score": 0,
+      "predicted_acceleration": 0.5094444555295778,
+      "observed_acceleration": 24.3,
+      "log_error": 1.6785094335816713,
+      "bottleneck_match": true,
+      "confidence": 0.8800000000000001
+    },
+    "GNoME": {
+      "status": "rejected",
+      "score": 0,
+      "predicted_acceleration": 0.9985111328379727,
+      "observed_acceleration": 365,
+      "log_error": 2.5629399530833576,
+      "bottleneck_match": true,
+      "confidence": 0.8800000000000001
+    },
+    "ESM-3": {
+      "status": "partial",
+      "score": 0.5434209557233926,
+      "predicted_acceleration": 1.3979155859731616,
+      "observed_acceleration": 4.0,
+      "log_error": 0.45657904427660745,
+      "bottleneck_match": true,
+      "confidence": 0.528
+    }
+  }
+}
