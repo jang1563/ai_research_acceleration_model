@@ -70,6 +70,34 @@ BacklogState = _backlog_mod.BacklogState
 BacklogRiskLevel = _backlog_mod.BacklogRiskLevel
 BACKLOG_SCENARIOS = _backlog_mod.BACKLOG_SCENARIOS
 
+# Import model corrections (v0.6.1 fixes)
+_corrections_mod = _import_v06_module("model_corrections")
+apply_calibration = _corrections_mod.apply_calibration
+calculate_uncertainty = _corrections_mod.calculate_uncertainty
+get_scenario_range = _corrections_mod.get_scenario_range
+get_empirical_triage_floor = _corrections_mod.get_empirical_triage_floor
+get_historical_backlog_factor = _corrections_mod.get_historical_backlog_factor
+apply_stage_dependencies = _corrections_mod.apply_stage_dependencies
+CALIBRATION_FACTORS = _corrections_mod.CALIBRATION_FACTORS
+
+
+@dataclass
+class UncertaintyBounds:
+    """Confidence intervals for predictions (P2-P1-P1 fix)."""
+    lower_5: float    # 5th percentile
+    lower_25: float   # 25th percentile
+    median: float     # 50th percentile
+    upper_75: float   # 75th percentile
+    upper_95: float   # 95th percentile
+
+
+@dataclass
+class ScenarioRange:
+    """Range of scenarios (P2-P1-P2 fix)."""
+    pessimistic: float
+    baseline: float
+    optimistic: float
+
 
 @dataclass
 class V06Forecast:
@@ -96,6 +124,11 @@ class V06Forecast:
     # Risk metrics
     backlog_risk: BacklogRiskLevel
     opportunity_cost: float
+
+    # NEW: Corrected predictions (v0.6.1 fixes)
+    calibrated_acceleration: float = None        # P1-E1-P1: Bias corrected
+    uncertainty: UncertaintyBounds = None        # P2-P1-P1: Confidence intervals
+    scenarios: ScenarioRange = None              # P2-P1-P2: Scenario range
 
 
 # Domain mapping between triage model and v0.4/v0.5 models
@@ -197,22 +230,44 @@ class IntegratedV06Model:
             # Calculate triage-limited acceleration
             triage_accel = self._triage_limited_acceleration(triage, baseline_throughput)
 
+            # P1-M1-P1 FIX: Use empirically-derived triage floor instead of ad-hoc 0.5
+            triage_floor = get_empirical_triage_floor(self.domain)
+
             # For historical/current years (<=2025), triage constraints are minimal
             # The backlog problem is forward-looking
             if year <= 2025:
                 # Historical: v0.5 predictions are primary, triage has limited impact
-                # Backlog is just starting to accumulate
-                years_since_base = max(year - 2024, 0)
-                triage_dampening = 1.0 - (0.1 * years_since_base)  # Minimal in 2024-2025
-                effective_accel = v05.end_to_end_acceleration
+                # P1-E1-P2 FIX: Apply historical backlog factor for known events (e.g., GNoME)
+                historical_factor = get_historical_backlog_factor(self.domain, year)
+                effective_accel = v05.end_to_end_acceleration * historical_factor
             else:
                 # Future projections: triage becomes binding constraint
                 # Triage factor shows how much backlog reduces effective acceleration
                 triage_factor = min(1.0, triage_accel / max(v05.end_to_end_acceleration, 1))
 
-                # Apply triage constraint, but cap at 50% reduction
-                # (triage can improve over time with better AI selection)
-                effective_accel = v05.end_to_end_acceleration * max(triage_factor, 0.5)
+                # P1-M1-P1 FIX: Use empirical floor instead of ad-hoc 0.5
+                effective_accel = v05.end_to_end_acceleration * max(triage_factor, triage_floor)
+
+            # P1-E1-P1 FIX: Apply calibration to reduce over-prediction bias
+            calibrated_accel = apply_calibration(self.domain, effective_accel)
+
+            # P2-P1-P1 FIX: Calculate uncertainty bounds
+            uncertainty_bounds = calculate_uncertainty(calibrated_accel, self.domain, year)
+            uncertainty = UncertaintyBounds(
+                lower_5=uncertainty_bounds.lower_5,
+                lower_25=uncertainty_bounds.lower_25,
+                median=uncertainty_bounds.median,
+                upper_75=uncertainty_bounds.upper_75,
+                upper_95=uncertainty_bounds.upper_95,
+            )
+
+            # P2-P1-P2 FIX: Calculate scenario range
+            scenario_range = get_scenario_range(calibrated_accel, self.domain)
+            scenarios = ScenarioRange(
+                pessimistic=scenario_range.pessimistic,
+                baseline=scenario_range.baseline,
+                optimistic=scenario_range.optimistic,
+            )
 
             # Determine limiting factor
             if backlog.risk_level in [BacklogRiskLevel.HIGH, BacklogRiskLevel.CRITICAL]:
@@ -240,6 +295,10 @@ class IntegratedV06Model:
                 limiting_factor=limiting_factor,
                 backlog_risk=backlog.risk_level,
                 opportunity_cost=backlog.opportunity_cost,
+                # NEW v0.6.1 fields
+                calibrated_acceleration=calibrated_accel,
+                uncertainty=uncertainty,
+                scenarios=scenarios,
             )
 
         return results
@@ -250,23 +309,24 @@ class IntegratedV06Model:
 
         lines = [
             "=" * 80,
-            f"INTEGRATED v0.6 MODEL: {self.domain.upper()}",
+            f"INTEGRATED v0.6.1 MODEL: {self.domain.upper()} (WITH CORRECTIONS)",
             "=" * 80,
             "",
             f"AI Scenario: {self.ai_scenario.value}",
             f"Automation Scenario: {self.automation_scenario.value}",
             "",
-            "ACCELERATION FORECAST:",
+            "ACCELERATION FORECAST (v0.6.1 - Bias Corrected):",
             "-" * 80,
-            f"{'Year':<8} {'v0.5':<10} {'Triage':<10} {'Effective':<12} {'Limiting':<12} {'Backlog Risk':<14}",
+            f"{'Year':<8} {'v0.5':<10} {'Effective':<12} {'Calibrated':<12} {'90% CI':<20} {'Risk':<10}",
             "-" * 80,
         ]
 
         for year in [2025, 2030, 2040, 2050]:
             f = forecasts[year]
+            ci_str = f"[{f.uncertainty.lower_5:.1f}-{f.uncertainty.upper_95:.1f}]"
             lines.append(
-                f"{year:<8} {f.v05_end_to_end:>8.1f}x {f.triage_limited_acceleration:>8.1f}x "
-                f"{f.effective_acceleration:>10.1f}x {f.limiting_factor:<12} {f.backlog_risk.value:<14}"
+                f"{year:<8} {f.v05_end_to_end:>8.1f}x {f.effective_acceleration:>10.1f}x "
+                f"{f.calibrated_acceleration:>10.1f}x {ci_str:<20} {f.backlog_risk.value:<10}"
             )
 
         lines.extend([
@@ -298,23 +358,34 @@ class IntegratedV06Model:
                 f"  ✓ BALANCED: Cognitive and physical acceleration well-matched"
             )
 
+        # Add scenario analysis (P2-P1-P2 fix)
+        f_2030 = forecasts[2030]
+        lines.extend([
+            "",
+            "SCENARIO ANALYSIS (2030):",
+            f"  Pessimistic: {f_2030.scenarios.pessimistic:.1f}x",
+            f"  Baseline:    {f_2030.scenarios.baseline:.1f}x",
+            f"  Optimistic:  {f_2030.scenarios.optimistic:.1f}x",
+        ])
+
         return "\n".join(lines)
 
 
 def compare_v05_v06():
-    """Compare v0.5 and v0.6 predictions across domains."""
+    """Compare v0.5 and v0.6.1 predictions across domains."""
     print("=" * 80)
-    print("MODEL COMPARISON: v0.5 vs v0.6 (with Triage Constraints)")
+    print("MODEL COMPARISON: v0.5 vs v0.6.1 (with Corrections)")
     print("=" * 80)
     print()
-    print("v0.5: AI + Automation (assumes validation scales smoothly)")
-    print("v0.6: AI + Automation + Triage (models selection bottleneck)")
+    print("v0.5:   AI + Automation (assumes validation scales smoothly)")
+    print("v0.6:   AI + Automation + Triage (models selection bottleneck)")
+    print("v0.6.1: + Calibration + Uncertainty + Scenarios")
     print()
 
     domains = list(DOMAIN_TRIAGE_PROFILES.keys())
     years = [2030, 2050]
 
-    print(f"{'Domain':<22} {'v0.5 2030':<12} {'v0.6 2030':<12} {'v0.5 2050':<12} {'v0.6 2050':<12}")
+    print(f"{'Domain':<22} {'v0.5':<10} {'v0.6':<10} {'Calibrated':<12} {'90% CI':<18}")
     print("-" * 80)
 
     for domain in domains:
@@ -324,12 +395,12 @@ def compare_v05_v06():
 
             v05_30 = forecasts[2030].v05_end_to_end
             v06_30 = forecasts[2030].effective_acceleration
-            v05_50 = forecasts[2050].v05_end_to_end
-            v06_50 = forecasts[2050].effective_acceleration
+            calib_30 = forecasts[2030].calibrated_acceleration
+            ci_30 = f"[{forecasts[2030].uncertainty.lower_5:.1f}-{forecasts[2030].uncertainty.upper_95:.1f}]"
 
             print(
-                f"{domain:<22} {v05_30:>10.1f}x {v06_30:>10.1f}x "
-                f"{v05_50:>10.1f}x {v06_50:>10.1f}x"
+                f"{domain:<22} {v05_30:>8.1f}x {v06_30:>8.1f}x "
+                f"{calib_30:>10.1f}x {ci_30:<18}"
             )
         except Exception as e:
             print(f"{domain:<22} Error: {e}")

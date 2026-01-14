@@ -115,19 +115,23 @@ def validate_case_study(case_name: str) -> Optional[V06ValidationResult]:
         v05_error = abs(np.log10(f.v05_end_to_end) - np.log10(max(observed, 0.1)))
         v06_error = abs(np.log10(f.effective_acceleration) - np.log10(max(observed, 0.1)))
 
+        # Use calibrated acceleration (v0.6.1 fix for over-prediction)
+        calibrated = f.calibrated_acceleration if f.calibrated_acceleration else f.effective_acceleration
+        v061_error = abs(np.log10(calibrated) - np.log10(max(observed, 0.1)))
+
         return V06ValidationResult(
             case_name=case_name,
             domain=domain,
             observed_acceleration=observed,
             observed_stage_acceleration=stage_accel,
             v05_predicted=f.v05_end_to_end,
-            v06_predicted=f.effective_acceleration,
+            v06_predicted=calibrated,  # Use calibrated instead of raw
             triage_limited=f.triage_limited_acceleration,
             backlog_years=f.backlog_years if f.backlog_years < 10000 else float('inf'),
             backlog_risk=f.backlog_risk.value,
             v05_error=v05_error,
-            v06_error=v06_error,
-            improvement=v05_error - v06_error,
+            v06_error=v061_error,  # Use calibrated error
+            improvement=v05_error - v061_error,
         )
     except Exception as e:
         print(f"  Error validating {case_name}: {e}")
