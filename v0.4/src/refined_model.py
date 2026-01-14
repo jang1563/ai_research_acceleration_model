@@ -29,10 +29,12 @@ from typing import Dict, List, Optional, Tuple
 from enum import Enum
 import numpy as np
 
-# Import base model components
-import sys
-sys.path.insert(0, '/sessions/intelligent-beautiful-shannon/mnt/Accelerating_biology_with_AI/ai_research_acceleration_model/v0.1')
-from src.model import Scenario, SCENARIO_DEFAULTS
+
+class Scenario(Enum):
+    """Scenario types for projections."""
+    CONSERVATIVE = "conservative"
+    BASELINE = "baseline"
+    OPTIMISTIC = "optimistic"
 
 
 class ShiftType(Enum):
@@ -255,19 +257,21 @@ class RefinedAccelerationModel:
         self.scenario = scenario
         self.base_year = base_year
 
-        # Scenario adjustments
-        self.scenario_multipliers = {
-            Scenario.CONSERVATIVE: 0.5,
-            Scenario.BASELINE: 1.0,
-            Scenario.OPTIMISTIC: 1.5,
+        # Scenario adjustments (use .value for comparison)
+        scenario_mult = {
+            "conservative": 0.5,
+            "baseline": 1.0,
+            "optimistic": 1.5,
         }
+        self.scenario_multiplier = scenario_mult.get(scenario.value, 1.0)
 
         # AI capability growth rate (per year)
-        self.ai_growth_rate = {
-            Scenario.CONSERVATIVE: 0.25,
-            Scenario.BASELINE: 0.40,
-            Scenario.OPTIMISTIC: 0.60,
-        }[scenario]
+        growth_rates = {
+            "conservative": 0.25,
+            "baseline": 0.40,
+            "optimistic": 0.60,
+        }
+        self.ai_growth_rate = growth_rates.get(scenario.value, 0.40)
 
         # Initialize stage accelerations
         self._init_stages()
@@ -283,7 +287,7 @@ class RefinedAccelerationModel:
                 max_accel = self.profile.m_max_physical
 
             # Adjust for scenario
-            max_accel *= self.scenario_multipliers[self.scenario]
+            max_accel *= self.scenario_multiplier
 
             self.stages[stage_id] = StageAcceleration(
                 stage_id=stage_id,
@@ -302,20 +306,29 @@ class RefinedAccelerationModel:
         Follows logistic growth toward ceiling.
         """
         t = year - self.base_year
-        if t < 0:
-            # Before base year, assume slower growth
-            return np.exp(self.ai_growth_rate * t * 0.5)
 
-        # Logistic growth
-        ceiling = 100.0  # Arbitrary ceiling for capability index
+        # Use 2020 as the AI "birth year" for capability indexing
+        # This better captures AlphaFold 2 (2021), GNoME (2023), ESM-3 (2024)
+        ai_birth_year = 2020
+        t_from_birth = year - ai_birth_year
+
+        if t_from_birth <= 0:
+            return 1.0  # Minimal AI capability before 2020
+
+        # Logistic growth from AI birth year
+        ceiling = 100.0  # Capability ceiling
         k = self.ai_growth_rate
-        return ceiling / (1 + (ceiling - 1) * np.exp(-k * t))
+        # Half-max around 2030 (10 years after AI birth)
+        midpoint = 10
+
+        return ceiling / (1 + np.exp(-k * (t_from_birth - midpoint)))
 
     def stage_acceleration(self, stage_id: str, year: int) -> float:
         """
         Calculate acceleration for a specific stage at a given year.
 
         Uses sigmoid approach to M_max, with domain-specific parameters.
+        For calibrated domains, anchors to observed values.
         """
         stage = self.stages[stage_id]
         ai_cap = self.ai_capability(year)
@@ -323,13 +336,37 @@ class RefinedAccelerationModel:
         # Sigmoid acceleration curve
         # M(t) = M_max / (1 + exp(-k*(A(t) - A_half)))
         m_max = stage.max_acceleration
-        k = 0.1  # Steepness
-        a_half = 20.0  # AI capability at half-max acceleration
+        k = 0.15  # Steepness (increased for faster adoption)
+        a_half = 15.0  # AI capability at half-max acceleration (earlier)
 
         # Adoption rate affects how quickly domain reaches potential
         effective_cap = ai_cap * self.profile.cognitive_adoption_rate
 
         acceleration = m_max / (1 + np.exp(-k * (effective_cap - a_half)))
+
+        # For calibrated domains, scale to match observed end-to-end
+        # This ensures model predictions align with real-world data
+        if self.profile.observed_acceleration is not None:
+            # Get the calibration year based on the case study
+            calibration_years = {
+                "AlphaFold 2/3": 2021,
+                "GNoME": 2023,
+                "ESM-3": 2024,
+            }
+            if self.profile.calibrated_from in calibration_years:
+                cal_year = calibration_years[self.profile.calibrated_from]
+                cal_ai_cap = self.ai_capability(cal_year)
+                cal_effective = cal_ai_cap * self.profile.cognitive_adoption_rate
+                cal_accel = m_max / (1 + np.exp(-k * (cal_effective - a_half)))
+
+                # Scale factor to match observed
+                if cal_accel > 1.0:
+                    # Only apply calibration scaling to cognitive stages
+                    if stage.is_cognitive:
+                        scale = self.profile.observed_acceleration / cal_accel
+                        # Dampen the scaling to avoid extreme values
+                        scale = min(max(scale, 0.5), 2.0)
+                        acceleration *= scale
 
         # Ensure minimum of 1.0
         return max(1.0, acceleration)

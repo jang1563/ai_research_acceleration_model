@@ -1,7 +1,7 @@
 {
   "scenario": "BASELINE",
-  "timestamp": "2026-01-14T05:07:57.909669",
-  "case_studies": 3,
+  "timestamp": "2026-01-14T05:43:04.470888",
+  "case_studies": 6,
   "results": {
     "AlphaFold 2/3": {
       "status": "rejected",
@@ -29,6 +29,33 @@
       "log_error": 0.45657904427660745,
       "bottleneck_match": true,
       "confidence": 0.528
+    },
+    "Recursion Pharmaceuticals": {
+      "status": "validated",
+      "score": 0.9734371961538559,
+      "predicted_acceleration": 1.3979155859731616,
+      "observed_acceleration": 1.4860853432282004,
+      "log_error": 0.02656280384614404,
+      "bottleneck_match": true,
+      "confidence": 0.7040000000000002
+    },
+    "Isomorphic Labs / AlphaFold 3": {
+      "status": "validated",
+      "score": 0.9363809673583998,
+      "predicted_acceleration": 1.3979155859731616,
+      "observed_acceleration": 1.6184525815614919,
+      "log_error": 0.06361903264160015,
+      "bottleneck_match": true,
+      "confidence": 0.7040000000000002
+    },
+    "Cradle Bio": {
+      "status": "validated",
+      "score": 0.8178674686613111,
+      "predicted_acceleration": 1.3979155859731616,
+      "observed_acceleration": 2.12624584717608,
+      "log_error": 0.18213253133868892,
+      "bottleneck_match": true,
+      "confidence": 0.7040000000000002
     }
   }
 }

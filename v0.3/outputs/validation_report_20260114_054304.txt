@@ -1,0 +1,42 @@
+============================================================
+CASE STUDY VALIDATION SUMMARY
+============================================================
+
+Model Scenario: BASELINE
+Case Studies Validated: 6
+
+Results Overview:
+------------------------------------------------------------
+Case Study                Status          Score      Error     
+------------------------------------------------------------
+AlphaFold 2/3             rejected        0.00      1.68
+GNoME                     rejected        0.00      2.56
+ESM-3                     partial         0.54      0.46
+Recursion Pharmaceuticals validated       0.97      0.03
+Isomorphic Labs / AlphaFold 3 validated       0.94      0.06
+Cradle Bio                validated       0.82      0.18
+------------------------------------------------------------
+
+Mean Score: 0.55
+Mean Log Error: 0.83
+
+Validation Status Distribution:
+  rejected: 2
+  partial: 1
+  validated: 3
+
+Key Insights:
+----------------------------------------
+Model Strengths (across case studies):
+  + Model handles capability extensions (Type III shifts)
+  + Correctly predicted physical bottleneck
+  + Good fit for physical stages
+  + Good fit for cognitive stages
+  + Overall acceleration prediction within 2x of observed
+
+Model Weaknesses (across case studies):
+  - Model under-predicted acceleration (1.0x vs 365.0x)
+  - Poor fit for physical stages
+  - Model under-predicted acceleration (0.5x vs 24.3x)
+  - Poor fit for cognitive stages
+  - Model under-predicted acceleration (1.4x vs 4.0x)

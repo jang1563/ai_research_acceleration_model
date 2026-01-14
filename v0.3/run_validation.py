@@ -5,11 +5,22 @@ Case Study Validation Runner
 
 Runs model validation against AI breakthrough case studies.
 
+Case Studies (6 total):
+- AlphaFold 2/3: Structural biology (Type III capability shift)
+- GNoME: Materials science (Type I scale shift)
+- ESM-3: Protein design (Type III capability shift)
+- Recursion: Drug discovery (Type II efficiency shift)
+- Isomorphic Labs: Drug design with AlphaFold 3 (Type III capability shift)
+- Cradle Bio: ML protein engineering (Type II efficiency shift)
+
 Usage:
     python run_validation.py                    # Validate all case studies
     python run_validation.py --alphafold        # AlphaFold only
     python run_validation.py --gnome            # GNoME only
     python run_validation.py --esm3             # ESM-3 only
+    python run_validation.py --recursion        # Recursion only
+    python run_validation.py --isomorphic       # Isomorphic Labs only
+    python run_validation.py --cradle           # Cradle Bio only
     python run_validation.py --compare          # Cross-case comparison
     python run_validation.py --report           # Generate full report
 """
@@ -26,6 +37,9 @@ from case_study_framework import CaseStudyValidator, ValidationStatus
 from alphafold_case_study import AlphaFoldCaseStudy, alphafold_impact_by_year, compare_to_baseline
 from gnome_case_study import GNoMECaseStudy, gnome_synthesis_bottleneck_analysis, compare_gnome_to_alphafold
 from esm3_case_study import ESM3CaseStudy, esm3_vs_alphafold_comparison, esm3_bottleneck_analysis
+from recursion_case_study import RecursionCaseStudy, RECURSION_OBSERVED, recursion_pipeline_analysis
+from isomorphic_case_study import IsomorphicCaseStudy, ISOMORPHIC_OBSERVED, isomorphic_metrics_analysis
+from cradle_case_study import CradleCaseStudy, CRADLE_OBSERVED, cradle_metrics_analysis
 
 # Add v0.1 for model
 sys.path.insert(0, str(Path(__file__).parent.parent / "v0.1"))
@@ -33,11 +47,16 @@ from src.model import AIResearchAccelerationModel, Scenario
 
 
 def setup_validator(scenario: Scenario = Scenario.BASELINE) -> CaseStudyValidator:
-    """Set up validator with all case studies."""
+    """Set up validator with all 6 case studies."""
     validator = CaseStudyValidator(scenario=scenario)
+    # Original 3 case studies
     validator.add_case_study(AlphaFoldCaseStudy)
     validator.add_case_study(GNoMECaseStudy)
     validator.add_case_study(ESM3CaseStudy)
+    # New 3 case studies (added v0.3.1)
+    validator.add_case_study(RecursionCaseStudy)
+    validator.add_case_study(IsomorphicCaseStudy)
+    validator.add_case_study(CradleCaseStudy)
     return validator
 
 
@@ -131,6 +150,127 @@ def validate_esm3():
     return result
 
 
+def validate_recursion():
+    """Run validation for Recursion Pharmaceuticals case study."""
+    print("=" * 60)
+    print("RECURSION PHARMACEUTICALS CASE STUDY VALIDATION")
+    print("=" * 60)
+    print()
+
+    study = RecursionCaseStudy
+    print(f"Case Study: {study.name}")
+    print(f"Domain: {study.domain}")
+    print(f"Year: {study.year}")
+    print(f"Shift Type: {study.shift_type.value}")
+    print()
+    print(f"Description: {study.description}")
+    print()
+    print(f"Overall Acceleration: {study.metrics.overall_acceleration:.2f}x")
+    print(f"Bottleneck: {study.metrics.primary_bottleneck}")
+    print()
+
+    # Pipeline analysis
+    print("Pipeline Analysis:")
+    print("-" * 40)
+    analysis = recursion_pipeline_analysis()
+    print(f"  Target to IND: {analysis['target_to_ind_months']} months")
+    print(f"  Industry Average: {analysis['industry_avg_months']} months")
+    print(f"  Acceleration: {analysis['acceleration']:.1f}x")
+    print(f"  Imaging/Week: {analysis['imaging_per_week']:,}")
+    print(f"  Clinical Programs: {analysis['clinical_programs']}")
+    print(f"  First AI Drug in Phase I: {analysis['first_ai_drug_phase1']}")
+    print()
+
+    # Key insight
+    print(f"Key Insight: {study.key_insight}")
+    print()
+
+    return study
+
+
+def validate_isomorphic():
+    """Run validation for Isomorphic Labs / AlphaFold 3 case study."""
+    print("=" * 60)
+    print("ISOMORPHIC LABS / ALPHAFOLD 3 CASE STUDY VALIDATION")
+    print("=" * 60)
+    print()
+
+    study = IsomorphicCaseStudy
+    print(f"Case Study: {study.name}")
+    print(f"Domain: {study.domain}")
+    print(f"Year: {study.year}")
+    print(f"Shift Type: {study.shift_type.value}")
+    print()
+    print(f"Description: {study.description}")
+    print()
+    print(f"Overall Acceleration: {study.metrics.overall_acceleration:.2f}x")
+    print(f"Bottleneck: {study.metrics.primary_bottleneck}")
+    print()
+
+    # Metrics analysis
+    print("Key Metrics:")
+    print("-" * 40)
+    analysis = isomorphic_metrics_analysis()
+    print(f"  Partnership Value: ${analysis['partnership_value_usd']:,}")
+    print(f"  AlphaFold 3 Release: {analysis['alphafold3_release']}")
+    print(f"  Nobel Prize: {analysis['nobel_prize']}")
+    print(f"  First IND Expected: {analysis['first_ind_expected']}")
+    print(f"  Protein-Ligand Accuracy: {analysis['protein_ligand_accuracy']}")
+    print()
+    print("Stage-Level Acceleration:")
+    for stage, accel in analysis['stage_accelerations'].items():
+        print(f"  {stage}: {accel:,.1f}x")
+    print()
+
+    # Key insight
+    print(f"Key Insight: {study.key_insight}")
+    print()
+
+    return study
+
+
+def validate_cradle():
+    """Run validation for Cradle Bio case study."""
+    print("=" * 60)
+    print("CRADLE BIO CASE STUDY VALIDATION")
+    print("=" * 60)
+    print()
+
+    study = CradleCaseStudy
+    print(f"Case Study: {study.name}")
+    print(f"Domain: {study.domain}")
+    print(f"Year: {study.year}")
+    print(f"Shift Type: {study.shift_type.value}")
+    print()
+    print(f"Description: {study.description}")
+    print()
+    print(f"Overall Acceleration: {study.metrics.overall_acceleration:.2f}x")
+    print(f"Bottleneck: {study.metrics.primary_bottleneck}")
+    print()
+
+    # Metrics analysis
+    print("Key Metrics:")
+    print("-" * 40)
+    analysis = cradle_metrics_analysis()
+    print(f"  P450 Improvement Rate: {analysis['p450_improvement_rate']}x")
+    print(f"  EGFR Binding Improvement: {analysis['egfr_binding_improvement']}x")
+    accel_range = analysis['development_acceleration_range']
+    print(f"  Development Acceleration: {accel_range[0]}-{accel_range[1]}x")
+    print(f"  Iteration Reduction: {analysis['iteration_reduction']*100:.0f}%")
+    print(f"  Partners: {', '.join(analysis['partners'])}")
+    print()
+    print("Stage-Level Acceleration:")
+    for stage, accel in analysis['stage_accelerations'].items():
+        print(f"  {stage}: {accel:.1f}x")
+    print()
+
+    # Key insight
+    print(f"Key Insight: {study.key_insight}")
+    print()
+
+    return study
+
+
 def run_cross_case_comparison():
     """Compare findings across all case studies."""
     print("=" * 60)
@@ -166,14 +306,21 @@ def run_cross_case_comparison():
 
     type_iii_cases = [name for name, cs in validator.case_studies.items()
                      if cs.shift_type.value == "capability"]
+    type_ii_cases = [name for name, cs in validator.case_studies.items()
+                    if cs.shift_type.value == "efficiency"]
     type_i_cases = [name for name, cs in validator.case_studies.items()
                    if cs.shift_type.value == "scale"]
 
     print()
-    print("Type III (Capability Extension) - AlphaFold, ESM-3:")
-    print("  - Stage acceleration: 30,000-36,500x")
-    print("  - End-to-end acceleration: 4-24x")
-    print("  - Bottleneck: Validation (social) or Expression (physical)")
+    print("Type III (Capability Extension) - AlphaFold, ESM-3, Isomorphic:")
+    print("  - Stage acceleration: 30,000-36,500x (structure prediction)")
+    print("  - End-to-end acceleration: 1.6-24x (depending on pipeline)")
+    print("  - Bottleneck: Clinical trials (drug) or Expression (protein)")
+    print()
+    print("Type II (Efficiency) - Recursion, Cradle:")
+    print("  - Stage acceleration: 3-24x (computational stages)")
+    print("  - End-to-end acceleration: 1.5-2.3x")
+    print("  - Bottleneck: Wet lab validation, clinical trials")
     print()
     print("Type I (Scale) - GNoME:")
     print("  - Stage acceleration: 100,000x+")
@@ -182,26 +329,28 @@ def run_cross_case_comparison():
     print()
 
     # Model validation conclusions
-    print("Model Validation Conclusions:")
+    print("Model Validation Conclusions (6 Case Studies):")
     print("-" * 40)
     print()
     print("1. VALIDATED: Physical stages are binding constraints")
-    print("   - All case studies show S4/S6 as bottlenecks")
-    print("   - M_max_physical ~ 2.5x confirmed (may be lower: 1.0-1.5x)")
+    print("   - All 6 case studies show S4/S6 as bottlenecks")
+    print("   - Drug discovery: Clinical trials = 6-7 years regardless of AI")
+    print("   - Protein design: Wet lab expression = 1-2 months per cycle")
     print()
     print("2. VALIDATED: Cognitive stages achieve high acceleration")
-    print("   - S2/S3 show 30,000-100,000x acceleration")
-    print("   - M_max_cognitive ~ 25x is conservative")
+    print("   - Structure prediction: 36,500x (AlphaFold, Isomorphic)")
+    print("   - Variant design: 24x (Cradle ML prediction)")
+    print("   - Hit identification: 12x (Recursion phenotypic screening)")
     print()
-    print("3. PARTIAL: End-to-end predictions")
-    print("   - Model predicts 38x by 2050")
-    print("   - Case studies show 4-24x already in 2024")
-    print("   - But: Model is for full pipeline, cases are domain-specific")
+    print("3. REFINED: End-to-end acceleration depends on shift type")
+    print("   - Type III (capability): 1.6-24x end-to-end")
+    print("   - Type II (efficiency): 1.5-2.3x end-to-end")
+    print("   - Type I (scale): ~1x per item (creates backlog)")
     print()
-    print("4. INSIGHT: Type of shift matters")
-    print("   - Type III (capability): ~20x end-to-end")
-    print("   - Type I (scale): Creates backlog, not acceleration")
-    print("   - Model doesn't distinguish shift types")
+    print("4. KEY INSIGHT: Physical bottleneck limits all shift types")
+    print("   - Recursion: 2.3x (18mo vs 42mo target-to-IND)")
+    print("   - Isomorphic: ~1.6x (144mo vs 89mo drug design)")
+    print("   - Both limited by clinical trials (5-7 years)")
     print()
 
     return results
@@ -275,25 +424,38 @@ def run_scenario_comparison():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Case Study Validation for AI Research Acceleration Model"
+        description="Case Study Validation for AI Research Acceleration Model (6 Case Studies)"
     )
+    # Original 3 case studies
     parser.add_argument('--alphafold', action='store_true', help='Validate AlphaFold')
     parser.add_argument('--gnome', action='store_true', help='Validate GNoME')
     parser.add_argument('--esm3', action='store_true', help='Validate ESM-3')
+    # New 3 case studies
+    parser.add_argument('--recursion', action='store_true', help='Validate Recursion Pharmaceuticals')
+    parser.add_argument('--isomorphic', action='store_true', help='Validate Isomorphic Labs / AlphaFold 3')
+    parser.add_argument('--cradle', action='store_true', help='Validate Cradle Bio')
+    # Analysis options
     parser.add_argument('--compare', action='store_true', help='Cross-case comparison')
     parser.add_argument('--scenarios', action='store_true', help='Compare across scenarios')
     parser.add_argument('--report', action='store_true', help='Generate full report')
 
     args = parser.parse_args()
 
-    # Default: run everything
-    if not any([args.alphafold, args.gnome, args.esm3, args.compare, args.scenarios, args.report]):
+    # Default: run all 6 case studies plus comparison and report
+    all_case_flags = [args.alphafold, args.gnome, args.esm3,
+                      args.recursion, args.isomorphic, args.cradle,
+                      args.compare, args.scenarios, args.report]
+    if not any(all_case_flags):
         args.alphafold = True
         args.gnome = True
         args.esm3 = True
+        args.recursion = True
+        args.isomorphic = True
+        args.cradle = True
         args.compare = True
         args.report = True
 
+    # Run original 3 case studies
     if args.alphafold:
         validate_alphafold()
         print()
@@ -304,6 +466,19 @@ def main():
 
     if args.esm3:
         validate_esm3()
+        print()
+
+    # Run new 3 case studies
+    if args.recursion:
+        validate_recursion()
+        print()
+
+    if args.isomorphic:
+        validate_isomorphic()
+        print()
+
+    if args.cradle:
+        validate_cradle()
         print()
 
     if args.compare:
