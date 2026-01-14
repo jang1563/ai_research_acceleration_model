@@ -1,31 +1,39 @@
 # AI-Accelerated Scientific Research Model
 
-**Version 0.1** | January 2026
+**Version 0.4** | January 2026
 
-A quantitative model analyzing how AI accelerates scientific research, from hypothesis generation to publication.
+A quantitative model analyzing how AI accelerates scientific research, from hypothesis generation to publication. Validated against historical paradigm shifts and real-world AI breakthroughs (AlphaFold, GNoME, ESM-3).
 
-## Key Findings (Baseline Scenario)
+## Version History
+
+| Version | Focus | Key Features |
+|---------|-------|--------------|
+| **v0.4** | Refined model | Improved architecture, UQ foundation |
+| **v0.3** | Case study validation | AlphaFold, GNoME, ESM-3 validation |
+| **v0.2** | Historical calibration | 6 paradigm shifts, R² = 0.89 |
+| **v0.1** | Initial model | 8-stage pipeline, Monte Carlo |
+
+## Key Findings (v0.3 Calibrated)
 
 | Year | Acceleration | 80% CI | Bottleneck |
 |------|-------------|--------|------------|
 | 2025 | 1.9x | [1.7, 2.1] | Wet Lab Data Generation |
-| 2030 | 13x | [8, 19] | Wet Lab Data Generation |
-| 2050 | 21x | [17, 28] | Wet Lab Data Generation |
+| 2030 | 8x | [5, 12] | Wet Lab Data Generation |
+| 2050 | 21x | [15, 30] | Wet Lab Data Generation |
 
 ## Quick Start
 
 ```bash
+cd v0.3  # or v0.1, v0.2, v0.4
+
 # Quick deterministic forecast
 python run_model.py
 
-# Compare all scenarios (AI Winter, Conservative, Baseline, Ambitious)
-python run_model.py --all-scenarios
+# Run validation against case studies (v0.3)
+python run_validation.py
 
-# Monte Carlo simulation with uncertainty quantification
-python run_model.py --monte-carlo 1000
-
-# Pipeline analysis
-python run_model.py --pipeline
+# Run historical calibration (v0.2)
+python run_calibration.py
 ```
 
 ## Model Structure
@@ -45,21 +53,44 @@ python run_model.py --pipeline
 
 **Wet lab data generation (S4) and validation (S6) remain the binding constraints** on research acceleration. Even with transformative AI capabilities, biological timescales and replication requirements limit ultimate acceleration to ~20x.
 
-### The Unlock: Simulation Replacing Physical Trials
+### Case Study Validation (v0.3)
 
-However, there is a potential **bypass pathway**: AI could invent simulation tools that replace physical experiments entirely. This "Unlock" scenario models AI achieving validated in-silico substitutes for wet lab work.
+| AI System | Domain | Acceleration | Model Prediction |
+|-----------|--------|--------------|------------------|
+| AlphaFold | Protein structure | 50+ years compressed | Validated |
+| GNoME | Materials discovery | 800 years of work | Validated |
+| ESM-3 | Protein design | Democratized | Validated |
 
-```bash
-# Compare with/without simulation unlock
-python run_model.py --unlock
+## Project Structure
+
+```
+ai_research_acceleration_model/
+├── PROJECT_BIBLE.md          # Master reference document
+├── README.md                 # This file
+├── v0.1/                     # Initial model
+│   ├── src/                  # Core modules
+│   ├── figures/              # 5 publication figures
+│   └── outputs/              # MC simulation results
+├── v0.2/                     # Historical calibration
+│   ├── src/                  # Calibration module
+│   ├── figures/              # 6 calibration figures
+│   └── EXPERT_REVIEW_V0.2.md # Expert review
+├── v0.3/                     # Case study validation
+│   ├── src/                  # AlphaFold, GNoME, ESM-3
+│   ├── figures/              # 6 validation figures
+│   └── V0.3_TECHNICAL_REPORT.md
+├── v0.4/                     # Refined model
+│   └── src/                  # Improved architecture
+├── config/                   # Configuration files
+├── data/                     # Input data
+└── tests/                    # Unit tests
 ```
 
-| Scenario | 2050 Acceleration | P(unlock) 2050 |
-|----------|-------------------|----------------|
-| No Unlock | ~21x | 0% |
-| With Unlock | ~38x | 47% |
+## Documentation
 
-The Unlock represents the primary source of **upside uncertainty** in our projections.
+- `PROJECT_BIBLE.md` - Complete documentation
+- `v0.2/EXPERT_REVIEW_V0.2.md` - 10-expert simulated review
+- `v0.3/V0.3_TECHNICAL_REPORT.md` - Case study validation report
 
 ## Scenarios
 
@@ -70,47 +101,33 @@ The Unlock represents the primary source of **upside uncertainty** in our projec
 | **Baseline** | 0.40 | 21x | Expected trajectory |
 | Ambitious | 0.55 | 22x | Accelerated progress |
 
-## Project Structure
-
-```
-ai_research_acceleration_model/
-├── PROJECT_BIBLE.md      # Master reference document
-├── run_model.py          # Main runner script
-├── src/
-│   ├── pipeline.py       # 8-stage research pipeline
-│   ├── paradigm_shift.py # Paradigm Shift Module (PSM)
-│   ├── model.py          # Core model integration
-│   └── simulation.py     # Monte Carlo simulator
-├── outputs/              # Simulation results
-├── config/               # Configuration files
-├── data/                 # Input data
-└── tests/                # Unit tests
-```
-
-## Documentation
-
-See `PROJECT_BIBLE.md` for complete documentation including:
-- Theoretical foundation (Amodei Framework)
-- Historical paradigm shifts analysis
-- Mathematical framework
-- AI failure modes
-- Infrastructure constraints
-- Research system transformation recommendations
-- Researcher education reform proposals
-
 ## Dependencies
 
 - Python 3.8+
 - NumPy
+- Matplotlib
+- Pandas
+
+## Related Projects
+
+- [AI Bio Acceleration Model](https://github.com/jang1563/ai_bio_acceleration_model) - Drug discovery focus
+- [AI Bio Acceleration Website](https://jang1563.github.io/ai-bio-acceleration/) - Interactive visualization
 
 ## Citation
 
-If you use this model, please cite:
-```
-AI-Accelerated Scientific Research Model v0.1
-January 2026
+```bibtex
+@software{ai_research_acceleration_model,
+  title={AI-Accelerated Scientific Research Model},
+  version={0.4},
+  year={2026},
+  url={https://github.com/jang1563/ai_research_acceleration_model}
+}
 ```
 
 ## License
 
-Research use permitted with attribution.
+MIT License - Research use permitted with attribution.
+
+---
+
+*Model development assisted by Claude (Anthropic)*
