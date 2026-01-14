@@ -1,0 +1,124 @@
+======================================================================
+HISTORICAL CALIBRATION REPORT
+AI Research Acceleration Model v0.2
+======================================================================
+
+1. HISTORICAL SHIFTS USED FOR CALIBRATION
+----------------------------------------
+
+Microscope
+  Category: capability_extension
+  Period: 1600 - 1750
+  Time Acceleration: 10x
+  Publication Increase: 100x
+  Transformation Years: 50
+  Key Insight: Capability extension enabled conceptual shift, but required additional human intellectual work
+
+Telescope
+  Category: capability_extension
+  Period: 1609 - 1759
+  Time Acceleration: 100x
+  Publication Increase: 50x
+  Transformation Years: 30
+  Key Insight: Provided evidence but conceptual frameworks still required human genius
+
+Human Genome Project / Sequencing
+  Category: capability_extension
+  Period: 1990 - 2015
+  Time Acceleration: 4,700x
+  Publication Increase: 160x
+  Transformation Years: 5
+  Key Insight: Infrastructure investment enables sustained acceleration
+
+DNA Sequencing Revolution
+  Category: capability_extension
+  Period: 2005 - 2025
+  Time Acceleration: 1,000x
+  Publication Increase: 75x
+  Transformation Years: 5
+  Key Insight: Technology democratization enables field explosion
+
+CRISPR
+  Category: methodological
+  Period: 2012 - 2027
+  Time Acceleration: 15x
+  Publication Increase: 75x
+  Transformation Years: 3
+  Key Insight: Democratization is key driver of methodological impact
+
+2. CALIBRATED PARAMETERS (MLE)
+----------------------------------------
+  capability_accel_scale: 100.000 ± 50.000
+  democratization_factor: 2.288 ± 0.500
+  infrastructure_boost: 1.529 ± 0.300
+  methodological_accel_scale: 20.028 ± 10.000
+  time_to_impact_scale: 3.000 ± 0.300
+
+3. MODEL FIT QUALITY
+----------------------------------------
+  Log-Likelihood: -7.97
+  AIC: 25.94
+  BIC: 29.48
+  Mean Absolute % Error: 41.4%
+
+4. INDIVIDUAL RESIDUALS (in σ units)
+----------------------------------------
+  ✓ crispr_publication_increase: +1.52σ
+  ⚠ crispr_time_acceleration: -2.06σ
+  ✗ crispr_transformation_years: -3.32σ
+  ✓ hgp_publication_increase: +1.53σ
+  ✗ hgp_time_acceleration: +4.05σ
+  ✓ hgp_transformation_years: +0.29σ
+  ✓ microscope_publication_increase: +0.50σ
+  ⚠ microscope_time_acceleration: -2.00σ
+  ✗ microscope_transformation_years: +3.00σ
+  ✓ sequencing_publication_increase: +0.20σ
+  ✓ sequencing_time_acceleration: +1.01σ
+  ✓ sequencing_transformation_years: +0.71σ
+  ✓ telescope_publication_increase: +0.29σ
+  ✓ telescope_time_acceleration: -0.00σ
+  ⚠ telescope_transformation_years: +2.78σ
+
+5. LEAVE-ONE-OUT CROSS-VALIDATION
+----------------------------------------
+
+  Holdout: Microscope
+    Time Accel: 10x (obs) vs 100x (pred)
+    Pub Increase: 100x (obs) vs 25x (pred)
+    Transform Years: 50yr (obs) vs 5.0yr (pred)
+
+  Holdout: Telescope
+    Time Accel: 100x (obs) vs 100x (pred)
+    Pub Increase: 50x (obs) vs 25x (pred)
+    Transform Years: 30yr (obs) vs 5.0yr (pred)
+
+  Holdout: Human Genome Project / Sequencing
+    Time Accel: 4700x (obs) vs 151x (pred)
+    Pub Increase: 160x (obs) vs 34x (pred)
+    Transform Years: 5yr (obs) vs 4.6yr (pred)
+
+  Holdout: DNA Sequencing Revolution
+    Time Accel: 1000x (obs) vs 348x (pred)
+    Pub Increase: 75x (obs) vs 60x (pred)
+    Transform Years: 5yr (obs) vs 3.9yr (pred)
+
+  Holdout: CRISPR
+    Time Accel: 15x (obs) vs 43x (pred)
+    Pub Increase: 75x (obs) vs 14x (pred)
+    Transform Years: 3yr (obs) vs 11.9yr (pred)
+
+6. IMPLICATIONS FOR AI PROJECTIONS
+----------------------------------------
+
+  Based on historical calibration, the model suggests:
+
+  - Capability extensions can achieve 100x acceleration
+  - Methodological shifts achieve 20x acceleration
+  - Democratization provides 2.3x additional boost
+  - Infrastructure investment provides 1.5x boost
+
+  AI as capability extension (like HGP, AlphaFold) could achieve:
+    - 153x with infrastructure investment
+    - 229x with democratization
+
+======================================================================

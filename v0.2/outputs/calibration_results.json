@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-01-14T04:40:41.829096",
+  "parameters": {
+    "capability_accel_scale": 100.00042526179556,
+    "democratization_factor": 2.2879808078546375,
+    "infrastructure_boost": 1.5289631869421214,
+    "methodological_accel_scale": 20.027685400986854,
+    "time_to_impact_scale": 3.0
+  },
+  "parameter_uncertainties": {
+    "capability_accel_scale": 50.0,
+    "methodological_accel_scale": 10.0,
+    "time_to_impact_scale": 0.3,
+    "democratization_factor": 0.5,
+    "infrastructure_boost": 0.3
+  },
+  "log_likelihood": -7.970945452929847,
+  "aic": 25.941890905859694,
+  "bic": 29.482141911370746,
+  "target_mape": 0.41407664855056375,
+  "target_residuals": {
+    "microscope_time_acceleration": -2.0000036937691696,
+    "microscope_publication_increase": 0.49999892265065904,
+    "microscope_transformation_years": 3.0007189795830906,
+    "telescope_time_acceleration": -1.8468845848218507e-06,
+    "telescope_publication_increase": 0.2932842749369696,
+    "telescope_transformation_years": 2.7789760770829286,
+    "hgp_time_acceleration": 4.051359848338809,
+    "hgp_publication_increase": 1.5313158423080278,
+    "hgp_transformation_years": 0.28533816828979575,
+    "sequencing_time_acceleration": 1.0136638821734323,
+    "sequencing_publication_increase": 0.20130624661434005,
+    "sequencing_transformation_years": 0.7139115459960129,
+    "crispr_time_acceleration": -2.061880297003038,
+    "crispr_publication_increase": 1.5195302270409208,
+    "crispr_transformation_years": -3.3181989821917663
+  }
+}

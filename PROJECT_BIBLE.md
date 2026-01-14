@@ -2,9 +2,9 @@
 
 > **Purpose:** Master reference document for the AI-Accelerated Scientific Research Model project. This is a spin-off from the AI-Accelerated Biological Discovery Model, focusing on **basic and translational research** (hypothesis to publication) rather than drug development (clinical trials to approval).
 
-> **Version:** v0.1 (Implementation Complete)
+> **Version:** v0.2 (Historical Calibration Complete)
 > **Last Updated:** January 14, 2026
-> **Status:** Core Framework Implemented & Validated
+> **Status:** Core Framework + Historical Calibration Complete
 
 ---
 
@@ -923,7 +923,7 @@ Initial expert review completed January 14, 2026. See Section 20 for summary.
 | Version | Focus | Key Addition | Status |
 |---------|-------|--------------|--------|
 | **v0.1** | Core Framework | 8-stage pipeline, basic model, MC simulation | ✅ Complete |
-| **v0.2** | Historical Calibration | Formal statistical calibration | ⬜ Planned |
+| **v0.2** | Historical Calibration | Formal statistical calibration against 5 paradigm shifts | ✅ Complete |
 | **v0.3** | Infrastructure Module | Compute, data, talent constraints | ✅ Integrated in v0.1 |
 | **v0.4** | AI Failure Modes | Quality degradation, feedback effects | ✅ Integrated in v0.1 |
 | **v0.5** | Case Study Validation | AlphaFold, GNoME calibration | ⬜ Planned |
