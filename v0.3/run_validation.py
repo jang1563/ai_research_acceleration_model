@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 """
-Case Study Validation Runner
-============================
+Case Study Validation Runner v0.3.1
+===================================
 
 Runs model validation against AI breakthrough case studies.
 
-Case Studies (6 total):
+Case Studies (9 total):
 - AlphaFold 2/3: Structural biology (Type III capability shift)
 - GNoME: Materials science (Type I scale shift)
 - ESM-3: Protein design (Type III capability shift)
 - Recursion: Drug discovery (Type II efficiency shift)
 - Isomorphic Labs: Drug design with AlphaFold 3 (Type III capability shift)
 - Cradle Bio: ML protein engineering (Type II efficiency shift)
+- Insilico Medicine: AI drug discovery (Type III capability shift) [NEW]
+- Evo: Genomic foundation model (Type I/III mixed shift) [NEW]
+- AlphaMissense: Variant pathogenicity prediction (Type III capability shift) [NEW]
 
 Usage:
     python run_validation.py                    # Validate all case studies
@@ -21,6 +24,9 @@ Usage:
     python run_validation.py --recursion        # Recursion only
     python run_validation.py --isomorphic       # Isomorphic Labs only
     python run_validation.py --cradle           # Cradle Bio only
+    python run_validation.py --insilico         # Insilico Medicine only [NEW]
+    python run_validation.py --evo              # Evo only [NEW]
+    python run_validation.py --alphamissense    # AlphaMissense only [NEW]
     python run_validation.py --compare          # Cross-case comparison
     python run_validation.py --report           # Generate full report
 """
@@ -40,6 +46,10 @@ from esm3_case_study import ESM3CaseStudy, esm3_vs_alphafold_comparison, esm3_bo
 from recursion_case_study import RecursionCaseStudy, RECURSION_OBSERVED, recursion_pipeline_analysis
 from isomorphic_case_study import IsomorphicCaseStudy, ISOMORPHIC_OBSERVED, isomorphic_metrics_analysis
 from cradle_case_study import CradleCaseStudy, CRADLE_OBSERVED, cradle_metrics_analysis
+# New case studies (v0.3.1)
+from insilico_case_study import InsilicoCaseStudy, INSILICO_OBSERVED, insilico_metrics_analysis
+from evo_case_study import EvoCaseStudy, EVO_OBSERVED, evo_metrics_analysis
+from alphamissense_case_study import AlphaMissenseCaseStudy, ALPHAMISSENSE_OBSERVED, alphamissense_metrics_analysis
 
 # Add v0.1 for model
 sys.path.insert(0, str(Path(__file__).parent.parent / "v0.1"))
@@ -47,16 +57,20 @@ from src.model import AIResearchAccelerationModel, Scenario
 
 
 def setup_validator(scenario: Scenario = Scenario.BASELINE) -> CaseStudyValidator:
-    """Set up validator with all 6 case studies."""
+    """Set up validator with all 9 case studies."""
     validator = CaseStudyValidator(scenario=scenario)
     # Original 3 case studies
     validator.add_case_study(AlphaFoldCaseStudy)
     validator.add_case_study(GNoMECaseStudy)
     validator.add_case_study(ESM3CaseStudy)
-    # New 3 case studies (added v0.3.1)
+    # Drug discovery case studies (v0.3)
     validator.add_case_study(RecursionCaseStudy)
     validator.add_case_study(IsomorphicCaseStudy)
     validator.add_case_study(CradleCaseStudy)
+    # New case studies (v0.3.1)
+    validator.add_case_study(InsilicoCaseStudy)
+    validator.add_case_study(EvoCaseStudy)
+    validator.add_case_study(AlphaMissenseCaseStudy)
     return validator
 
 
