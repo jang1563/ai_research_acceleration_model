@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude session files
+.claude/
+
+# Compressed archives
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.egg-info/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+.env
+.venv/
+env/
+venv/

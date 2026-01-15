@@ -1,0 +1,2002 @@
+[
+  {
+    "run_id": 0,
+    "g_ai": 0.43047170797544315,
+    "acceleration_by_year": {
+      "2025": 1.791551176402976,
+      "2030": 11.40549176252251,
+      "2035": 16.910700375152594,
+      "2040": 17.041437287564968,
+      "2045": 17.12072870862097,
+      "2050": 17.168821068546833
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 1,
+    "g_ai": 0.44127326115959886,
+    "acceleration_by_year": {
+      "2025": 1.8770978532046616,
+      "2030": 14.735113233270853,
+      "2035": 21.52279821871971,
+      "2040": 21.69192861389706,
+      "2045": 21.794510048095532,
+      "2050": 21.85672860049345
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Writing & Peer Review",
+      "2040": "Writing & Peer Review",
+      "2045": "Writing & Peer Review",
+      "2050": "Writing & Peer Review"
+    }
+  },
+  {
+    "run_id": 2,
+    "g_ai": 0.37248577487733164,
+    "acceleration_by_year": {
+      "2025": 1.9468587376304647,
+      "2030": 9.707876952780763,
+      "2035": 16.432769139030587,
+      "2040": 16.561616062052792,
+      "2045": 16.637489820990407,
+      "2050": 16.683509110800077
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 3,
+    "g_ai": 0.28041603544109606,
+    "acceleration_by_year": {
+      "2025": 1.9933529402426065,
+      "2030": 9.235089606665566,
+      "2035": 21.53682278507592,
+      "2040": 22.487580974226102,
+      "2045": 22.59370356944931,
+      "2050": 22.658053100555996
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 4,
+    "g_ai": 0.3405850044303206,
+    "acceleration_by_year": {
+      "2025": 1.8268413619859105,
+      "2030": 10.852967201290282,
+      "2035": 21.542470906658473,
+      "2040": 21.765892499115054,
+      "2045": 21.869303406921127,
+      "2050": 21.932025152082236
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 5,
+    "g_ai": 0.44144094332759964,
+    "acceleration_by_year": {
+      "2025": 1.5267590165506566,
+      "2030": 13.137524154062765,
+      "2035": 19.539907817456758,
+      "2040": 19.694338836057394,
+      "2045": 19.78800481117511,
+      "2050": 19.844815952133303
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 6,
+    "g_ai": 0.43849509661058633,
+    "acceleration_by_year": {
+      "2025": 1.8722164212962216,
+      "2030": 18.68595820694352,
+      "2035": 28.077993229636142,
+      "2040": 28.30388696333103,
+      "2045": 28.440896187887756,
+      "2050": 28.523996325294423
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 7,
+    "g_ai": 0.5405381825144632,
+    "acceleration_by_year": {
+      "2025": 1.7983052194330824,
+      "2030": 16.968086052614886,
+      "2035": 21.7446252816236,
+      "2040": 21.916832424195686,
+      "2045": 22.021280877384665,
+      "2050": 22.084631900612962
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 8,
+    "g_ai": 0.4176573358453711,
+    "acceleration_by_year": {
+      "2025": 2.1236974607102614,
+      "2030": 18.288196103114757,
+      "2035": 28.69498588777395,
+      "2040": 28.92418556205904,
+      "2045": 29.063165126484847,
+      "2050": 29.147460325208858
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 9,
+    "g_ai": 0.5836913528321315,
+    "acceleration_by_year": {
+      "2025": 2.010916643621911,
+      "2030": 15.073865562036543,
+      "2035": 18.588564145215315,
+      "2040": 18.730677321722844,
+      "2045": 18.816871509400503,
+      "2050": 18.8691502709347
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 10,
+    "g_ai": 0.5573354902475243,
+    "acceleration_by_year": {
+      "2025": 1.8585123778484285,
+      "2030": 18.757070339505074,
+      "2035": 23.706221373366855,
+      "2040": 23.894955401220116,
+      "2045": 24.00942744584929,
+      "2050": 24.078857913857906
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 11,
+    "g_ai": 0.5727350214164185,
+    "acceleration_by_year": {
+      "2025": 1.7879637845923964,
+      "2030": 22.89527197978049,
+      "2035": 28.78688668642349,
+      "2040": 29.019842025571304,
+      "2045": 29.16113633999167,
+      "2050": 29.246835586462677
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 12,
+    "g_ai": 0.39330468271017993,
+    "acceleration_by_year": {
+      "2025": 1.7395611903089414,
+      "2030": 11.721357008398552,
+      "2035": 19.343989572783283,
+      "2040": 19.496554958385342,
+      "2045": 19.58868805497036,
+      "2050": 19.644569486963626
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 13,
+    "g_ai": 0.42328780201371685,
+    "acceleration_by_year": {
+      "2025": 1.7124146486616798,
+      "2030": 17.92183141455122,
+      "2035": 28.174101436260337,
+      "2040": 28.402866640508453,
+      "2045": 28.541601283017464,
+      "2050": 28.625748037061584
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 14,
+    "g_ai": 0.27483527858938606,
+    "acceleration_by_year": {
+      "2025": 1.6521048337625919,
+      "2030": 7.004375521002451,
+      "2035": 17.33733835134269,
+      "2040": 18.340140732185418,
+      "2045": 18.42660498596418,
+      "2050": 18.478999310228023
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 15,
+    "g_ai": 0.2703527671925239,
+    "acceleration_by_year": {
+      "2025": 2.1492152526318247,
+      "2030": 10.158321536099505,
+      "2035": 26.453721647414728,
+      "2040": 28.246070673480066,
+      "2045": 28.381415186521316,
+      "2050": 28.46333384140183
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 16,
+    "g_ai": 0.4928296991568485,
+    "acceleration_by_year": {
+      "2025": 1.7482374281025266,
+      "2030": 14.217821511024752,
+      "2035": 19.04240038435955,
+      "2040": 19.19226487540097,
+      "2045": 19.28316198290938,
+      "2050": 19.33829375651117
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Writing & Peer Review",
+      "2035": "Writing & Peer Review",
+      "2040": "Writing & Peer Review",
+      "2045": "Writing & Peer Review",
+      "2050": "Writing & Peer Review"
+    }
+  },
+  {
+    "run_id": 17,
+    "g_ai": 0.24104325066910312,
+    "acceleration_by_year": {
+      "2025": 1.8440957833428846,
+      "2030": 7.400874232864412,
+      "2035": 20.50409688507215,
+      "2040": 23.467769014269113,
+      "2045": 23.59393268202379,
+      "2050": 23.66198225449919
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 18,
+    "g_ai": 0.46124859105500654,
+    "acceleration_by_year": {
+      "2025": 2.4129730203780904,
+      "2030": 22.340375311932974,
+      "2035": 31.347409749585925,
+      "2040": 31.599404865604438,
+      "2045": 31.752247002774368,
+      "2050": 31.844950226127985
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 19,
+    "g_ai": 0.4668326018107997,
+    "acceleration_by_year": {
+      "2025": 1.7159799839579897,
+      "2030": 15.328736661049218,
+      "2035": 21.675009566655167,
+      "2040": 21.84659178268449,
+      "2045": 21.95066089606944,
+      "2050": 22.013781731042737
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 20,
+    "g_ai": 0.3746622431051985,
+    "acceleration_by_year": {
+      "2025": 1.869676099971875,
+      "2030": 12.062640808542985,
+      "2035": 20.80914285446528,
+      "2040": 20.97629272464847,
+      "2045": 21.07530446107134,
+      "2050": 21.135357727065912
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 21,
+    "g_ai": 0.2551872740584953,
+    "acceleration_by_year": {
+      "2025": 2.334966740889189,
+      "2030": 12.330111604588295,
+      "2035": 29.77895885822118,
+      "2040": 32.00744991463173,
+      "2045": 32.16518695398506,
+      "2050": 32.259678941561916
+    },
+    "bottleneck_by_year": {
+      "2025": "Writing & Peer Review",
+      "2030": "Writing & Peer Review",
+      "2035": "Writing & Peer Review",
+      "2040": "Writing & Peer Review",
+      "2045": "Writing & Peer Review",
+      "2050": "Writing & Peer Review"
+    }
+  },
+  {
+    "run_id": 22,
+    "g_ai": 0.3479411587144589,
+    "acceleration_by_year": {
+      "2025": 1.8792751556222806,
+      "2030": 11.072698792865623,
+      "2035": 21.654417334607416,
+      "2040": 21.859666897972176,
+      "2045": 21.962670931728226,
+      "2050": 22.025145771193486
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 23,
+    "g_ai": 0.447113629339993,
+    "acceleration_by_year": {
+      "2025": 1.9291183654667188,
+      "2030": 18.777030507314237,
+      "2035": 27.29889482752711,
+      "2040": 27.518045142221123,
+      "2045": 27.65096565208956,
+      "2050": 27.731585813843097
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 24,
+    "g_ai": 0.5847825012956046,
+    "acceleration_by_year": {
+      "2025": 2.2408775161704493,
+      "2030": 23.246356225480724,
+      "2035": 28.879579658252766,
+      "2040": 29.10961949673344,
+      "2045": 29.249144715097515,
+      "2050": 29.33377067708689
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 25,
+    "g_ai": 0.4420188598724938,
+    "acceleration_by_year": {
+      "2025": 1.8760265593039427,
+      "2030": 12.171663815690446,
+      "2035": 17.589962959810578,
+      "2040": 17.7250295886882,
+      "2045": 17.806948968496638,
+      "2050": 17.85663484080782
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 26,
+    "g_ai": 0.30240411838850956,
+    "acceleration_by_year": {
+      "2025": 1.6834061777486777,
+      "2030": 6.785831751628971,
+      "2035": 14.185682655494249,
+      "2040": 14.524390700113674,
+      "2045": 14.590723517190265,
+      "2050": 14.630956061310188
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 27,
+    "g_ai": 0.3812329009071548,
+    "acceleration_by_year": {
+      "2025": 2.4961979264389753,
+      "2030": 16.53818608152875,
+      "2035": 28.00766904092616,
+      "2040": 28.229369636231755,
+      "2045": 28.36192873003573,
+      "2050": 28.442329150462193
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 28,
+    "g_ai": 0.46353711428612776,
+    "acceleration_by_year": {
+      "2025": 1.6649360956063006,
+      "2030": 16.98016303919001,
+      "2035": 24.169416729592715,
+      "2040": 24.36377945094861,
+      "2045": 24.48166617412887,
+      "2050": 24.553168009916135
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 29,
+    "g_ai": 0.3848948122393071,
+    "acceleration_by_year": {
+      "2025": 1.7969357257616714,
+      "2030": 13.261324969332113,
+      "2035": 22.69198356142127,
+      "2040": 22.874409264061953,
+      "2045": 22.9839502586224,
+      "2050": 23.050390111006138
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 30,
+    "g_ai": 0.42441043889783525,
+    "acceleration_by_year": {
+      "2025": 1.8942058004147742,
+      "2030": 16.214791041526347,
+      "2035": 25.139751468019252,
+      "2040": 25.339849628121375,
+      "2045": 25.461201068840822,
+      "2050": 25.53480432706962
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 31,
+    "g_ai": 0.39067013503465087,
+    "acceleration_by_year": {
+      "2025": 1.7858139762656278,
+      "2030": 8.373788041569126,
+      "2035": 13.455806340567689,
+      "2040": 13.556131520414203,
+      "2045": 13.616599475796654,
+      "2050": 13.653274715784733
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 32,
+    "g_ai": 0.2992107050376456,
+    "acceleration_by_year": {
+      "2025": 1.7389534015269443,
+      "2030": 9.073844911295666,
+      "2035": 20.66126018380899,
+      "2040": 21.234585541724197,
+      "2045": 21.335872560189944,
+      "2050": 21.397305788411398
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 33,
+    "g_ai": 0.24643579300738808,
+    "acceleration_by_year": {
+      "2025": 1.9265126346436483,
+      "2030": 7.58521872175092,
+      "2035": 20.101222175009795,
+      "2040": 22.514296134111166,
+      "2045": 22.62756938235631,
+      "2050": 22.692272766919857
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 34,
+    "g_ai": 0.3830280203579622,
+    "acceleration_by_year": {
+      "2025": 1.968297960487249,
+      "2030": 11.645127999453965,
+      "2035": 19.768543266876996,
+      "2040": 19.92286367861887,
+      "2045": 20.01525970433711,
+      "2050": 20.071300190231558
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 35,
+    "g_ai": 0.32878979581210616,
+    "acceleration_by_year": {
+      "2025": 1.962676248036494,
+      "2030": 11.572765549988603,
+      "2035": 23.652095111969334,
+      "2040": 23.950732642701595,
+      "2045": 24.064914073546014,
+      "2050": 24.13416837138909
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 36,
+    "g_ai": 0.42294817154636066,
+    "acceleration_by_year": {
+      "2025": 1.799694511886273,
+      "2030": 16.384986028197616,
+      "2035": 25.432189159675975,
+      "2040": 25.6367593665772,
+      "2045": 25.76082127906129,
+      "2050": 25.83606855441237
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 37,
+    "g_ai": 0.47562481636298065,
+    "acceleration_by_year": {
+      "2025": 2.0502435212908012,
+      "2030": 21.255492322600332,
+      "2035": 29.447316788424335,
+      "2040": 29.68461763536405,
+      "2045": 29.82854744693866,
+      "2050": 29.915845136134603
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 38,
+    "g_ai": 0.4986136316960768,
+    "acceleration_by_year": {
+      "2025": 1.8878540708538754,
+      "2030": 21.356711091033276,
+      "2035": 28.768680025336046,
+      "2040": 29.001372549403627,
+      "2045": 29.142507408934204,
+      "2050": 29.228109923200602
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 39,
+    "g_ai": 0.3355632879786977,
+    "acceleration_by_year": {
+      "2025": 2.350106141347995,
+      "2030": 13.659828218733837,
+      "2035": 27.666072732730132,
+      "2040": 27.979162756319763,
+      "2045": 28.111479292079487,
+      "2050": 28.191732937689242
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 40,
+    "g_ai": 0.4794932252915628,
+    "acceleration_by_year": {
+      "2025": 1.7778515011350065,
+      "2030": 14.2883353714175,
+      "2035": 19.61221791326959,
+      "2040": 19.766643878326896,
+      "2045": 19.860307386504964,
+      "2050": 19.917116968115156
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 41,
+    "g_ai": 0.3011372850565394,
+    "acceleration_by_year": {
+      "2025": 1.8012522366998902,
+      "2030": 8.017007867965438,
+      "2035": 17.078061320108446,
+      "2040": 17.501538276515948,
+      "2045": 17.583316574537218,
+      "2050": 17.632917227795094
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 42,
+    "g_ai": 0.361575408711943,
+    "acceleration_by_year": {
+      "2025": 1.7574497772616242,
+      "2030": 12.128169308158562,
+      "2035": 21.939311861874405,
+      "2040": 22.124603012345453,
+      "2045": 22.230644650437036,
+      "2050": 22.2949620734048
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 43,
+    "g_ai": 0.23997941509565227,
+    "acceleration_by_year": {
+      "2025": 1.8087808563406844,
+      "2030": 6.5797495821820355,
+      "2035": 16.312349600900685,
+      "2040": 18.407446914023016,
+      "2045": 18.50422054615729,
+      "2050": 18.55677527185937
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 44,
+    "g_ai": 0.3897603293388904,
+    "acceleration_by_year": {
+      "2025": 1.652745549423334,
+      "2030": 9.401264415575877,
+      "2035": 15.440832413606165,
+      "2040": 15.559289887063812,
+      "2045": 15.630659486086028,
+      "2050": 15.6739466292512
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 45,
+    "g_ai": 0.2877231567729005,
+    "acceleration_by_year": {
+      "2025": 1.87616615319272,
+      "2030": 9.709144489430996,
+      "2035": 23.041845886480516,
+      "2040": 23.931995435329835,
+      "2045": 24.046859066661515,
+      "2050": 24.116522906118707
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 46,
+    "g_ai": 0.39614617381565875,
+    "acceleration_by_year": {
+      "2025": 1.9616929432059402,
+      "2030": 10.473961075238268,
+      "2035": 16.740021888013096,
+      "2040": 16.867343525010178,
+      "2045": 16.944291994029896,
+      "2050": 16.990963097058053
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 47,
+    "g_ai": 0.42504463002607606,
+    "acceleration_by_year": {
+      "2025": 1.9821886625046357,
+      "2030": 22.479711286322303,
+      "2035": 34.938255958506645,
+      "2040": 35.223415409450936,
+      "2045": 35.396356621069884,
+      "2050": 35.50125065341525
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 48,
+    "g_ai": 0.4403954020735612,
+    "acceleration_by_year": {
+      "2025": 1.906960794429497,
+      "2030": 13.7560980744575,
+      "2035": 20.176930629660713,
+      "2040": 20.333305629182878,
+      "2045": 20.428149718983693,
+      "2050": 20.485675126814918
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 49,
+    "g_ai": 0.4427796398247133,
+    "acceleration_by_year": {
+      "2025": 2.0001454174694926,
+      "2030": 13.504870100896268,
+      "2035": 19.575967623021814,
+      "2040": 19.72718929702242,
+      "2045": 19.81890838526976,
+      "2050": 19.874538496848004
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 50,
+    "g_ai": 0.5245634960171873,
+    "acceleration_by_year": {
+      "2025": 1.9772237684270395,
+      "2030": 23.91688799039883,
+      "2035": 31.272034801248743,
+      "2040": 31.524818762477167,
+      "2045": 31.678139337504206,
+      "2050": 31.77113273248615
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 51,
+    "g_ai": 0.46026524463064994,
+    "acceleration_by_year": {
+      "2025": 2.02508159380964,
+      "2030": 16.839804500590613,
+      "2035": 23.8267146565944,
+      "2040": 24.0150169149646,
+      "2045": 24.129227417643957,
+      "2050": 24.198499385850653
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 52,
+    "g_ai": 0.418131421786142,
+    "acceleration_by_year": {
+      "2025": 1.7819331764405453,
+      "2030": 14.02160936127305,
+      "2035": 21.460701719864897,
+      "2040": 21.630766120084715,
+      "2045": 21.733894674555806,
+      "2050": 21.796445150590525
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 53,
+    "g_ai": 0.38947758657491294,
+    "acceleration_by_year": {
+      "2025": 2.3404412984618608,
+      "2030": 15.808418768498075,
+      "2035": 25.870693132444963,
+      "2040": 26.075492723606065,
+      "2045": 26.19899458520428,
+      "2050": 26.273901771505507
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 54,
+    "g_ai": 0.4449978341346548,
+    "acceleration_by_year": {
+      "2025": 1.8957856428375848,
+      "2030": 18.0307017867257,
+      "2035": 26.54561811012719,
+      "2040": 26.757931334380753,
+      "2045": 26.886704596877557,
+      "2050": 26.964809294441302
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 55,
+    "g_ai": 0.5997514177804764,
+    "acceleration_by_year": {
+      "2025": 1.9501212410183086,
+      "2030": 17.065583199980157,
+      "2035": 21.027822721280508,
+      "2040": 21.192174307633096,
+      "2045": 21.29185712684097,
+      "2050": 21.35231728521038
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 56,
+    "g_ai": 0.47492229272008546,
+    "acceleration_by_year": {
+      "2025": 1.9859761696645868,
+      "2030": 19.72120372297156,
+      "2035": 27.340938620967417,
+      "2040": 27.55926184787066,
+      "2045": 27.691681008416662,
+      "2050": 27.77199708324756
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 57,
+    "g_ai": 0.30597787910742835,
+    "acceleration_by_year": {
+      "2025": 1.8881033920333792,
+      "2030": 11.032302556361627,
+      "2035": 25.57987671784231,
+      "2040": 26.18705707635432,
+      "2045": 26.31223070650273,
+      "2050": 26.388151917641377
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 58,
+    "g_ai": 0.3826162299905384,
+    "acceleration_by_year": {
+      "2025": 1.6774216333675898,
+      "2030": 7.607783237627562,
+      "2035": 12.497754528378325,
+      "2040": 12.591730273867155,
+      "2045": 12.647973065702173,
+      "2050": 12.682085755020887
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 59,
+    "g_ai": 0.457740257751925,
+    "acceleration_by_year": {
+      "2025": 2.30576354207807,
+      "2030": 22.91517724162877,
+      "2035": 32.82511182678622,
+      "2040": 33.08999647673695,
+      "2045": 33.25065653063366,
+      "2050": 33.348101581647335
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 60,
+    "g_ai": 0.382134483098611,
+    "acceleration_by_year": {
+      "2025": 1.7108975261761388,
+      "2030": 11.064462356946256,
+      "2035": 19.084024496769086,
+      "2040": 19.2353002553285,
+      "2045": 19.325738943730816,
+      "2050": 19.38059238116656
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 61,
+    "g_ai": 0.4988531862851463,
+    "acceleration_by_year": {
+      "2025": 1.8321922725339725,
+      "2030": 17.362028584745666,
+      "2035": 23.26532645494427,
+      "2040": 23.449778615689635,
+      "2045": 23.56165359241759,
+      "2050": 23.629508864871234
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 62,
+    "g_ai": 0.41414194733405446,
+    "acceleration_by_year": {
+      "2025": 1.6357228977484188,
+      "2030": 12.10873030351048,
+      "2035": 19.259212893088364,
+      "2040": 19.410358165338142,
+      "2045": 19.501987984177177,
+      "2050": 19.557564035840034
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 63,
+    "g_ai": 0.3909129070374037,
+    "acceleration_by_year": {
+      "2025": 1.8898424293870506,
+      "2030": 15.064251447997545,
+      "2035": 25.459165162703844,
+      "2040": 25.66413378764007,
+      "2045": 25.78775874872055,
+      "2050": 25.862740883653842
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 64,
+    "g_ai": 0.296928296806766,
+    "acceleration_by_year": {
+      "2025": 1.9319340572826391,
+      "2030": 11.907704414701845,
+      "2035": 27.697626220230042,
+      "2040": 28.474664919357437,
+      "2045": 28.612772453051768,
+      "2050": 28.696538305978294
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 65,
+    "g_ai": 0.46877611315998724,
+    "acceleration_by_year": {
+      "2025": 2.067225432897149,
+      "2030": 15.569978715763327,
+      "2035": 21.617263971779032,
+      "2040": 21.784550738493966,
+      "2045": 21.88601388485914,
+      "2050": 21.947553886321113
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 66,
+    "g_ai": 0.427380384532352,
+    "acceleration_by_year": {
+      "2025": 1.9479263925851267,
+      "2030": 15.963198669092527,
+      "2035": 24.328168197201293,
+      "2040": 24.52186956333214,
+      "2045": 24.639346700602207,
+      "2050": 24.71060005280573
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 67,
+    "g_ai": 0.34126792372362214,
+    "acceleration_by_year": {
+      "2025": 1.9275384856251414,
+      "2030": 13.558392448026735,
+      "2035": 27.201928798381633,
+      "2040": 27.483805514628184,
+      "2045": 27.61647720741516,
+      "2050": 27.696946526731175
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 68,
+    "g_ai": 0.36292218305379387,
+    "acceleration_by_year": {
+      "2025": 1.8037608007970523,
+      "2030": 8.34892356996027,
+      "2035": 14.809955704608603,
+      "2040": 14.929332216859486,
+      "2045": 14.996812522751553,
+      "2050": 15.037740932912447
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 69,
+    "g_ai": 0.24489805876519455,
+    "acceleration_by_year": {
+      "2025": 1.9227667571937324,
+      "2030": 8.562265598374266,
+      "2035": 24.50022674275472,
+      "2040": 27.87834573405149,
+      "2045": 28.02469288720234,
+      "2050": 28.106468756210663
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 70,
+    "g_ai": 0.39448979009577106,
+    "acceleration_by_year": {
+      "2025": 1.9822346911128976,
+      "2030": 13.673418313740477,
+      "2035": 22.40110502096836,
+      "2040": 22.577476652606002,
+      "2045": 22.684045856898326,
+      "2050": 22.748683115245814
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 71,
+    "g_ai": 0.22236017036577055,
+    "acceleration_by_year": {
+      "2025": 1.91365553919022,
+      "2030": 6.293749944368096,
+      "2035": 17.319611139860328,
+      "2040": 20.975092978224136,
+      "2045": 21.14762435408916,
+      "2050": 21.207885072965173
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 72,
+    "g_ai": 0.4170625078539793,
+    "acceleration_by_year": {
+      "2025": 1.6683063255764403,
+      "2030": 11.454608674670599,
+      "2035": 17.348639576171045,
+      "2040": 17.48428807843565,
+      "2045": 17.566544915813452,
+      "2050": 17.616436064637522
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Writing & Peer Review",
+      "2040": "Writing & Peer Review",
+      "2045": "Writing & Peer Review",
+      "2050": "Writing & Peer Review"
+    }
+  },
+  {
+    "run_id": 73,
+    "g_ai": 0.5188784114353875,
+    "acceleration_by_year": {
+      "2025": 2.025644731253871,
+      "2030": 19.100628645564605,
+      "2035": 24.981858998549214,
+      "2040": 25.181279886699173,
+      "2045": 25.30223428165391,
+      "2050": 25.37559665402664
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 74,
+    "g_ai": 0.47368365309200516,
+    "acceleration_by_year": {
+      "2025": 2.079873199982442,
+      "2030": 14.144224160103105,
+      "2035": 19.379287152603325,
+      "2040": 19.52749902834463,
+      "2045": 19.61739221465133,
+      "2050": 19.671914515027133
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 75,
+    "g_ai": 0.4379687580613984,
+    "acceleration_by_year": {
+      "2025": 1.8525305808418766,
+      "2030": 13.925185336715618,
+      "2035": 20.62856342953715,
+      "2040": 20.790281421834678,
+      "2045": 20.888366341868508,
+      "2050": 20.947857611061206
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 76,
+    "g_ai": 0.41951039731428885,
+    "acceleration_by_year": {
+      "2025": 1.704136795575003,
+      "2030": 10.874815331030971,
+      "2035": 16.690768982674708,
+      "2040": 16.81985652121463,
+      "2045": 16.898134675392964,
+      "2050": 16.94561261708947
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 77,
+    "g_ai": 0.42150981358190365,
+    "acceleration_by_year": {
+      "2025": 2.0897576201876693,
+      "2030": 12.925060356865796,
+      "2035": 19.50439607725638,
+      "2040": 19.654127022383122,
+      "2045": 19.744927362886468,
+      "2050": 19.800000064131957
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 78,
+    "g_ai": 0.305732008546866,
+    "acceleration_by_year": {
+      "2025": 1.7014500236306103,
+      "2030": 8.520262274427798,
+      "2035": 18.38598539134774,
+      "2040": 18.789337550379134,
+      "2045": 18.878462477150922,
+      "2050": 18.932519325737083
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 79,
+    "g_ai": 0.43350423675374133,
+    "acceleration_by_year": {
+      "2025": 1.840935539988036,
+      "2030": 14.747031915476901,
+      "2035": 22.164031502802267,
+      "2040": 22.338918200079284,
+      "2045": 22.444988917583135,
+      "2050": 22.509323874636316
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 80,
+    "g_ai": 0.4090800023610048,
+    "acceleration_by_year": {
+      "2025": 1.721057801510382,
+      "2030": 13.253635633647939,
+      "2035": 21.496190393831053,
+      "2040": 21.666193773247066,
+      "2045": 21.76921259423929,
+      "2050": 21.831696455616196
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 81,
+    "g_ai": 0.44850817670641296,
+    "acceleration_by_year": {
+      "2025": 1.8323603684735112,
+      "2030": 14.774917308730378,
+      "2035": 21.439885101233518,
+      "2040": 21.608080633953055,
+      "2045": 21.71009404135038,
+      "2050": 21.77196754426312
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 82,
+    "g_ai": 0.5084586391463846,
+    "acceleration_by_year": {
+      "2025": 1.987311919826077,
+      "2030": 19.702999490650225,
+      "2035": 26.088841114715873,
+      "2040": 26.29804312485891,
+      "2045": 26.42493003737058,
+      "2050": 26.501890651629672
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Writing & Peer Review",
+      "2035": "Writing & Peer Review",
+      "2040": "Writing & Peer Review",
+      "2045": "Writing & Peer Review",
+      "2050": "Writing & Peer Review"
+    }
+  },
+  {
+    "run_id": 83,
+    "g_ai": 0.46974883119210004,
+    "acceleration_by_year": {
+      "2025": 1.723790314373341,
+      "2030": 16.975776553134708,
+      "2035": 23.966798002320548,
+      "2040": 24.158567993033895,
+      "2045": 24.274882049411666,
+      "2050": 24.345429975656117
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 84,
+    "g_ai": 0.4496120708088786,
+    "acceleration_by_year": {
+      "2025": 2.5100983691004264,
+      "2030": 22.989574548378553,
+      "2035": 32.935551050288524,
+      "2040": 33.198004253439144,
+      "2045": 33.357188574307834,
+      "2050": 33.453738255913606
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 85,
+    "g_ai": 0.19452386923247064,
+    "acceleration_by_year": {
+      "2025": 1.7644736431685348,
+      "2030": 6.604305961494592,
+      "2035": 21.565216095814094,
+      "2040": 29.69120412780569,
+      "2045": 30.583810770890988,
+      "2050": 30.675737159693117
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 86,
+    "g_ai": 0.289933873576564,
+    "acceleration_by_year": {
+      "2025": 1.9370036925288237,
+      "2030": 9.743486541563607,
+      "2035": 22.385738228536166,
+      "2040": 23.155224834466406,
+      "2045": 23.26596451019765,
+      "2050": 23.333129073576085
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 87,
+    "g_ai": 0.3355791749613552,
+    "acceleration_by_year": {
+      "2025": 2.029449841463638,
+      "2030": 10.97720026811621,
+      "2035": 20.821349300320588,
+      "2040": 21.042990765158304,
+      "2045": 21.14249062695871,
+      "2050": 21.20284011191036
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 88,
+    "g_ai": 0.41009367917351547,
+    "acceleration_by_year": {
+      "2025": 1.7767776697381696,
+      "2030": 16.90201742922365,
+      "2035": 27.150286800518558,
+      "2040": 27.369188107487325,
+      "2045": 27.50187180835704,
+      "2050": 27.58234838314442
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 89,
+    "g_ai": 0.3464912846623288,
+    "acceleration_by_year": {
+      "2025": 1.9119082026561658,
+      "2030": 12.601168506150085,
+      "2035": 24.466665596775755,
+      "2040": 24.70092699266602,
+      "2045": 24.819372597446723,
+      "2050": 24.891213345306173
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 90,
+    "g_ai": 0.47621492419586864,
+    "acceleration_by_year": {
+      "2025": 1.6676793039510096,
+      "2030": 10.55480320951396,
+      "2035": 14.341066536739246,
+      "2040": 14.45017235573788,
+      "2045": 14.51634742719497,
+      "2050": 14.556484292136274
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 91,
+    "g_ai": 0.5217725187451137,
+    "acceleration_by_year": {
+      "2025": 2.0118182608518955,
+      "2030": 16.48356528578237,
+      "2035": 21.30143473598244,
+      "2040": 21.468280720170135,
+      "2045": 21.569477110014006,
+      "2050": 21.630855528030345
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 92,
+    "g_ai": 0.5148256424515989,
+    "acceleration_by_year": {
+      "2025": 1.813507099712235,
+      "2030": 17.24173290830183,
+      "2035": 22.675279071837817,
+      "2040": 22.85514080332846,
+      "2045": 22.964231987712378,
+      "2050": 23.030398965489194
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 93,
+    "g_ai": 0.4839568090774252,
+    "acceleration_by_year": {
+      "2025": 2.0300735920182613,
+      "2030": 20.794387701843192,
+      "2035": 28.605347904913074,
+      "2040": 28.833718026567524,
+      "2045": 28.972230990455934,
+      "2050": 29.05624316288549
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 94,
+    "g_ai": 0.4994350468124319,
+    "acceleration_by_year": {
+      "2025": 1.798970170110572,
+      "2030": 16.144595931828892,
+      "2035": 21.594279440884648,
+      "2040": 21.765189872443653,
+      "2045": 21.868851696303604,
+      "2050": 21.931725556038053
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  },
+  {
+    "run_id": 95,
+    "g_ai": 0.3607773987079717,
+    "acceleration_by_year": {
+      "2025": 2.02472889819636,
+      "2030": 14.453001489850191,
+      "2035": 27.086330622079878,
+      "2040": 27.319884940167057,
+      "2045": 27.45082325205333,
+      "2050": 27.530241076581532
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 96,
+    "g_ai": 0.39120935126307854,
+    "acceleration_by_year": {
+      "2025": 2.024330780185828,
+      "2030": 12.140040135639378,
+      "2035": 19.64422809708308,
+      "2040": 19.796925040868032,
+      "2045": 19.889063646586234,
+      "2050": 19.944948166171187
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 97,
+    "g_ai": 0.33442565375676864,
+    "acceleration_by_year": {
+      "2025": 1.9094625173086652,
+      "2030": 11.78156761680683,
+      "2035": 24.22114763585795,
+      "2040": 24.50193157140211,
+      "2045": 24.618852497512712,
+      "2050": 24.689768338949737
+    },
+    "bottleneck_by_year": {
+      "2025": "Data Generation (Wet Lab)",
+      "2030": "Data Generation (Wet Lab)",
+      "2035": "Data Generation (Wet Lab)",
+      "2040": "Data Generation (Wet Lab)",
+      "2045": "Data Generation (Wet Lab)",
+      "2050": "Data Generation (Wet Lab)"
+    }
+  },
+  {
+    "run_id": 98,
+    "g_ai": 0.4145630314343885,
+    "acceleration_by_year": {
+      "2025": 2.026717134904873,
+      "2030": 16.016019393817857,
+      "2035": 24.64573434952634,
+      "2040": 24.84081912250454,
+      "2045": 24.95911071740846,
+      "2050": 25.03085796548037
+    },
+    "bottleneck_by_year": {
+      "2025": "Writing & Peer Review",
+      "2030": "Writing & Peer Review",
+      "2035": "Writing & Peer Review",
+      "2040": "Writing & Peer Review",
+      "2045": "Writing & Peer Review",
+      "2050": "Writing & Peer Review"
+    }
+  },
+  {
+    "run_id": 99,
+    "g_ai": 0.3629289615526895,
+    "acceleration_by_year": {
+      "2025": 1.9358795302473526,
+      "2030": 9.298214509098706,
+      "2035": 16.035524488311463,
+      "2040": 16.16437590021666,
+      "2045": 16.23792449324713,
+      "2050": 16.282533317408294
+    },
+    "bottleneck_by_year": {
+      "2025": "Validation & Replication",
+      "2030": "Validation & Replication",
+      "2035": "Validation & Replication",
+      "2040": "Validation & Replication",
+      "2045": "Validation & Replication",
+      "2050": "Validation & Replication"
+    }
+  }
+]

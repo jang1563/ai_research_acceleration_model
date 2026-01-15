@@ -1,0 +1,36 @@
+============================================================
+CASE STUDY VALIDATION SUMMARY
+============================================================
+
+Model Scenario: BASELINE
+Case Studies Validated: 3
+
+Results Overview:
+------------------------------------------------------------
+Case Study                Status          Score      Error     
+------------------------------------------------------------
+AlphaFold 2/3             rejected        0.00      1.68
+GNoME                     rejected        0.00      2.56
+ESM-3                     partial         0.54      0.46
+------------------------------------------------------------
+
+Mean Score: 0.18
+Mean Log Error: 1.57
+
+Validation Status Distribution:
+  rejected: 2
+  partial: 1
+
+Key Insights:
+----------------------------------------
+Model Strengths (across case studies):
+  + Correctly predicted physical bottleneck
+  + Good fit for physical stages
+  + Model handles capability extensions (Type III shifts)
+
+Model Weaknesses (across case studies):
+  - Model under-predicted acceleration (0.5x vs 24.3x)
+  - Model under-predicted acceleration (1.0x vs 365.0x)
+  - Poor fit for physical stages
+  - Poor fit for cognitive stages
+  - Model under-predicted acceleration (1.4x vs 4.0x)
