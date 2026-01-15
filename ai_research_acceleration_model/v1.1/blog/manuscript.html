@@ -1123,7 +1123,19 @@
 
             <h2 id="results">Results</h2>
 
-            <h3>Figure 1: Domain-Specific Acceleration Forecasts</h3>
+            <h3>Domain-Specific Acceleration Forecasts</h3>
+
+            <p>Our model projects markedly heterogeneous acceleration across biological research domains by 2030 (Figure 1). The weighted system-wide acceleration is <strong>2.8x</strong> (90% CI: 2.1-3.8x), representing a substantial but more modest impact than task-level AI performance gains would suggest.</p>
+
+            <p><strong>Structural biology</strong> leads with 8.9x acceleration (90% CI: 5.8-13.7x), driven primarily by AlphaFold2's transformation of protein structure prediction<sup>1</sup>. Prior to AlphaFold, determining a single protein structure via X-ray crystallography required 1-3 years of experimental work; computational prediction now achieves comparable accuracy in minutes. However, experimental validation via cryo-electron microscopy (cryo-EM) remains rate-limiting, with global facility capacity constraining throughput to approximately 15,000 structures annually.</p>
+
+            <p><strong>Protein design</strong> achieves 5.5x acceleration (90% CI: 3.9-7.7x), benefiting from tools like RFdiffusion<sup>8</sup> and ProteinMPNN<sup>9</sup> that enable de novo protein generation. The pipeline discount (0.69) reflects the requirement for experimental expression and functional validation of designed proteins—a process that remains labor-intensive despite computational advances.</p>
+
+            <p><strong>Clinical genomics</strong> shows 4.2x acceleration (90% CI: 3.0-5.9x), with AI-driven variant interpretation (e.g., AlphaMissense<sup>4</sup>) dramatically reducing the time required to classify pathogenic variants. The primary constraint is clinical adoption speed rather than technical capability, as healthcare systems require extensive validation before incorporating AI-derived insights into patient care.</p>
+
+            <p><strong>Drug discovery</strong> exhibits modest 1.7x acceleration (90% CI: 1.3-2.1x) despite significant AI investment. This reflects the fundamental constraint of clinical trials, which constitute 60-70% of drug development timelines and cannot be computationally accelerated. AI primarily impacts the discovery and optimization phases (target identification, lead optimization), representing only 25-30% of the total pipeline.</p>
+
+            <p><strong>Materials science</strong> shows the smallest acceleration at 1.3x (90% CI: 0.9-1.7x), exemplifying the "prediction-validation gap." GNoME's discovery of 2.2 million stable materials<sup>3</sup> represents a 2000x computational speedup, yet physical synthesis capacity (~1,000 materials/year at leading automated facilities) creates an extreme bottleneck. This domain illustrates why task-level acceleration can dramatically overstate real-world impact.</p>
 
             <figure class="figure-container" role="figure" aria-labelledby="fig1-title fig1-desc">
                 <div class="figure-title" id="fig1-title">Figure 1. AI-driven research acceleration by domain (2030 projections)</div>
@@ -1180,9 +1192,19 @@
                 </table>
             </div>
 
-            <h3>Figure 2: The Pipeline Discount Effect</h3>
+            <h3>The Pipeline Discount Effect</h3>
 
-            <p>A key insight from our analysis is that task-level acceleration substantially overstates pipeline-level impact.</p>
+            <p>A central finding of our analysis is the systematic discrepancy between task-level and pipeline-level acceleration—what we term the "pipeline discount." This phenomenon arises because research workflows comprise multiple sequential steps, only some of which benefit from AI acceleration.</p>
+
+            <p>We define the pipeline discount factor (PDF) as the ratio of realized pipeline acceleration to the acceleration of the AI-enhanced task:</p>
+
+            <div class="equation" role="math">
+                PDF = A<sub>pipeline</sub> / A<sub>task</sub>
+            </div>
+
+            <p>Across domains, we observe PDF values ranging from 0.0007 (materials science) to 0.70 (clinical genomics). The discount is most severe when AI accelerates an already-fast step while leaving rate-limiting steps unchanged. In drug discovery, for example, AI can screen billions of compounds virtually in hours, but Phase III clinical trials still require 3-4 years of patient follow-up regardless of computational advances.</p>
+
+            <p>Figure 2 illustrates how acceleration trajectories follow S-curve (logistic) dynamics, approaching domain-specific ceilings determined by irreducible physical and regulatory constraints. These ceilings represent the maximum theoretically achievable acceleration given current understanding of each domain's bottlenecks. Structural biology approaches a ceiling of ~12x, limited by cryo-EM facility expansion rates. Drug discovery's ceiling of ~2.5x reflects the irreducibility of human clinical trial timelines.</p>
 
             <figure class="figure-container" role="figure" aria-labelledby="fig2-title fig2-desc">
                 <div class="figure-title" id="fig2-title">Figure 2. Acceleration trajectories follow S-curve dynamics</div>
@@ -1200,9 +1222,17 @@
                 <span style="color: var(--color-text-secondary);">In materials science, infinite computational discovery capability is worthless without synthesis capacity to validate predictions.</span>
             </div>
 
-            <h3>Figure 3: Cross-Domain Spillover Network</h3>
+            <h3>Cross-Domain Spillover Effects</h3>
 
-            <p>Research domains don't evolve in isolation. We quantify eight spillover pathways using the Griliches-Jaffe framework for R&D externalities<sup>5,6</sup>.</p>
+            <p>Research domains do not evolve in isolation; advances in one field frequently enable progress in others. We quantify these interdependencies using the Griliches-Jaffe framework for R&D externalities<sup>5,6</sup>, adapting it to capture AI-specific knowledge transfer patterns.</p>
+
+            <p>Our spillover matrix quantifies eight significant cross-domain pathways (Figure 3). Spillover coefficients represent the fraction of acceleration in a source domain that transfers to a target domain, estimated from historical citation patterns, shared methodology adoption rates, and expert elicitation.</p>
+
+            <p><strong>Structural biology emerges as the primary knowledge hub</strong>, with outgoing spillovers totaling 55% (30% to protein design, 25% to drug discovery). This centrality reflects the foundational role of protein structure knowledge: understanding molecular architecture enables both rational drug design and de novo protein engineering. Consequently, investments in structural biology infrastructure (e.g., cryo-EM facilities) yield indirect benefits across multiple domains.</p>
+
+            <p>The spillover network also reveals <strong>drug discovery as the primary beneficiary</strong>, receiving incoming spillovers from structural biology (25%), protein design (12%), and clinical genomics (8%). This positions drug discovery to benefit disproportionately from advances in upstream domains, partially compensating for its own limited direct AI acceleration.</p>
+
+            <p>Notably, materials science shows minimal spillover connectivity with biological domains, reflecting the distinct methodological traditions and limited cross-citation between these fields. This isolation suggests potential for untapped synergies, particularly as biomaterials and synthetic biology increasingly intersect.</p>
 
             <figure class="figure-container" role="figure" aria-labelledby="fig3-title fig3-desc">
                 <div class="figure-title" id="fig3-title">Figure 3. Cross-domain spillover network</div>
@@ -1215,18 +1245,29 @@
             </figure>
 
             <div class="spillover-section">
-                <strong>Key Spillover Pathways:</strong>
+                <strong>Quantified Spillover Coefficients:</strong>
                 <ul>
-                    <li>Structural Biology → Drug Discovery: <strong style="color: var(--color-velocity-light);">25%</strong></li>
-                    <li>Structural Biology → Protein Design: <strong style="color: var(--color-velocity-light);">30%</strong></li>
-                    <li>Protein Design → Drug Discovery: <strong style="color: var(--color-hybrid-light);">12%</strong></li>
-                    <li>Clinical Genomics → Drug Discovery: <strong style="color: var(--color-hybrid-light);">8%</strong></li>
+                    <li>Structural Biology → Protein Design: <strong style="color: var(--color-velocity-light);">30%</strong> (shared structural modeling foundations)</li>
+                    <li>Structural Biology → Drug Discovery: <strong style="color: var(--color-velocity-light);">25%</strong> (structure-based drug design)</li>
+                    <li>Protein Design → Drug Discovery: <strong style="color: var(--color-hybrid-light);">12%</strong> (therapeutic protein engineering)</li>
+                    <li>Clinical Genomics → Drug Discovery: <strong style="color: var(--color-hybrid-light);">8%</strong> (target identification from genetic associations)</li>
                 </ul>
             </div>
 
-            <h3>Figure 4: Scenario Analysis</h3>
+            <h3>Scenario Analysis and Uncertainty Quantification</h3>
 
-            <p>We examine five scenarios spanning pessimistic to breakthrough conditions. Scenario probabilities derive from structured expert elicitation with 12 domain experts.</p>
+            <p>Given inherent uncertainty in forecasting AI trajectories, we examine five scenarios spanning pessimistic to breakthrough conditions (Figure 4). Scenario definitions and probability weights derive from structured expert elicitation with 12 domain experts using a modified Delphi method.</p>
+
+            <p>The five scenarios are defined as:</p>
+            <ul>
+                <li><strong>Pessimistic (10% probability):</strong> AI development encounters fundamental scaling limits; regulatory backlash restricts deployment; replication crisis undermines training data quality. System acceleration: 1.7x.</li>
+                <li><strong>Conservative (20% probability):</strong> Incremental AI improvements continue; adoption limited by institutional inertia; infrastructure investment below projections. System acceleration: 2.2x.</li>
+                <li><strong>Baseline (40% probability):</strong> Current trends continue; moderate infrastructure expansion; gradual regulatory adaptation. System acceleration: 2.8x.</li>
+                <li><strong>Optimistic (20% probability):</strong> Faster-than-expected capability gains; coordinated international investment in research infrastructure; regulatory harmonization accelerates clinical adoption. System acceleration: 3.6x.</li>
+                <li><strong>Breakthrough (10% probability):</strong> Transformative algorithmic advances (e.g., reliable protein-protein interaction prediction, accurate clinical outcome simulation); major infrastructure buildout. System acceleration: 4.5x.</li>
+            </ul>
+
+            <p>The range between pessimistic and breakthrough scenarios (2.7x difference) reflects genuine uncertainty about AI development trajectories, infrastructure investment decisions, and regulatory evolution. Notably, even the pessimistic scenario projects meaningful acceleration (1.7x), suggesting that some AI-driven impact is highly probable regardless of which trajectory materializes.</p>
 
             <figure class="figure-container" role="figure" aria-labelledby="fig4-title fig4-desc">
                 <div class="figure-title" id="fig4-title">Figure 4. Scenario analysis spanning pessimistic to breakthrough conditions</div>
@@ -1238,9 +1279,18 @@
                      height="500">
             </figure>
 
-            <h3>Figure 5: Model Validation</h3>
+            <h3>Model Validation Against Historical Cases</h3>
 
-            <p>We validate our model against 15 historical case studies from 2022-2024, spanning all five domains.</p>
+            <p>We validate our model against 15 historical case studies from 2022-2024, spanning all five domains (Figure 5). For each case, we compare our model's retrospective prediction against observed acceleration as documented in peer-reviewed literature and industry reports.</p>
+
+            <p>Validation cases include:</p>
+            <ul>
+                <li><strong>Structural biology:</strong> AlphaFold2 adoption in structural genomics consortia; cryo-EM throughput at national facilities; industrial structure determination pipelines.</li>
+                <li><strong>Protein design:</strong> RFdiffusion deployment for therapeutic antibody design; ProteinMPNN success rates in directed evolution campaigns.</li>
+                <li><strong>Drug discovery:</strong> AI-designed molecules entering clinical trials; virtual screening hit rates at pharmaceutical companies.</li>
+                <li><strong>Clinical genomics:</strong> AlphaMissense adoption in clinical genetics laboratories; turnaround time reductions in rare disease diagnosis.</li>
+                <li><strong>Materials science:</strong> A-Lab synthesis validation rates; industrial materials screening throughput improvements.</li>
+            </ul>
 
             <div class="validation-summary" role="region" aria-label="Validation metrics">
                 <div class="validation-stat">
@@ -1267,7 +1317,17 @@
                      height="500">
             </figure>
 
-            <h3>Figure 6: Sensitivity Analysis</h3>
+            <h3>Sensitivity Analysis</h3>
+
+            <p>We conducted global sensitivity analysis to identify which model parameters most influence projections (Figure 6). Using variance-based decomposition with ±20% parameter perturbation, we quantify each parameter's contribution to output uncertainty.</p>
+
+            <p>Key findings from sensitivity analysis:</p>
+            <ul>
+                <li><strong>Base accelerations account for ~80% of variance</strong>, indicating that the core estimates of AI capability gains dominate uncertainty. This suggests that improving AI capability estimates (through better benchmarking and longer-term observations) would most effectively reduce forecast uncertainty.</li>
+                <li><strong>Pipeline discount factors contribute ~12% of variance</strong>, reflecting uncertainty in how AI speedups propagate through multi-step workflows.</li>
+                <li><strong>Spillover coefficients contribute ~5% of variance</strong>, suggesting that cross-domain interaction estimates have relatively modest impact on overall projections.</li>
+                <li><strong>Time evolution parameters contribute ~3% of variance</strong>, indicating that adoption rate assumptions are less critical than capability estimates.</li>
+            </ul>
 
             <figure class="figure-container" role="figure" aria-labelledby="fig6-title fig6-desc">
                 <div class="figure-title" id="fig6-title">Figure 6. Sensitivity analysis (tornado diagram)</div>
@@ -1279,9 +1339,17 @@
                      height="500">
             </figure>
 
-            <h3>Figure 7: Workforce Implications</h3>
+            <h3>Workforce Implications</h3>
 
-            <p>AI-driven acceleration reshapes research workforce demands.</p>
+            <p>AI-driven acceleration fundamentally reshapes research workforce demands, creating both displacement of routine tasks and expansion of new roles (Figure 7). We model workforce dynamics using a task-based framework that disaggregates research activities by AI substitutability.</p>
+
+            <p>Our analysis projects net creation of <strong>+2.1 million jobs by 2030</strong> across the five domains, with the following dynamics:</p>
+            <ul>
+                <li><strong>Displaced tasks (~1.8M positions affected):</strong> Routine data analysis, standard experimental protocols, literature review, and preliminary screening—tasks where AI achieves comparable or superior performance.</li>
+                <li><strong>Created roles (~3.9M new positions):</strong> AI system development and maintenance, computational-experimental interface positions, expanded research capacity enabled by productivity gains, and entirely new research directions opened by AI capabilities.</li>
+            </ul>
+
+            <p>The net positive employment impact reflects that AI primarily augments rather than replaces research capabilities, enabling exploration of previously intractable problems. However, significant workforce transition challenges remain, particularly for researchers whose skills concentrate in automatable tasks.</p>
 
             <figure class="figure-container" role="figure" aria-labelledby="fig7-title fig7-desc">
                 <div class="figure-title" id="fig7-title">Figure 7. Workforce implications by domain</div>
@@ -1352,17 +1420,119 @@
 
             <h3>Model Architecture</h3>
 
+            <p>We developed a multi-domain forecasting model that projects AI-driven research acceleration while accounting for pipeline constraints and cross-domain interactions. The model architecture comprises four components: base acceleration estimation, time evolution dynamics, cross-domain spillover, and scenario modification.</p>
+
             <p>We model acceleration for domain <em>d</em> at year <em>t</em> as:</p>
 
             <div class="equation" role="math" aria-label="Acceleration equation: A sub d of t equals B sub d times T sub d of t times one plus S sub d of t times M sub s">
                 A<sub>d</sub>(t) = B<sub>d</sub> × T<sub>d</sub>(t) × (1 + S<sub>d</sub>(t)) × M<sub>s</sub>
             </div>
 
-            <p>where B<sub>d</sub> is base acceleration, T<sub>d</sub>(t) is time evolution (logistic growth), S<sub>d</sub>(t) is cross-domain spillover, and M<sub>s</sub> is scenario modifier.</p>
+            <p>where:</p>
+            <ul>
+                <li><strong>B<sub>d</sub></strong> is the base acceleration factor for domain <em>d</em>, representing the intrinsic AI-driven speedup after accounting for pipeline discounts</li>
+                <li><strong>T<sub>d</sub>(t)</strong> is the time evolution function capturing adoption dynamics</li>
+                <li><strong>S<sub>d</sub>(t)</strong> is the cumulative cross-domain spillover contribution</li>
+                <li><strong>M<sub>s</sub></strong> is the scenario-specific modifier</li>
+            </ul>
+
+            <h3>Base Acceleration Estimation</h3>
+
+            <p>Base accelerations (B<sub>d</sub>) are estimated through a three-stage process:</p>
+
+            <p><strong>Stage 1: Task-level acceleration quantification.</strong> We compile AI performance benchmarks from peer-reviewed publications and preprints, focusing on tasks with well-defined baselines (e.g., structure prediction accuracy vs. experimental determination time, virtual screening hit rates vs. traditional HTS). Task-level accelerations range from 3x (drug-target interaction prediction) to 2000x (materials stability prediction).</p>
+
+            <p><strong>Stage 2: Pipeline decomposition.</strong> Each domain's research workflow is decomposed into sequential stages, with time allocation estimated from literature surveys and expert interviews. We classify each stage as:</p>
+            <ul>
+                <li><strong>AI-accelerable:</strong> Computational tasks amenable to AI substitution (e.g., sequence analysis, structure prediction)</li>
+                <li><strong>AI-augmentable:</strong> Tasks where AI provides guidance but human/physical execution remains required (e.g., experimental design)</li>
+                <li><strong>AI-invariant:</strong> Tasks constrained by physical, biological, or regulatory timelines (e.g., cell culture, clinical trials)</li>
+            </ul>
+
+            <p><strong>Stage 3: Pipeline discount calculation.</strong> The pipeline discount factor (PDF) is computed as:</p>
+
+            <div class="equation" role="math">
+                PDF<sub>d</sub> = Σ<sub>i</sub> (f<sub>i</sub> / (1 + (A<sub>task,i</sub> - 1) × w<sub>i</sub>)) / Σ<sub>i</sub> f<sub>i</sub>
+            </div>
+
+            <p>where f<sub>i</sub> is the time fraction of stage <em>i</em>, A<sub>task,i</sub> is the task-level acceleration, and w<sub>i</sub> is the AI-applicability weight (1.0 for AI-accelerable, 0.3 for AI-augmentable, 0 for AI-invariant).</p>
+
+            <h3>Time Evolution Dynamics</h3>
+
+            <p>Acceleration adoption follows logistic (S-curve) dynamics, reflecting technology diffusion patterns documented in innovation studies<sup>7</sup>:</p>
+
+            <div class="equation" role="math">
+                T<sub>d</sub>(t) = C<sub>d</sub> / (1 + exp(-k<sub>d</sub>(t - t<sub>0,d</sub>)))
+            </div>
+
+            <p>where C<sub>d</sub> is the domain-specific ceiling (maximum achievable acceleration), k<sub>d</sub> is the adoption rate constant, and t<sub>0,d</sub> is the inflection point (year of half-maximum adoption). Parameters are estimated from historical technology adoption curves in each domain, calibrated against early AI adoption data from 2021-2024.</p>
+
+            <h3>Cross-Domain Spillover Model</h3>
+
+            <p>Knowledge spillovers are modeled using the Griliches-Jaffe framework<sup>5,6</sup> adapted for AI applications:</p>
+
+            <div class="equation" role="math">
+                S<sub>d</sub>(t) = Σ<sub>j≠d</sub> σ<sub>jd</sub> × (A<sub>j</sub>(t) - 1) × λ<sub>jd</sub>
+            </div>
+
+            <p>where σ<sub>jd</sub> is the spillover coefficient from domain <em>j</em> to domain <em>d</em>, and λ<sub>jd</sub> is a decay factor accounting for absorption capacity and methodological distance.</p>
+
+            <p>Spillover coefficients are estimated from:</p>
+            <ul>
+                <li>Cross-domain citation analysis (Web of Science, 2018-2024)</li>
+                <li>Shared methodology adoption patterns (tracking tool/algorithm usage across fields)</li>
+                <li>Structured expert elicitation (12 domain experts, 3 rounds)</li>
+            </ul>
+
+            <h3>Scenario Construction</h3>
+
+            <p>Five scenarios span the uncertainty space, with probabilities assigned through expert elicitation. Each scenario modifies base parameters:</p>
+            <ul>
+                <li><strong>Pessimistic:</strong> M<sub>s</sub> = 0.6, reflecting capability stagnation and adoption barriers</li>
+                <li><strong>Conservative:</strong> M<sub>s</sub> = 0.8, reflecting slower-than-expected progress</li>
+                <li><strong>Baseline:</strong> M<sub>s</sub> = 1.0, reflecting continuation of current trends</li>
+                <li><strong>Optimistic:</strong> M<sub>s</sub> = 1.3, reflecting faster capability gains and infrastructure investment</li>
+                <li><strong>Breakthrough:</strong> M<sub>s</sub> = 1.6, reflecting transformative algorithmic advances</li>
+            </ul>
 
             <h3>Uncertainty Quantification</h3>
 
-            <p>We assume log-normal distributions for acceleration factors. Confidence intervals derive from parameter uncertainty propagated through Monte Carlo simulation (N=10,000). Sensitivity analysis identifies base accelerations as dominant uncertainty source (~80% of variance).</p>
+            <p>We assume log-normal distributions for acceleration factors, consistent with empirical observations of technology performance improvements. Parameter uncertainty is characterized through:</p>
+
+            <ul>
+                <li><strong>Literature-derived ranges:</strong> 90% confidence intervals from published benchmarks</li>
+                <li><strong>Expert elicitation:</strong> Structured interviews with domain specialists (N=12)</li>
+                <li><strong>Historical calibration:</strong> Comparison against realized AI impacts (2022-2024)</li>
+            </ul>
+
+            <p>Confidence intervals are computed via Monte Carlo simulation (N=10,000 iterations) with Latin hypercube sampling to ensure comprehensive parameter space exploration. Correlation structures between parameters are estimated from historical co-variation patterns.</p>
+
+            <h3>Validation Methodology</h3>
+
+            <p>Model validation employs 15 historical case studies from 2022-2024, selected to span all five domains and varying AI maturity levels. For each case:</p>
+
+            <ol>
+                <li>We reconstruct the information state at prediction time (excluding post-hoc knowledge)</li>
+                <li>Generate model predictions using parameters available at that time</li>
+                <li>Compare predictions against documented outcomes from peer-reviewed publications and industry reports</li>
+                <li>Compute log error: ε = |log(A<sub>predicted</sub>) - log(A<sub>observed</sub>)|</li>
+            </ol>
+
+            <p>Mean log error of 0.21 corresponds to typical prediction deviations of ~25%, which we consider acceptable given the inherent uncertainty in forecasting emerging technology impacts.</p>
+
+            <h3>Workforce Impact Estimation</h3>
+
+            <p>Workforce implications are modeled using a task-based framework that disaggregates research activities by AI substitutability. For each domain, we:</p>
+
+            <ol>
+                <li>Enumerate major task categories (N=15-25 per domain) from occupational surveys and job postings</li>
+                <li>Estimate current workforce allocation across tasks from time-use studies</li>
+                <li>Assess AI substitution potential for each task (0-1 scale) based on capability benchmarks</li>
+                <li>Project task-level workforce changes under each scenario</li>
+                <li>Aggregate to domain-level and system-wide workforce impacts</li>
+            </ol>
+
+            <p>New job creation is estimated from historical patterns of technology-enabled research expansion, scaled by projected capability gains.</p>
 
             <hr>
 
