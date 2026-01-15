@@ -417,6 +417,15 @@ def figure3_spillover_network():
 
     # Draw nodes
     node_size = 0.08
+    # Single-line labels to prevent overlap
+    single_line_names = {
+        'structural_biology': 'Structural Biology',
+        'protein_design': 'Protein Design',
+        'clinical_genomics': 'Clinical Genomics',
+        'drug_discovery': 'Drug Discovery',
+        'materials_science': 'Materials Science'
+    }
+
     for domain in domains:
         x, y = positions[domain]
         color = COLORS[domain]
@@ -426,20 +435,30 @@ def figure3_spillover_network():
                             linewidth=2, zorder=3)
         ax.add_patch(circle)
 
-        # Domain label (outside node)
+        # Domain label (outside node) - increased distance to prevent overlap
         angle = np.arctan2(y - 0.5, x - 0.5)
-        label_dist = node_size + 0.08
+        label_dist = node_size + 0.12  # Increased from 0.08
         label_x = x + label_dist * np.cos(angle)
         label_y = y + label_dist * np.sin(angle)
 
-        ha = 'center'
-        if label_x < 0.3:
+        # Better horizontal alignment based on position
+        if label_x < 0.35:
             ha = 'right'
-        elif label_x > 0.7:
+        elif label_x > 0.65:
             ha = 'left'
+        else:
+            ha = 'center'
 
-        ax.text(label_x, label_y, DOMAINS[domain]['name'], fontsize=8,
-                fontweight='bold', color=color, ha=ha, va='center')
+        # Vertical alignment based on position
+        if label_y > 0.7:
+            va = 'bottom'
+        elif label_y < 0.3:
+            va = 'top'
+        else:
+            va = 'center'
+
+        ax.text(label_x, label_y, single_line_names[domain], fontsize=7,
+                fontweight='bold', color=color, ha=ha, va=va)
 
     # Title and annotation
     ax.text(0.5, 0.97, 'Cross-Domain Spillover Network', fontsize=11,
