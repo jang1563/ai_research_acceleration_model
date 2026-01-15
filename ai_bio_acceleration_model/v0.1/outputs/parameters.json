@@ -1,0 +1,106 @@
+{
+  "config": {
+    "t0": 2024,
+    "T": 2050,
+    "dt": 1.0
+  },
+  "stages": [
+    {
+      "index": 1,
+      "name": "Hypothesis Generation",
+      "description": "Literature synthesis, pattern recognition, hypothesis formulation",
+      "tau_baseline": 6.0,
+      "M_max": 50.0,
+      "p_success": 0.95,
+      "k_saturation": 1.0,
+      "mu_baseline": 2.0
+    },
+    {
+      "index": 2,
+      "name": "Experiment Design",
+      "description": "Protocol development, methodology, controls",
+      "tau_baseline": 3.0,
+      "M_max": 20.0,
+      "p_success": 0.9,
+      "k_saturation": 1.0,
+      "mu_baseline": 4.0
+    },
+    {
+      "index": 3,
+      "name": "Wet Lab Execution",
+      "description": "Physical experiments, cell culture, animal studies",
+      "tau_baseline": 12.0,
+      "M_max": 5.0,
+      "p_success": 0.3,
+      "k_saturation": 0.5,
+      "mu_baseline": 1.0
+    },
+    {
+      "index": 4,
+      "name": "Data Analysis",
+      "description": "Statistical analysis, ML on experimental data",
+      "tau_baseline": 2.0,
+      "M_max": 100.0,
+      "p_success": 0.95,
+      "k_saturation": 1.0,
+      "mu_baseline": 6.0
+    },
+    {
+      "index": 5,
+      "name": "Validation & Replication",
+      "description": "Independent verification, peer review, publication",
+      "tau_baseline": 8.0,
+      "M_max": 5.0,
+      "p_success": 0.5,
+      "k_saturation": 0.5,
+      "mu_baseline": 1.5
+    },
+    {
+      "index": 6,
+      "name": "Clinical Trials",
+      "description": "Combined Phase I/II/III trials",
+      "tau_baseline": 72.0,
+      "M_max": 3.0,
+      "p_success": 0.15,
+      "k_saturation": 0.4,
+      "mu_baseline": 0.16666666666666666
+    },
+    {
+      "index": 7,
+      "name": "Regulatory Approval",
+      "description": "FDA/EMA review and approval process",
+      "tau_baseline": 12.0,
+      "M_max": 2.0,
+      "p_success": 0.9,
+      "k_saturation": 0.3,
+      "mu_baseline": 1.0
+    },
+    {
+      "index": 8,
+      "name": "Deployment",
+      "description": "Manufacturing scale-up, distribution, adoption",
+      "tau_baseline": 12.0,
+      "M_max": 4.0,
+      "p_success": 0.95,
+      "k_saturation": 0.5,
+      "mu_baseline": 1.0
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Pessimistic",
+      "g_ai": 0.3,
+      "description": "AI progress slows, institutional resistance, limited adoption"
+    },
+    {
+      "name": "Baseline",
+      "g_ai": 0.5,
+      "description": "Current trends continue, moderate adoption"
+    },
+    {
+      "name": "Optimistic",
+      "g_ai": 0.7,
+      "description": "AI breakthroughs, regulatory reform, rapid adoption"
+    }
+  ]
+}

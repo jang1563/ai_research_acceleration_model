@@ -1,0 +1,127 @@
+AI-Accelerated Biological Discovery Model - Summary
+============================================================
+Version: 0.5
+Run Date: 2026-01-13 13:45:55
+
+v0.5 Key Features:
+------------------------------------------------------------
+- Multi-type AI: Cognitive (g=0.60), Robotic (g=0.30), Scientific (g=0.55)
+- Therapeutic areas: Oncology, CNS, Infectious, Rare Disease
+- Area-specific success rates based on Wong et al. (2019)
+
+Model Configuration
+------------------------------------------------------------
+Time horizon: 2024 - 2050
+Time step: 1.0 year(s)
+
+Pipeline Stages
+------------------------------------------------------------
+S1: Hypothesis Generation
+    Baseline duration: 6.0 months
+    Max AI multiplier: 50.0x
+    Success probability: 95%
+    Therapeutic sensitivity: 0.2
+
+S2: Experiment Design
+    Baseline duration: 3.0 months
+    Max AI multiplier: 20.0x
+    Success probability: 90%
+    Therapeutic sensitivity: 0.3
+
+S3: Wet Lab Execution
+    Baseline duration: 12.0 months
+    Max AI multiplier: 5.0x
+    Success probability: 30%
+    Therapeutic sensitivity: 0.5
+
+S4: Data Analysis
+    Baseline duration: 2.0 months
+    Max AI multiplier: 100.0x
+    Success probability: 95%
+    Therapeutic sensitivity: 0.2
+
+S5: Validation & Replication
+    Baseline duration: 8.0 months
+    Max AI multiplier: 5.0x
+    Success probability: 50%
+    Therapeutic sensitivity: 0.4
+
+S6: Phase I Trials
+    Baseline duration: 12.0 months
+    Max AI multiplier: 4.0x
+    Success probability: 66%
+    Therapeutic sensitivity: 0.8
+
+S7: Phase II Trials
+    Baseline duration: 24.0 months
+    Max AI multiplier: 2.8x
+    Success probability: 33%
+    Therapeutic sensitivity: 1.0
+
+S8: Phase III Trials
+    Baseline duration: 36.0 months
+    Max AI multiplier: 3.2x
+    Success probability: 58%
+    Therapeutic sensitivity: 0.9
+
+S9: Regulatory Approval
+    Baseline duration: 12.0 months
+    Max AI multiplier: 2.0x
+    Success probability: 90%
+    Therapeutic sensitivity: 0.3
+
+S10: Deployment
+    Baseline duration: 12.0 months
+    Max AI multiplier: 4.0x
+    Success probability: 95%
+    Therapeutic sensitivity: 0.2
+
+Scenarios
+------------------------------------------------------------
+Pessimistic: g_c=0.40, g_r=0.20, g_s=0.35
+    Area: General
+    AI progress slows, institutional resistance
+
+Baseline: g_c=0.60, g_r=0.30, g_s=0.55
+    Area: General
+    Current trends continue, moderate adoption
+
+Optimistic: g_c=0.80, g_r=0.45, g_s=0.75
+    Area: General
+    AI breakthroughs, regulatory reform
+
+Baseline_Oncology: g_c=0.60, g_r=0.30, g_s=0.55
+    Area: Oncology
+    Baseline scenario for Oncology
+
+Baseline_CNS: g_c=0.60, g_r=0.30, g_s=0.55
+    Area: CNS
+    Baseline scenario for CNS
+
+Baseline_Infectious_Disease: g_c=0.60, g_r=0.30, g_s=0.55
+    Area: Infectious Disease
+    Baseline scenario for Infectious Disease
+
+Baseline_Rare_Disease: g_c=0.60, g_r=0.30, g_s=0.55
+    Area: Rare Disease
+    Baseline scenario for Rare Disease
+
+Summary Statistics
+------------------------------------------------------------
+                   scenario   therapeutic_area  g_ai  g_cognitive  g_robotic  g_scientific  progress_by_2030  progress_by_2040  progress_by_2050  max_progress_rate  year_10_equiv_years  year_50_equiv_years year_100_equiv_years  final_bottleneck
+                Pessimistic            General   0.3          0.4       0.20          0.35          9.779990         33.346693         61.324928           2.823311               2031.0               2046.0                >2050                 8
+                   Baseline            General   0.5          0.6       0.30          0.55         13.637068         51.243503         93.520194           4.242032               2029.0               2040.0                >2050                 7
+                 Optimistic            General   0.7          0.8       0.45          0.75         20.867225         69.456938        118.951178           4.949495               2028.0               2037.0               2047.0                 8
+          Baseline_Oncology           Oncology   0.5          0.6       0.30          0.55         17.142502         69.304038        128.484967           5.938842               2029.0               2037.0               2046.0                 7
+               Baseline_CNS                CNS   0.5          0.6       0.30          0.55         11.884351         42.213236         76.037808           3.393627               2030.0               2043.0                >2050                 7
+Baseline_Infectious_Disease Infectious Disease   0.5          0.6       0.30          0.55         15.389785         60.084338        109.122279           4.906520               2029.0               2038.0               2049.0                 8
+      Baseline_Rare_Disease       Rare Disease   0.5          0.6       0.30          0.55         15.802000         54.797549         95.863788           4.108907               2029.0               2039.0                >2050                 8
+
+Key Findings
+------------------------------------------------------------
+By 2030 (Baseline): 13.6 equivalent years
+By 2040 (Baseline): 51.2 equivalent years
+By 2050 (Baseline): 93.5 equivalent years
+
+Maximum progress rate achieved: 4.2x
+Final bottleneck stage: S7

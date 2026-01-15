@@ -1,0 +1,291 @@
+{
+  "version": "0.5",
+  "config": {
+    "t0": 2024,
+    "T": 2050,
+    "dt": 1.0,
+    "enable_dynamic_p_success": true,
+    "enable_stage_specific_g_ai": true,
+    "enable_multi_type_ai": true,
+    "enable_therapeutic_areas": true,
+    "enable_ai_feedback": true
+  },
+  "ai_types": {
+    "Cognitive": {
+      "g_base": 0.6,
+      "feedback_alpha": 0.12,
+      "description": "Language, reasoning, synthesis (GPT, Claude)"
+    },
+    "Robotic": {
+      "g_base": 0.3,
+      "feedback_alpha": 0.05,
+      "description": "Physical manipulation, lab automation"
+    },
+    "Scientific": {
+      "g_base": 0.55,
+      "feedback_alpha": 0.1,
+      "description": "Hypothesis generation, pattern recognition (AlphaFold)"
+    }
+  },
+  "therapeutic_areas": {
+    "Oncology": {
+      "phase1_p_mult": 0.92,
+      "phase2_p_mult": 0.63,
+      "phase3_p_mult": 0.84,
+      "phase2_M_mult": 1.4,
+      "duration_mult": 1.1
+    },
+    "CNS": {
+      "phase1_p_mult": 0.98,
+      "phase2_p_mult": 0.46,
+      "phase3_p_mult": 0.67,
+      "phase2_M_mult": 0.8,
+      "duration_mult": 1.3
+    },
+    "Infectious Disease": {
+      "phase1_p_mult": 1.05,
+      "phase2_p_mult": 1.08,
+      "phase3_p_mult": 1.19,
+      "phase2_M_mult": 1.2,
+      "duration_mult": 0.8
+    },
+    "Rare Disease": {
+      "phase1_p_mult": 1.1,
+      "phase2_p_mult": 1.25,
+      "phase3_p_mult": 1.15,
+      "phase2_M_mult": 1.5,
+      "duration_mult": 1.0
+    },
+    "Cardiovascular": {
+      "phase1_p_mult": 1.03,
+      "phase2_p_mult": 0.82,
+      "phase3_p_mult": 1.16,
+      "phase2_M_mult": 1.1,
+      "duration_mult": 1.2
+    },
+    "General": {
+      "phase1_p_mult": 1.0,
+      "phase2_p_mult": 1.0,
+      "phase3_p_mult": 1.0,
+      "phase2_M_mult": 1.0,
+      "duration_mult": 1.0
+    }
+  },
+  "stages": [
+    {
+      "index": 1,
+      "name": "Hypothesis Generation",
+      "tau_baseline": 6.0,
+      "M_max": 50.0,
+      "p_success": 0.95,
+      "p_success_max": 0.98,
+      "k_saturation": 1.0,
+      "therapeutic_sensitivity": 0.2,
+      "ai_type_weights": {
+        "Cognitive": 0.4,
+        "Robotic": 0.0,
+        "Scientific": 0.6
+      }
+    },
+    {
+      "index": 2,
+      "name": "Experiment Design",
+      "tau_baseline": 3.0,
+      "M_max": 20.0,
+      "p_success": 0.9,
+      "p_success_max": 0.95,
+      "k_saturation": 1.0,
+      "therapeutic_sensitivity": 0.3,
+      "ai_type_weights": {
+        "Cognitive": 0.6,
+        "Robotic": 0.1,
+        "Scientific": 0.3
+      }
+    },
+    {
+      "index": 3,
+      "name": "Wet Lab Execution",
+      "tau_baseline": 12.0,
+      "M_max": 5.0,
+      "p_success": 0.3,
+      "p_success_max": 0.5,
+      "k_saturation": 0.5,
+      "therapeutic_sensitivity": 0.5,
+      "ai_type_weights": {
+        "Cognitive": 0.1,
+        "Robotic": 0.8,
+        "Scientific": 0.1
+      }
+    },
+    {
+      "index": 4,
+      "name": "Data Analysis",
+      "tau_baseline": 2.0,
+      "M_max": 100.0,
+      "p_success": 0.95,
+      "p_success_max": 0.99,
+      "k_saturation": 1.0,
+      "therapeutic_sensitivity": 0.2,
+      "ai_type_weights": {
+        "Cognitive": 0.7,
+        "Robotic": 0.0,
+        "Scientific": 0.3
+      }
+    },
+    {
+      "index": 5,
+      "name": "Validation & Replication",
+      "tau_baseline": 8.0,
+      "M_max": 5.0,
+      "p_success": 0.5,
+      "p_success_max": 0.7,
+      "k_saturation": 0.5,
+      "therapeutic_sensitivity": 0.4,
+      "ai_type_weights": {
+        "Cognitive": 0.5,
+        "Robotic": 0.3,
+        "Scientific": 0.2
+      }
+    },
+    {
+      "index": 6,
+      "name": "Phase I Trials",
+      "tau_baseline": 12.0,
+      "M_max": 4.0,
+      "p_success": 0.66,
+      "p_success_max": 0.75,
+      "k_saturation": 0.5,
+      "therapeutic_sensitivity": 0.8,
+      "ai_type_weights": {
+        "Cognitive": 0.4,
+        "Robotic": 0.2,
+        "Scientific": 0.4
+      }
+    },
+    {
+      "index": 7,
+      "name": "Phase II Trials",
+      "tau_baseline": 24.0,
+      "M_max": 2.8,
+      "p_success": 0.33,
+      "p_success_max": 0.5,
+      "k_saturation": 0.3,
+      "therapeutic_sensitivity": 1.0,
+      "ai_type_weights": {
+        "Cognitive": 0.3,
+        "Robotic": 0.2,
+        "Scientific": 0.5
+      }
+    },
+    {
+      "index": 8,
+      "name": "Phase III Trials",
+      "tau_baseline": 36.0,
+      "M_max": 3.2,
+      "p_success": 0.58,
+      "p_success_max": 0.7,
+      "k_saturation": 0.4,
+      "therapeutic_sensitivity": 0.9,
+      "ai_type_weights": {
+        "Cognitive": 0.4,
+        "Robotic": 0.3,
+        "Scientific": 0.3
+      }
+    },
+    {
+      "index": 9,
+      "name": "Regulatory Approval",
+      "tau_baseline": 12.0,
+      "M_max": 2.0,
+      "p_success": 0.9,
+      "p_success_max": 0.95,
+      "k_saturation": 0.3,
+      "therapeutic_sensitivity": 0.3,
+      "ai_type_weights": {
+        "Cognitive": 0.8,
+        "Robotic": 0.0,
+        "Scientific": 0.2
+      }
+    },
+    {
+      "index": 10,
+      "name": "Deployment",
+      "tau_baseline": 12.0,
+      "M_max": 4.0,
+      "p_success": 0.95,
+      "p_success_max": 0.98,
+      "k_saturation": 0.5,
+      "therapeutic_sensitivity": 0.2,
+      "ai_type_weights": {
+        "Cognitive": 0.3,
+        "Robotic": 0.6,
+        "Scientific": 0.1
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "Pessimistic",
+      "g_ai": 0.3,
+      "g_cognitive": 0.4,
+      "g_robotic": 0.2,
+      "g_scientific": 0.35,
+      "therapeutic_area": "General",
+      "description": "AI progress slows, institutional resistance"
+    },
+    {
+      "name": "Baseline",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "therapeutic_area": "General",
+      "description": "Current trends continue, moderate adoption"
+    },
+    {
+      "name": "Optimistic",
+      "g_ai": 0.7,
+      "g_cognitive": 0.8,
+      "g_robotic": 0.45,
+      "g_scientific": 0.75,
+      "therapeutic_area": "General",
+      "description": "AI breakthroughs, regulatory reform"
+    },
+    {
+      "name": "Baseline_Oncology",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "therapeutic_area": "Oncology",
+      "description": "Baseline scenario for Oncology"
+    },
+    {
+      "name": "Baseline_CNS",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "therapeutic_area": "CNS",
+      "description": "Baseline scenario for CNS"
+    },
+    {
+      "name": "Baseline_Infectious_Disease",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "therapeutic_area": "Infectious Disease",
+      "description": "Baseline scenario for Infectious Disease"
+    },
+    {
+      "name": "Baseline_Rare_Disease",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "therapeutic_area": "Rare Disease",
+      "description": "Baseline scenario for Rare Disease"
+    }
+  ]
+}

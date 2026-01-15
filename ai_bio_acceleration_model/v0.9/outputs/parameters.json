@@ -1,0 +1,96 @@
+{
+  "version": "0.7",
+  "features": {
+    "pipeline_iteration": true,
+    "data_quality": true,
+    "multi_type_ai": true,
+    "therapeutic_areas": true
+  },
+  "config": {
+    "t0": 2024,
+    "T": 2050,
+    "dt": 1.0
+  },
+  "scenarios": [
+    {
+      "name": "Pessimistic",
+      "g_ai": 0.3,
+      "g_cognitive": 0.4,
+      "g_robotic": 0.2,
+      "g_scientific": 0.35,
+      "is_amodei_scenario": false,
+      "parallelization_factor": 1.0,
+      "description": "AI progress slows, institutional resistance"
+    },
+    {
+      "name": "Baseline",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "is_amodei_scenario": false,
+      "parallelization_factor": 1.0,
+      "description": "Current trends continue, moderate adoption"
+    },
+    {
+      "name": "Optimistic",
+      "g_ai": 0.7,
+      "g_cognitive": 0.8,
+      "g_robotic": 0.45,
+      "g_scientific": 0.75,
+      "is_amodei_scenario": false,
+      "parallelization_factor": 1.0,
+      "description": "AI breakthroughs, regulatory reform"
+    },
+    {
+      "name": "Upper_Bound_Amodei",
+      "g_ai": 0.75,
+      "g_cognitive": 0.75,
+      "g_robotic": 0.45,
+      "g_scientific": 0.7,
+      "is_amodei_scenario": true,
+      "parallelization_factor": 1.5,
+      "description": "Upper bound under Amodei conditions (regulatory reform + breakthrough drugs)"
+    },
+    {
+      "name": "Baseline_Oncology",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "is_amodei_scenario": false,
+      "parallelization_factor": 1.0,
+      "description": "Baseline scenario for Oncology"
+    },
+    {
+      "name": "Baseline_CNS",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "is_amodei_scenario": false,
+      "parallelization_factor": 1.0,
+      "description": "Baseline scenario for CNS"
+    },
+    {
+      "name": "Baseline_Infectious_Disease",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "is_amodei_scenario": false,
+      "parallelization_factor": 1.0,
+      "description": "Baseline scenario for Infectious Disease"
+    },
+    {
+      "name": "Baseline_Rare_Disease",
+      "g_ai": 0.5,
+      "g_cognitive": 0.6,
+      "g_robotic": 0.3,
+      "g_scientific": 0.55,
+      "is_amodei_scenario": false,
+      "parallelization_factor": 1.0,
+      "description": "Baseline scenario for Rare Disease"
+    }
+  ]
+}

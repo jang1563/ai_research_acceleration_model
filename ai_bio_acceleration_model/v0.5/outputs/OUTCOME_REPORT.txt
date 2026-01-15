@@ -1,0 +1,96 @@
+======================================================================
+AI-ACCELERATED BIOLOGICAL DISCOVERY: OUTCOME TRANSLATION REPORT
+======================================================================
+
+This report translates model outputs into concrete, policy-relevant
+outcomes that non-specialists can understand.
+
+----------------------------------------------------------------------
+
+WHAT THIS MEANS (Pessimistic Scenario)
+==================================================
+
+PACE OF DISCOVERY: 2.4x current speed
+By 2050, biological research will move significantly faster than today.
+
+THERAPY IMPACT: ~82 new therapies
+Compared to ~50 at current pace,
+this represents +32 additional breakthrough treatments.
+
+IN HUMAN TERMS:
+Each additional therapy typically benefits 500,000 - 2 million patients
+over its lifecycle. This acceleration could impact tens of millions of lives.
+
+----------------------------------------------------------------------
+
+WHAT THIS MEANS (Baseline Scenario)
+==================================================
+
+PACE OF DISCOVERY: 3.6x current speed
+By 2050, biological research will move dramatically faster than today.
+
+THERAPY IMPACT: ~125 new therapies
+Compared to ~50 at current pace,
+this represents +75 additional breakthrough treatments.
+
+IN HUMAN TERMS:
+Each additional therapy typically benefits 500,000 - 2 million patients
+over its lifecycle. This acceleration could impact tens of millions of lives.
+
+----------------------------------------------------------------------
+
+WHAT THIS MEANS (Optimistic Scenario)
+==================================================
+
+PACE OF DISCOVERY: 4.6x current speed
+By 2050, biological research will move transformatively faster than today.
+
+THERAPY IMPACT: ~160 new therapies
+Compared to ~50 at current pace,
+this represents +110 additional breakthrough treatments.
+
+IN HUMAN TERMS:
+Each additional therapy typically benefits 500,000 - 2 million patients
+over its lifecycle. This acceleration could impact tens of millions of lives.
+
+----------------------------------------------------------------------
+
+THERAPEUTIC AREA COMPARISON
+==================================================
+
+RANKING BY 2050 PROGRESS:
+  1. Oncology         128.5 yr (4.9x)
+  2. Rare Disease      95.9 yr (3.7x)
+  3. General           93.5 yr (3.6x)
+  4. Cns               76.0 yr (2.9x)
+
+KEY INSIGHT:
+  Oncology will see 69% more progress than Cns
+  (128 vs 76 equivalent years)
+
+WHY THE GAP:
+  - Oncology: Benefits from biomarker-driven trial designs
+  - Cns: Complex biology, lower trial success rates
+
+POLICY IMPLICATION:
+  Extra investment in Cns infrastructure may be warranted
+  to close the gap with Oncology.
+
+----------------------------------------------------------------------
+
+POLICY IMPLICATIONS
+==================================================
+
+KEY FINDING: AI could accelerate biological discovery by 3.6x,
+potentially delivering +75 additional therapies by 2050.
+
+BOTTOM LINE: Even accounting for physical constraints (clinical trials,
+regulatory processes), AI-driven acceleration is substantial and real.
+
+CRITICAL BOTTLENECK: Phase II clinical trials remain the limiting factor.
+Policy interventions targeting trial efficiency have highest ROI.
+
+PATIENT IMPACT: Estimated 75 million additional patients
+could benefit from accelerated therapeutic development.
+
+======================================================================

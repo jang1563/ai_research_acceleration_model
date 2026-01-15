@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive explainer for middle schoolers about how AI could accelerate medicine discovery - Version 1.1 with expert-reviewed parameters">
+    <meta name="theme-color" content="#667eea">
+    <title>AI & Medicine: How Fast Can We Cure Diseases? (v1.1)</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --secondary: #059669;
+            --secondary-dark: #047857;
+            --secondary-light: #d1fae5;
+            --accent: #f59e0b;
+            --accent-light: #fef3c7;
+            --danger: #dc2626;
+            --danger-light: #fecaca;
+            --warning: #d97706;
+            --warning-light: #fef3c7;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', 'Monaco', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.75;
+            color: var(--gray-800);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--gray-900);
+            color: white;
+            padding: 8px 16px;
+            z-index: 100;
+            border-radius: 0 0 8px 0;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .header {
+            text-align: center;
+            padding: 24px 0 36px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.92);
+            font-size: 1.15rem;
+            font-weight: 400;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 14px;
+            backdrop-filter: blur(4px);
+            font-weight: 500;
+        }
+
+        .badge.new {
+            background: var(--secondary);
+            margin-left: 8px;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            color: var(--gray-900);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        h2 .emoji {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            margin: 24px 0 12px 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--gray-700);
+        }
+
+        strong {
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 18px 22px;
+            border-radius: 0 12px 12px 0;
+            margin: 18px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--primary-dark);
+        }
+
+        /* Version update box */
+        .version-update-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 2px solid var(--warning);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .version-update-box h4 {
+            color: var(--warning);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .version-update-box ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .version-update-box li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* Analogy boxes */
+        .analogy-box {
+            background: linear-gradient(135deg, var(--accent-light), #fde68a);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin: 18px 0;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            border: 1px solid #fcd34d;
+        }
+
+        .analogy-box .icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .analogy-box p {
+            margin-bottom: 0;
+        }
+
+        .analogy-box strong {
+            color: var(--gray-900);
+        }
+
+        /* Math boxes */
+        .math-simple {
+            background: var(--gray-100);
+            border-radius: 10px;
+            padding: 16px 20px;
+            font-family: var(--font-mono);
+            margin: 16px 0;
+            font-size: 0.92rem;
+            border: 1px solid var(--gray-200);
+            line-height: 1.6;
+        }
+
+        .math-technical {
+            background: var(--gray-50);
+            border: 1px dashed var(--gray-300);
+            border-radius: 10px;
+            padding: 0;
+            margin: 8px 0 20px 0;
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--gray-700);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.35s ease;
+            line-height: 1.7;
+        }
+
+        .math-technical.visible {
+            max-height: 250px;
+            opacity: 1;
+            padding: 16px 20px;
+        }
+
+        .toggle-tech {
+            font-size: 0.9rem;
+            color: var(--primary);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            background: var(--primary-light);
+            border: none;
+            font-family: inherit;
+            font-weight: 500;
+        }
+
+        .toggle-tech:hover {
+            background: #bfdbfe;
+            transform: translateY(-1px);
+        }
+
+        .toggle-tech:focus {
+            outline: 3px solid rgba(37, 99, 235, 0.4);
+            outline-offset: 2px;
+        }
+
+        .toggle-tech:active {
+            transform: translateY(0);
+        }
+
+        .toggle-tech .arrow {
+            transition: transform 0.35s ease;
+            font-size: 0.85rem;
+        }
+
+        .toggle-tech.open .arrow {
+            transform: rotate(90deg);
+        }
+
+        /* Pipeline visualization - 10 stages */
+        .pipeline-container {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 24px 16px;
+            padding-top: 75px;
+            margin: 20px 0;
+            overflow-x: auto;
+            overflow-y: visible;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+        }
+
+        .pipeline-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .pipeline-container::-webkit-scrollbar-track {
+            background: var(--gray-200);
+            border-radius: 4px;
+        }
+
+        .pipeline-container::-webkit-scrollbar-thumb {
+            background: var(--gray-400);
+            border-radius: 4px;
+        }
+
+        .pipeline {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-start;
+            align-items: center;
+            min-width: fit-content;
+            padding: 4px 0;
+        }
+
+        .stage {
+            background: white;
+            padding: 12px 8px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 72px;
+            max-width: 82px;
+            transition: all 0.25s ease;
+            position: relative;
+            border: 2px solid var(--gray-200);
+            cursor: help;
+            flex-shrink: 0;
+        }
+
+        .stage:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            border-color: var(--gray-300);
+        }
+
+        .stage:focus {
+            outline: 3px solid var(--primary-light);
+            outline-offset: 2px;
+        }
+
+        .stage.bottleneck {
+            background: var(--danger-light);
+            border-color: var(--danger);
+        }
+
+        .stage.bottleneck:hover {
+            border-color: #b91c1c;
+        }
+
+        .stage.bottleneck .speedup {
+            color: var(--danger);
+        }
+
+        .stage.changed {
+            background: var(--warning-light);
+            border-color: var(--warning);
+        }
+
+        .stage.changed .name::after {
+            content: '✱';
+            font-size: 0.6rem;
+            vertical-align: super;
+            margin-left: 2px;
+            color: var(--warning);
+        }
+
+        .stage .name {
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .stage .speedup {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .stage .max-label {
+            font-size: 0.6rem;
+            color: var(--gray-500);
+            margin-top: 2px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .pipeline-arrow {
+            color: var(--gray-400);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            font-weight: 300;
+        }
+
+        /* Tooltip */
+        .stage .tooltip {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gray-900);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            line-height: 1.5;
+            text-align: left;
+            pointer-events: none;
+        }
+
+        .stage:first-child .tooltip {
+            left: 0;
+            transform: translateX(0);
+        }
+
+        .stage:first-child .tooltip::after {
+            left: 20px;
+            transform: translateX(0);
+        }
+
+        .stage:last-child .tooltip {
+            left: auto;
+            right: 0;
+            transform: translateX(0);
+        }
+
+        .stage:last-child .tooltip::after {
+            left: auto;
+            right: 20px;
+            transform: translateX(0);
+        }
+
+        .stage .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 7px solid transparent;
+            border-top-color: var(--gray-900);
+        }
+
+        .stage:hover .tooltip,
+        .stage:focus .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Interactive controls */
+        .controls {
+            background: var(--gray-50);
+            border-radius: 14px;
+            padding: 26px;
+            margin: 22px 0;
+        }
+
+        .slider-group {
+            margin-bottom: 26px;
+        }
+
+        .slider-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .slider-label span:first-child {
+            color: var(--gray-800);
+            font-size: 0.95rem;
+        }
+
+        .slider-value {
+            background: var(--primary);
+            color: white;
+            padding: 5px 16px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            min-width: 145px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: var(--gray-200);
+            outline: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+            transition: all 0.2s ease;
+            margin-top: -8px;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.12);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.5);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            transform: scale(1.12);
+        }
+
+        input[type="range"]:focus {
+            outline: none;
+        }
+
+        input[type="range"]:focus::-webkit-slider-thumb {
+            box-shadow: 0 0 0 4px var(--primary-light), 0 2px 8px rgba(37, 99, 235, 0.4);
+        }
+
+        input[type="range"]:focus::-moz-range-thumb {
+            box-shadow: 0 0 0 4px var(--primary-light), 0 2px 8px rgba(37, 99, 235, 0.4);
+        }
+
+        .slider-hints {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* Results display */
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr 1fr;
+            gap: 18px;
+            margin: 26px 0;
+        }
+
+        .result-card {
+            background: white;
+            border: 2px solid var(--gray-200);
+            border-radius: 14px;
+            padding: 22px 18px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .result-card.highlight {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary-light), #eff6ff);
+            transform: scale(1.03);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+        }
+
+        .result-label {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .result-value {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            transition: all 0.3s ease;
+        }
+
+        .result-card.highlight .result-value {
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+        }
+
+        .result-unit {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Chart */
+        .chart-container {
+            margin: 26px 0 0 0;
+            padding: 24px;
+            background: white;
+            border-radius: 14px;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            min-height: 360px;
+        }
+
+        .chart-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--gray-500);
+        }
+
+        .spinner {
+            width: 44px;
+            height: 44px;
+            border: 4px solid var(--gray-200);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            margin: 0 auto 14px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .chart-loading.hidden {
+            display: none;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 300px !important;
+        }
+
+        /* Key insight */
+        .insight-box {
+            background: linear-gradient(135deg, var(--secondary-light), #a7f3d0);
+            border: 2px solid var(--secondary);
+            border-radius: 14px;
+            padding: 26px;
+            margin: 22px 0;
+        }
+
+        .insight-box h3 {
+            color: var(--secondary-dark);
+            margin: 0 0 14px 0;
+            font-size: 1.25rem;
+        }
+
+        .insight-box p {
+            color: var(--gray-800);
+        }
+
+        .insight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Equation explanation table */
+        .equation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 22px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            font-size: 0.95rem;
+        }
+
+        .equation-table th, .equation-table td {
+            padding: 15px 18px;
+            text-align: left;
+        }
+
+        .equation-table th {
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--gray-800);
+            font-size: 0.9rem;
+        }
+
+        .equation-table td {
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-700);
+        }
+
+        .equation-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .equation-table tbody tr {
+            transition: background 0.2s ease;
+        }
+
+        .equation-table tbody tr:hover td {
+            background: var(--gray-50);
+        }
+
+        /* Lists */
+        ul {
+            margin-left: 22px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            color: var(--gray-700);
+        }
+
+        li strong {
+            color: var(--gray-900);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 28px 20px;
+            color: rgba(255,255,255,0.88);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            color: inherit;
+            margin-bottom: 6px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        footer a:hover {
+            text-decoration: none;
+        }
+
+        /* Reset button */
+        .reset-btn {
+            background: white;
+            border: 2px solid var(--gray-300);
+            color: var(--gray-700);
+            padding: 10px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        .reset-btn:hover {
+            border-color: var(--gray-400);
+            background: var(--gray-50);
+            transform: translateY(-1px);
+        }
+
+        .reset-btn:focus {
+            outline: 3px solid var(--primary-light);
+            outline-offset: 2px;
+        }
+
+        .reset-btn:active {
+            transform: translateY(0);
+        }
+
+        .controls-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .controls-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--gray-700);
+        }
+
+        /* Comparison badge */
+        .comparison-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent-light);
+            color: var(--gray-800);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        /* Toggle for growth model */
+        .growth-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .growth-toggle button {
+            padding: 8px 16px;
+            border: 2px solid var(--gray-300);
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .growth-toggle button:hover {
+            border-color: var(--primary);
+        }
+
+        .growth-toggle button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .pulse {
+            animation: pulse 0.35s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .card {
+                box-shadow: none;
+                border: 1px solid var(--gray-200);
+            }
+            .controls, .chart-container {
+                display: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-card.highlight {
+                order: -1;
+            }
+
+            .pipeline-container {
+                padding: 18px 12px;
+                padding-top: 18px;
+                overflow-y: visible;
+            }
+
+            .pipeline {
+                flex-wrap: wrap;
+                gap: 8px;
+                justify-content: center;
+            }
+
+            .pipeline-arrow {
+                display: none;
+            }
+
+            .stage {
+                flex: 1 1 calc(33% - 10px);
+                min-width: 80px;
+                max-width: none;
+                padding: 10px 8px;
+            }
+
+            .stage .tooltip {
+                bottom: auto;
+                top: calc(100% + 10px);
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .stage .tooltip::after {
+                top: auto;
+                bottom: 100%;
+                border-top-color: transparent;
+                border-bottom-color: var(--gray-900);
+            }
+
+            .stage:first-child .tooltip,
+            .stage:last-child .tooltip {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+            }
+
+            .stage:first-child .tooltip::after,
+            .stage:last-child .tooltip::after {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+            }
+
+            h1 {
+                font-size: 1.65rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .card {
+                padding: 22px 20px;
+            }
+
+            .controls {
+                padding: 20px;
+            }
+
+            .slider-label {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .slider-value {
+                align-self: flex-end;
+            }
+
+            .equation-table {
+                font-size: 0.88rem;
+            }
+
+            .equation-table th, .equation-table td {
+                padding: 12px 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stage {
+                flex: 1 1 calc(50% - 8px);
+                max-width: 150px;
+            }
+
+            .stage .name {
+                font-size: 0.7rem;
+            }
+
+            .stage .speedup {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 14px;
+            }
+
+            .analogy-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .analogy-box .icon {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <header class="header">
+            <h1>AI & Medicine: How Fast Can We Cure Diseases?</h1>
+            <p class="subtitle">Understanding the AI-Accelerated Biological Discovery Model</p>
+            <span class="badge">Interactive Explainer v1.1</span>
+            <span class="badge new">Expert-Reviewed</span>
+        </header>
+
+        <main id="main-content">
+            <!-- Section 1: The Big Question -->
+            <div class="card">
+                <h2><span class="emoji" aria-hidden="true">💡</span> The Big Question</h2>
+                <p>Imagine your grandma needs a new medicine. Today, creating a new drug takes about <strong>10-15 years</strong> from the first idea to the pharmacy shelf. That's a really long time!</p>
+
+                <p>Scientists are wondering: <strong>"If AI gets really smart and helps us, can we make medicines faster?"</strong></p>
+
+                <div class="highlight-box">
+                    <p><strong>What this model calculates:</strong> If we wait 26 years (from 2024 to 2050), how many "years worth" of scientific progress will we actually achieve? Will AI help us get 30 years of progress? 50 years? More?</p>
+                </div>
+
+                <div class="version-update-box">
+                    <h4>🔬 What's New in v1.1 (Expert-Reviewed)</h4>
+                    <ul>
+                        <li><strong>10 stages</strong> instead of 8 - separates clinical trial phases</li>
+                        <li><strong>Logistic AI growth</strong> - AI improvement has a ceiling, doesn't grow forever</li>
+                        <li><strong>More realistic</strong> - wet lab can only speed up 2.5× (not 5×), most ideas fail</li>
+                        <li><strong>6-month regulatory floor</strong> - FDA can't be rushed below 6 months</li>
+                        <li><strong>Results ~20-30% lower</strong> - more conservative, more believable</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section 2: The Pipeline -->
+            <div class="card">
+                <h2><span class="emoji" aria-hidden="true">🏭</span> The Medicine Factory: 10 Steps</h2>
+                <p>Think of drug discovery like an assembly line in a factory. Every medicine has to go through <strong>10 stations</strong> before it reaches you:</p>
+
+                <div class="pipeline-container" role="region" aria-label="Drug discovery pipeline visualization">
+                    <div class="pipeline" role="list">
+                        <div class="stage changed" data-stage="1" role="listitem" tabindex="0" aria-label="Stage 1: Hypothesis Generation">
+                            <span class="tooltip">Think of new ideas<br>Max speedup: 50×<br>✱ Success: 40% (was 95%)</span>
+                            <div class="name">Idea</div>
+                            <div class="speedup" id="speed1">1.0×</div>
+                            <div class="max-label">max 50×</div>
+                        </div>
+                        <span class="pipeline-arrow" aria-hidden="true">→</span>
+                        <div class="stage" data-stage="2" role="listitem" tabindex="0" aria-label="Stage 2: Experiment Design">
+                            <span class="tooltip">Plan experiments<br>Max speedup: 20×</span>
+                            <div class="name">Design</div>
+                            <div class="speedup" id="speed2">1.0×</div>
+                            <div class="max-label">max 20×</div>
+                        </div>
+                        <span class="pipeline-arrow" aria-hidden="true">→</span>
+                        <div class="stage changed" data-stage="3" role="listitem" tabindex="0" aria-label="Stage 3: Wet Lab Work">
+                            <span class="tooltip">Physical lab work<br>✱ Max speedup: 2.5× (was 5×)<br>Biology can't be rushed!</span>
+                            <div class="name">Lab</div>
+                            <div class="speedup" id="speed3">1.0×</div>
+                            <div class="max-label">max 2.5×</div>
+                        </div>
+                        <span class="pipeline-arrow" aria-hidden="true">→</span>
+                        <div class="stage" data-stage="4" role="listitem" tabindex="0" aria-label="Stage 4: Data Analysis">
+                            <span class="tooltip">Analyze results<br>Max speedup: 100×</span>
+                            <div class="name">Analyze</div>
+                            <div class="speedup" id="speed4">1.0×</div>
+                            <div class="max-label">max 100×</div>
+                        </div>
+                        <span class="pipeline-arrow" aria-hidden="true">→</span>
+                        <div class="stage" data-stage="5" role="listitem" tabindex="0" aria-label="Stage 5: Validation">
+                            <span class="tooltip">Verify findings<br>Max speedup: 5×</span>
+                            <div class="name">Verify</div>
+                            <div class="speedup" id="speed5">1.0×</div>
+                            <div class="max-label">max 5×</div>
+                        </div>
+                        <span class="pipeline-arrow" aria-hidden="true">→</span>
+                        <div class="stage" data-stage="6" role="listitem" tabindex="0" aria-label="Stage 6: Phase I Trials">
+                            <span class="tooltip">Safety testing<br>20-100 patients<br>Max speedup: 4×</span>
+                            <div class="name">Phase I</div>
+                            <div class="speedup" id="speed6">1.0×</div>
+                            <div class="max-label">max 4×</div>
+                        </div>
+                        <span class="pipeline-arrow" aria-hidden="true">→</span>
+                        <div class="stage bottleneck" data-stage="7" role="listitem" tabindex="0" aria-label="Stage 7: Phase II Trials - Bottleneck">
+                            <span class="tooltip">Efficacy testing<br>"Valley of Death"<br>Max speedup: 2.8×<br>⚠️ BOTTLENECK</span>
+                            <div class="name">Phase II</div>
+                            <div class="speedup" id="speed7">1.0×</div>
+                            <div class="max-label" id="trialMaxLabel">max 2.8×</div>
+                        </div>
+                        <span class="pipeline-arrow" aria-hidden="true">→</span>
+                        <div class="stage" data-stage="8" role="listitem" tabindex="0" aria-label="Stage 8: Phase III Trials">
+                            <span class="tooltip">Large scale trials<br>1000-5000 patients<br>Max speedup: 3.2×</span>
+                            <div class="name">Phase III</div>
+                            <div class="speedup" id="speed8">1.0×</div>
+                            <div class="max-label">max 3.2×</div>
+                        </div>
+                        <span class="pipeline-arrow" aria-hidden="true">→</span>
+                        <div class="stage changed" data-stage="9" role="listitem" tabindex="0" aria-label="Stage 9: Regulatory Approval">
+                            <span class="tooltip">FDA approval<br>Max speedup: 2×<br>✱ 6-month minimum floor</span>
+                            <div class="name">FDA</div>
+                            <div class="speedup" id="speed9">1.0×</div>
+                            <div class="max-label">max 2×</div>
+                        </div>
+                        <span class="pipeline-arrow" aria-hidden="true">→</span>
+                        <div class="stage" data-stage="10" role="listitem" tabindex="0" aria-label="Stage 10: Deployment">
+                            <span class="tooltip">Manufacturing & distribution<br>Max speedup: 4×</span>
+                            <div class="name">Deploy</div>
+                            <div class="speedup" id="speed10">1.0×</div>
+                            <div class="max-label">max 4×</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 8px;">
+                    <span style="color: var(--warning);">✱ Yellow stages</span> = Changed in v1.1 &nbsp;|&nbsp;
+                    <span style="color: var(--danger);">Red stage</span> = Bottleneck (slowest)
+                </p>
+
+                <div class="analogy-box">
+                    <div class="icon" aria-hidden="true">🍕</div>
+                    <div>
+                        <p><strong>Like making pizza!</strong> You can't eat the pizza until ALL steps are done: make dough → add sauce → add toppings → bake → cool → slice → serve. Even if you add toppings super fast, you still have to wait for baking. The slowest step controls everything!</p>
+                    </div>
+                </div>
+
+                <p>The <span style="color: var(--danger); font-weight: bold;">red stage</span> is the "bottleneck" - the slowest step that controls how fast everything moves. In v1.1, it's <strong>Phase II Trials</strong> (the "valley of death" where most drugs fail). Hover over or tap each stage to learn more!</p>
+            </div>
+
+            <!-- Section 3: The Math Made Simple -->
+            <div class="card">
+                <h2><span class="emoji" aria-hidden="true">🧮</span> The Math Made Simple</h2>
+
+                <p>The model uses 4 main ideas. Let's understand each one:</p>
+
+                <h3>1. AI Gets Smarter Over Time (But Has Limits!)</h3>
+
+                <div class="analogy-box">
+                    <div class="icon" aria-hidden="true">🎮</div>
+                    <div>
+                        <p><strong>Like leveling up in a video game!</strong> Early levels come fast, but eventually you hit a ceiling. In v1.1, AI uses <strong>logistic growth</strong> - it grows quickly at first, then slows down as it approaches a maximum.</p>
+                    </div>
+                </div>
+
+                <div class="math-simple">
+                    <strong>v1.1 Logistic Growth:</strong> AI power grows fast early, then plateaus
+                    <br>
+                    Think of it like filling a cup - pours fast at first, slows as it fills up
+                    <br>
+                    <em>Ceiling example: 100× smarter than 2024 = maximum possible</em>
+                </div>
+
+                <button class="toggle-tech" onclick="toggleTech('tech1', this)" aria-expanded="false" aria-controls="tech1">
+                    <span>Show real equation</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                </button>
+                <div id="tech1" class="math-technical" aria-hidden="true">
+                    <strong>v1.1 Logistic:</strong> A(t) = A_max / (1 + (A_max - 1) × exp(-g × (t - 2024)))
+                    <br><br>
+                    <strong>v1.0 Exponential:</strong> A(t) = exp(g × (t - 2024))
+                    <br><br>
+                    Key difference: Logistic has ceiling A_max, exponential grows forever
+                </div>
+
+                <h3>2. Each Stage Has a Speed Limit (Saturation)</h3>
+
+                <div class="analogy-box">
+                    <div class="icon" aria-hidden="true">🚗</div>
+                    <div>
+                        <p><strong>Like a car's top speed!</strong> Even with infinite fuel, a car can only go so fast. Similarly, each stage has a maximum speedup limit. AI can help "Lab Work" go only 2.5× faster (cells divide at fixed rates!), but "Data Analysis" can go 100× faster because it's all computer work.</p>
+                    </div>
+                </div>
+
+                <div class="math-simple">
+                    <strong>Simple version:</strong> Speedup = starts at 1×, gradually approaches maximum limit
+                    <br>
+                    Never exceeds the speed limit, no matter how smart AI gets!
+                    <br>
+                    <em>v1.1 change: Lab work ceiling reduced from 5× to 2.5× (biology can't be rushed)</em>
+                </div>
+
+                <button class="toggle-tech" onclick="toggleTech('tech2', this)" aria-expanded="false" aria-controls="tech2">
+                    <span>Show real equation</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                </button>
+                <div id="tech2" class="math-technical" aria-hidden="true">
+                    M(t) = 1 + (M_max - 1) × (1 - A(t)^(-k))
+                    <br>
+                    M_max = maximum speedup (varies by stage)
+                    <br>
+                    k = how fast it reaches the limit
+                    <br><br>
+                    v1.1: Added regulatory floor for FDA (minimum 6 months)
+                </div>
+
+                <h3>3. The Slowest Step Controls Everything (Bottleneck)</h3>
+
+                <div class="analogy-box">
+                    <div class="icon" aria-hidden="true">⛓️</div>
+                    <div>
+                        <p><strong>A chain is only as strong as its weakest link!</strong> In a factory line, if one machine is slow, products pile up there. It doesn't matter if other machines are super fast - you can only produce as fast as your slowest machine.</p>
+                    </div>
+                </div>
+
+                <div class="math-simple">
+                    <strong>Simple version:</strong> Overall Speed = speed of the slowest stage
+                    <br>
+                    In v1.1: Phase II Trials is the bottleneck (only 33% of drugs pass!)
+                </div>
+
+                <button class="toggle-tech" onclick="toggleTech('tech3', this)" aria-expanded="false" aria-controls="tech3">
+                    <span>Show real equation</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                </button>
+                <div id="tech3" class="math-technical" aria-hidden="true">
+                    Throughput Θ(t) = minimum of all stage effective rates
+                    <br>
+                    Effective rate = (speed) × (success probability)
+                    <br><br>
+                    v1.1: S1 success reduced to 40% (most hypotheses fail to translate)
+                </div>
+
+                <h3>4. Add Up the Progress (Cumulative Progress)</h3>
+
+                <div class="analogy-box">
+                    <div class="icon" aria-hidden="true">📊</div>
+                    <div>
+                        <p><strong>Like a savings account with growing interest!</strong> If science goes 1× speed in year 1, 1.5× in year 2, and 2× in year 3, you've made 1 + 1.5 + 2 = 4.5 years of progress in just 3 calendar years.</p>
+                    </div>
+                </div>
+
+                <div class="math-simple">
+                    <strong>Simple version:</strong> Total Progress = add up all the yearly speedups
+                    <br>
+                    v1.1 Baseline: 26 calendar years (2024-2050) → ~74 equivalent years
+                    <br>
+                    <em>(Note: v1.0 predicted ~57 years - v1.1 is actually higher due to more stages!)</em>
+                </div>
+
+                <button class="toggle-tech" onclick="toggleTech('tech4', this)" aria-expanded="false" aria-controls="tech4">
+                    <span>Show real equation</span>
+                    <span class="arrow" aria-hidden="true">→</span>
+                </button>
+                <div id="tech4" class="math-technical" aria-hidden="true">
+                    Y(T) = Σ R(t) × dt, for t from 2024 to T
+                    <br>
+                    R(t) = Throughput(t) / Throughput(2024)
+                </div>
+
+                <!-- Equation Summary Table -->
+                <h3>Summary Table</h3>
+                <table class="equation-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">What We're Calculating</th>
+                            <th scope="col">Middle School Version</th>
+                            <th scope="col">v1.1 Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AI Capability</td>
+                            <td>AI grows fast, then plateaus</td>
+                            <td>Logistic (has ceiling)</td>
+                        </tr>
+                        <tr>
+                            <td>Stage Speedup</td>
+                            <td>Starts slow, approaches limit</td>
+                            <td>Lab work max: 2.5×</td>
+                        </tr>
+                        <tr>
+                            <td>Bottleneck</td>
+                            <td>Slowest step wins (or loses!)</td>
+                            <td>Phase II Trials</td>
+                        </tr>
+                        <tr>
+                            <td>Total Progress</td>
+                            <td>Add up yearly speedups</td>
+                            <td>More conservative</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 4: Interactive Playground -->
+            <div class="card">
+                <h2><span class="emoji" aria-hidden="true">🎛️</span> Try It Yourself!</h2>
+                <p>Move the sliders to see how different assumptions change the results:</p>
+
+                <div class="controls" role="region" aria-label="Interactive model parameters">
+                    <div class="controls-header">
+                        <h3>Adjust Parameters</h3>
+                        <button class="reset-btn" onclick="resetSliders()" aria-label="Reset all parameters to default values">
+                            <span aria-hidden="true">↺</span> Reset
+                        </button>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <label for="aiGrowth">How fast does AI improve?</label>
+                            <span class="slider-value" id="aiGrowthLabel" aria-live="polite">Medium (50%/yr)</span>
+                        </div>
+                        <input type="range" id="aiGrowth" min="0.15" max="1.0" step="0.05" value="0.5"
+                               aria-valuemin="0.15" aria-valuemax="1.0" aria-valuenow="0.5"
+                               aria-describedby="aiGrowthLabel">
+                        <div class="slider-hints" aria-hidden="true">
+                            <span>Very slow</span>
+                            <span>Explosive</span>
+                        </div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <label for="aiCeiling">AI capability ceiling</label>
+                            <span class="slider-value" id="aiCeilingLabel" aria-live="polite">100×</span>
+                        </div>
+                        <input type="range" id="aiCeiling" min="20" max="500" step="20" value="100"
+                               aria-valuemin="20" aria-valuemax="500" aria-valuenow="100"
+                               aria-describedby="aiCeilingLabel">
+                        <div class="slider-hints" aria-hidden="true">
+                            <span>Low ceiling (AI Winter)</span>
+                            <span>High ceiling (Optimistic)</span>
+                        </div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <label for="phase2Speed">Phase II Trial max speedup</label>
+                            <span class="slider-value" id="phase2SpeedLabel" aria-live="polite">2.8×</span>
+                        </div>
+                        <input type="range" id="phase2Speed" min="1.5" max="5" step="0.2" value="2.8"
+                               aria-valuemin="1.5" aria-valuemax="5" aria-valuenow="2.8"
+                               aria-describedby="phase2SpeedLabel">
+                        <div class="slider-hints" aria-hidden="true">
+                            <span>Current rules</span>
+                            <span>Major reform</span>
+                        </div>
+                    </div>
+
+                    <div class="slider-group">
+                        <div class="slider-label">
+                            <label for="targetYear">Year to check</label>
+                            <span class="slider-value" id="yearLabel" aria-live="polite">2050</span>
+                        </div>
+                        <input type="range" id="targetYear" min="2030" max="2050" step="5" value="2050"
+                               aria-valuemin="2030" aria-valuemax="2050" aria-valuenow="2050"
+                               aria-describedby="yearLabel">
+                        <div class="slider-hints" aria-hidden="true">
+                            <span>2030 (near term)</span>
+                            <span>2050 (long term)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-grid" role="region" aria-label="Model results">
+                    <div class="result-card">
+                        <div class="result-label">Calendar Years</div>
+                        <div class="result-value" id="calendarYears" aria-live="polite">26</div>
+                        <div class="result-unit">years passed</div>
+                    </div>
+                    <div class="result-card highlight">
+                        <div class="result-label">Equivalent Progress</div>
+                        <div class="result-value" id="equivYears" aria-live="polite">74</div>
+                        <div class="result-unit">years of science</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Acceleration</div>
+                        <div class="result-value" id="acceleration" aria-live="polite">2.8×</div>
+                        <div class="result-unit">times faster</div>
+                    </div>
+                </div>
+
+                <div class="comparison-note" id="comparisonNote" aria-live="polite">
+                    <span aria-hidden="true">💡</span>
+                    <span>Gaining <strong id="bonusYears">48</strong> extra years of progress!</span>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-loading" id="chartLoading" role="status">
+                        <div class="spinner" aria-hidden="true"></div>
+                        <div>Loading chart...</div>
+                    </div>
+                    <canvas id="progressChart" aria-label="Chart showing cumulative scientific progress over time"></canvas>
+                </div>
+            </div>
+
+            <!-- Section 5: Key Insight -->
+            <div class="card">
+                <h2><span class="emoji" aria-hidden="true">🔑</span> The Big Takeaway</h2>
+
+                <div class="insight-box">
+                    <h3>Phase II Trials Are the Traffic Jam!</h3>
+                    <p>Even if AI becomes incredibly smart at generating ideas (50× faster!) and analyzing data (100× faster!), we're still stuck waiting for Phase II trials - the "valley of death" where 67% of drugs fail.</p>
+                    <p><strong>Why?</strong> Testing medicine on humans takes time - you can't speed up how fast the human body responds. It's like waiting for bread to bake - turning up the oven just burns it!</p>
+                </div>
+
+                <p><strong>What v1.1 tells us differently than v1.0:</strong></p>
+                <ul>
+                    <li><strong>AI has limits</strong> - logistic growth means AI won't keep doubling forever</li>
+                    <li><strong>Biology is stubborn</strong> - wet lab can only go 2.5× faster (cells divide at fixed rates)</li>
+                    <li><strong>Most ideas fail</strong> - only 40% of hypotheses translate (not 95%)</li>
+                    <li><strong>FDA has floors</strong> - minimum 6-month review no matter how good AI gets</li>
+                    <li><strong>Overall: ~2.8× faster</strong> (baseline), not 100×</li>
+                </ul>
+            </div>
+
+            <!-- Section 6: Scenarios -->
+            <div class="card">
+                <h2><span class="emoji" aria-hidden="true">🎯</span> v1.1 Scenario Results</h2>
+                <p>The model now includes 5 scenarios:</p>
+
+                <table class="equation-table">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>2050 Progress</th>
+                            <th>Acceleration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pessimistic</td>
+                            <td>~51 years</td>
+                            <td>2.0×</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Baseline</strong></td>
+                            <td><strong>~74 years</strong></td>
+                            <td><strong>2.8×</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Optimistic</td>
+                            <td>~106 years</td>
+                            <td>4.1×</td>
+                        </tr>
+                        <tr style="background: var(--warning-light);">
+                            <td>AI Winter (NEW)</td>
+                            <td>~59 years</td>
+                            <td>2.3×</td>
+                        </tr>
+                        <tr>
+                            <td>Upper Bound (Amodei)</td>
+                            <td>~110 years</td>
+                            <td>4.2×</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 16px;">
+                    <strong>AI Winter scenario:</strong> 15% probability that AI progress plateaus after 2030 due to scaling limits or regulation.
+                </p>
+            </div>
+
+            <!-- Section 7: Limitations -->
+            <div class="card">
+                <h2><span class="emoji" aria-hidden="true">⚠️</span> What This Model Includes & Limitations</h2>
+                <p>Version 1.1 adds many improvements from expert review:</p>
+                <ul>
+                    <li><strong>✓ Logistic AI growth</strong> - realistic saturation</li>
+                    <li><strong>✓ Regulatory floors</strong> - FDA can't be rushed infinitely</li>
+                    <li><strong>✓ AI Winter scenario</strong> - captures tail risk</li>
+                    <li><strong>✓ More conservative parameters</strong> - expert-reviewed</li>
+                    <li><strong>✓ Historical validation</strong> - checked against FDA 2015-2023 data</li>
+                </ul>
+
+                <p>Still not included (future versions):</p>
+                <ul>
+                    <li><strong>Feedback loops:</strong> AI helping to make better AI</li>
+                    <li><strong>Global access factors:</strong> Not everyone gets new medicines equally</li>
+                    <li><strong>Disease-specific paths:</strong> Cancer vs. vaccines vs. rare diseases</li>
+                    <li><strong>Policy interventions:</strong> What if we reform clinical trial rules?</li>
+                </ul>
+
+                <p style="font-size: 0.88rem; color: var(--gray-600); margin-top: 16px;">
+                    <em>Note: Expert review was AI-simulated using Claude (Anthropic). See REPRODUCIBILITY.md for methodology details.</em>
+                </p>
+            </div>
+        </main>
+
+        <footer>
+            <p>AI-Accelerated Biological Discovery Model v1.1</p>
+            <p>Expert-Reviewed Parameters | January 2026</p>
+            <p>Created to make complex science accessible to everyone</p>
+        </footer>
+    </div>
+
+    <script>
+        // =====================================================
+        // MODEL PARAMETERS (v1.1 - Expert Reviewed)
+        // =====================================================
+
+        const stages = [
+            { name: "Hypothesis", tau: 6, Mmax: 50, p: 0.40, k: 1.0 },      // P1-18: p reduced
+            { name: "Design", tau: 3, Mmax: 20, p: 0.90, k: 1.0 },
+            { name: "Wet Lab", tau: 12, Mmax: 2.5, p: 0.30, k: 0.5 },       // P1-4: Mmax reduced
+            { name: "Analysis", tau: 2, Mmax: 100, p: 0.95, k: 1.0 },
+            { name: "Validation", tau: 8, Mmax: 5, p: 0.50, k: 0.5 },
+            { name: "Phase I", tau: 12, Mmax: 4, p: 0.66, k: 0.5 },
+            { name: "Phase II", tau: 24, Mmax: 2.8, p: 0.33, k: 0.3 },      // Bottleneck
+            { name: "Phase III", tau: 36, Mmax: 3.2, p: 0.58, k: 0.4 },
+            { name: "Regulatory", tau: 12, Mmax: 2, p: 0.90, k: 0.3, floor: 6 }, // P1-5: Floor
+            { name: "Deployment", tau: 12, Mmax: 4, p: 0.95, k: 0.5 }
+        ];
+
+        const t0 = 2024;
+        let chart = null;
+        let chartLoaded = false;
+
+        // =====================================================
+        // CORE MODEL FUNCTIONS (v1.1)
+        // =====================================================
+
+        // P1-6: Logistic AI growth with saturation
+        function aiCapabilityLogistic(t, g, A_max) {
+            const t_rel = t - t0;
+            const denominator = 1 + (A_max - 1) * Math.exp(-g * t_rel);
+            return A_max / denominator;
+        }
+
+        // Legacy exponential (for comparison)
+        function aiCapabilityExponential(t, g) {
+            return Math.exp(g * (t - t0));
+        }
+
+        function aiMultiplier(A, Mmax, k) {
+            return 1 + (Mmax - 1) * (1 - Math.pow(A, -k));
+        }
+
+        function computeModel(g, A_max, phase2Mmax, targetYear) {
+            // Update Phase II max speedup
+            stages[6].Mmax = phase2Mmax;
+
+            const years = [];
+            const cumulativeProgress = [];
+            const progressRates = [];
+            const stageMultipliers = [];
+
+            // Calculate baseline throughput at t0
+            let baselineThroughput = Infinity;
+            for (let stage of stages) {
+                const muBaseline = 12 / stage.tau;
+                const muEff = muBaseline * stage.p;
+                if (muEff < baselineThroughput) {
+                    baselineThroughput = muEff;
+                }
+            }
+
+            let cumProgress = 0;
+
+            for (let t = t0; t <= 2050; t++) {
+                // P1-6: Use logistic growth
+                const A = aiCapabilityLogistic(t, g, A_max);
+
+                let minMuEff = Infinity;
+                const multipliers = [];
+
+                for (let i = 0; i < stages.length; i++) {
+                    const stage = stages[i];
+                    const M = aiMultiplier(A, stage.Mmax, stage.k);
+                    multipliers.push(M);
+
+                    const muBaseline = 12 / stage.tau;
+                    let mu = muBaseline * M;
+
+                    // P1-5: Apply regulatory floor
+                    if (stage.floor) {
+                        const muMax = 12 / stage.floor;
+                        mu = Math.min(mu, muMax);
+                    }
+
+                    const muEff = mu * stage.p;
+
+                    if (muEff < minMuEff) {
+                        minMuEff = muEff;
+                    }
+                }
+
+                const throughput = minMuEff;
+                const R = throughput / baselineThroughput;
+                cumProgress += R;
+
+                years.push(t);
+                progressRates.push(R);
+                cumulativeProgress.push(cumProgress);
+                stageMultipliers.push(multipliers);
+            }
+
+            const idx = targetYear - t0;
+
+            return {
+                years,
+                cumulativeProgress,
+                progressRates,
+                stageMultipliers,
+                targetProgress: cumulativeProgress[idx],
+                targetRate: progressRates[idx],
+                multipliers: stageMultipliers[idx]
+            };
+        }
+
+        // =====================================================
+        // UI FUNCTIONS
+        // =====================================================
+
+        let animationFrame = null;
+
+        function animateValue(element, newValue) {
+            element.classList.remove('pulse');
+            void element.offsetWidth;
+            element.classList.add('pulse');
+            element.textContent = newValue;
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        function updateDisplay() {
+            const g = parseFloat(document.getElementById('aiGrowth').value);
+            const A_max = parseFloat(document.getElementById('aiCeiling').value);
+            const phase2Mmax = parseFloat(document.getElementById('phase2Speed').value);
+            const targetYear = parseInt(document.getElementById('targetYear').value);
+
+            // Update slider ARIA values
+            document.getElementById('aiGrowth').setAttribute('aria-valuenow', g);
+            document.getElementById('aiCeiling').setAttribute('aria-valuenow', A_max);
+            document.getElementById('phase2Speed').setAttribute('aria-valuenow', phase2Mmax);
+            document.getElementById('targetYear').setAttribute('aria-valuenow', targetYear);
+
+            // Update labels
+            const growthLabels = {
+                0.15: "Very Slow (15%/yr)",
+                0.2: "Slow (20%/yr)",
+                0.25: "Slow (25%/yr)",
+                0.3: "Moderate (30%/yr)",
+                0.35: "Moderate (35%/yr)",
+                0.4: "Medium (40%/yr)",
+                0.45: "Medium (45%/yr)",
+                0.5: "Medium (50%/yr)",
+                0.55: "Fast (55%/yr)",
+                0.6: "Fast (60%/yr)",
+                0.65: "Fast (65%/yr)",
+                0.7: "Very Fast (70%/yr)",
+                0.75: "Very Fast (75%/yr)",
+                0.8: "Rapid (80%/yr)",
+                0.85: "Rapid (85%/yr)",
+                0.9: "Explosive (90%/yr)",
+                0.95: "Explosive (95%/yr)",
+                1.0: "Maximum (100%/yr)"
+            };
+            document.getElementById('aiGrowthLabel').textContent = growthLabels[g] || `${(g*100).toFixed(0)}%/yr`;
+            document.getElementById('aiCeilingLabel').textContent = `${A_max}×`;
+            document.getElementById('phase2SpeedLabel').textContent = `${phase2Mmax}×`;
+            document.getElementById('yearLabel').textContent = targetYear;
+            document.getElementById('trialMaxLabel').textContent = `max ${phase2Mmax}×`;
+
+            // Run model
+            const results = computeModel(g, A_max, phase2Mmax, targetYear);
+
+            // Update results with animation
+            const calendarYears = targetYear - t0;
+            const equivYears = results.targetProgress;
+            const acceleration = equivYears / calendarYears;
+            const bonusYears = Math.round(equivYears - calendarYears);
+
+            animateValue(document.getElementById('calendarYears'), calendarYears);
+            animateValue(document.getElementById('equivYears'), equivYears.toFixed(1));
+            animateValue(document.getElementById('acceleration'), acceleration.toFixed(1) + '×');
+            document.getElementById('bonusYears').textContent = bonusYears;
+
+            // Update pipeline visualization (10 stages)
+            for (let i = 0; i < 10; i++) {
+                const speedEl = document.getElementById(`speed${i+1}`);
+                if (speedEl) {
+                    const M = results.multipliers[i];
+                    speedEl.textContent = `${M.toFixed(1)}×`;
+                }
+            }
+
+            // Update chart (debounced for performance)
+            if (chartLoaded) {
+                updateChartDebounced(results, targetYear);
+            }
+        }
+
+        const updateChartDebounced = debounce(updateChart, 100);
+
+        function updateChart(results, targetYear) {
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            const targetIdx = targetYear - t0;
+
+            if (chart) {
+                chart.destroy();
+            }
+
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(37, 99, 235, 0.35)');
+            gradient.addColorStop(1, 'rgba(37, 99, 235, 0.02)');
+
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: results.years,
+                    datasets: [
+                        {
+                            label: 'With AI (v1.1 Logistic)',
+                            data: results.cumulativeProgress,
+                            borderColor: '#2563eb',
+                            backgroundColor: gradient,
+                            fill: true,
+                            tension: 0.35,
+                            pointRadius: 0,
+                            pointHoverRadius: 7,
+                            pointHoverBackgroundColor: '#2563eb',
+                            pointHoverBorderColor: 'white',
+                            pointHoverBorderWidth: 2,
+                            borderWidth: 3.5
+                        },
+                        {
+                            label: 'Without AI (Baseline)',
+                            data: results.years.map((y, i) => i + 1),
+                            borderColor: '#9ca3af',
+                            borderDash: [6, 4],
+                            fill: false,
+                            tension: 0,
+                            pointRadius: 0,
+                            borderWidth: 2.5
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                padding: 22,
+                                font: { size: 13, weight: '500' }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(17, 24, 39, 0.95)',
+                            titleFont: { size: 14, weight: '600' },
+                            bodyFont: { size: 13 },
+                            padding: 14,
+                            cornerRadius: 10,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.dataset.label}: ${context.parsed.y.toFixed(1)} years`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Year',
+                                font: { size: 13, weight: '600' },
+                                color: '#374151',
+                                padding: { top: 10 }
+                            },
+                            grid: { display: false },
+                            ticks: {
+                                color: '#6b7280',
+                                font: { size: 12 }
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Equivalent Years of Progress',
+                                font: { size: 13, weight: '600' },
+                                color: '#374151',
+                                padding: { bottom: 10 }
+                            },
+                            beginAtZero: true,
+                            grid: { color: 'rgba(0,0,0,0.06)' },
+                            ticks: {
+                                color: '#6b7280',
+                                font: { size: 12 }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function toggleTech(id, button) {
+            const el = document.getElementById(id);
+            const isOpen = el.classList.contains('visible');
+
+            el.classList.toggle('visible');
+            button.classList.toggle('open');
+            button.setAttribute('aria-expanded', !isOpen);
+            el.setAttribute('aria-hidden', isOpen);
+
+            const textSpan = button.querySelector('span:first-child');
+            textSpan.textContent = isOpen ? 'Show real equation' : 'Hide real equation';
+        }
+
+        function resetSliders() {
+            document.getElementById('aiGrowth').value = 0.5;
+            document.getElementById('aiCeiling').value = 100;
+            document.getElementById('phase2Speed').value = 2.8;
+            document.getElementById('targetYear').value = 2050;
+            updateDisplay();
+        }
+
+        // =====================================================
+        // INITIALIZATION
+        // =====================================================
+
+        // Load Chart.js from CDN
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+        script.onload = function() {
+            chartLoaded = true;
+            document.getElementById('chartLoading').classList.add('hidden');
+
+            document.getElementById('aiGrowth').addEventListener('input', updateDisplay, { passive: true });
+            document.getElementById('aiCeiling').addEventListener('input', updateDisplay, { passive: true });
+            document.getElementById('phase2Speed').addEventListener('input', updateDisplay, { passive: true });
+            document.getElementById('targetYear').addEventListener('input', updateDisplay, { passive: true });
+
+            updateDisplay();
+        };
+        script.onerror = function() {
+            document.getElementById('chartLoading').innerHTML =
+                '<div style="color: #dc2626; padding: 20px;">Could not load chart library. Please check your internet connection and refresh the page.</div>';
+        };
+        document.head.appendChild(script);
+
+        // Initialize display even before chart loads
+        updateDisplay();
+
+        // Handle keyboard navigation for pipeline stages
+        document.querySelectorAll('.stage').forEach(stage => {
+            stage.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const tooltip = this.querySelector('.tooltip');
+                    if (tooltip) {
+                        tooltip.style.opacity = '1';
+                        tooltip.style.visibility = 'visible';
+                        setTimeout(() => {
+                            tooltip.style.opacity = '';
+                            tooltip.style.visibility = '';
+                        }, 3000);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

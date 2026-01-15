@@ -1,0 +1,14 @@
+key,name,category,cost_usd_millions,implementation_lag_years,evidence_quality
+ai_research_doubling,Double AI Research Funding,ai_investment,5000.0,2.0,3
+ai_compute_infrastructure,National AI Compute Infrastructure,ai_investment,2000.0,3.0,2
+adaptive_trials_expansion,Expand Adaptive Trial Designs,regulatory_reform,200.0,1.5,4
+accelerated_approval_expansion,Expand Accelerated Approval Pathways,regulatory_reform,100.0,1.0,4
+real_world_evidence,Real-World Evidence Integration,regulatory_reform,200.0,4.0,3
+federated_health_data,Federated Health Data Network,data_infrastructure,1500.0,3.0,2
+biobank_expansion,National Biobank Expansion,data_infrastructure,800.0,2.0,4
+ai_bio_training,AI-Biology Cross-Training Program,talent_development,500.0,4.0,3
+industry_academia_partnerships,Industry-Academia AI Partnerships,talent_development,300.0,2.0,3
+target_validation_initiative,Target Validation Initiative,research_funding,1000.0,3.0,3
+translational_science_centers,Translational Science Centers,research_funding,600.0,2.0,3
+harmonized_regulations,International Regulatory Harmonization,international_coordination,50.0,3.0,3
+pandemic_preparedness,100 Days Mission Infrastructure,international_coordination,3000.0,2.0,4

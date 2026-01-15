@@ -1,0 +1,6 @@
+disease,disease_name,annual_cases,incidence_growth_rate,treatment_uptake_rate,cure_probability,horizon_years,expected_beneficiaries,unmet_need_score
+breast_cancer,Breast Cancer,2300000,0.005,0.85,1.0,26,38025952,5.0
+alzheimers,Alzheimer's Disease,32000000,0.02,0.6,0.643,26,284894706,10.0
+pandemic_novel,Novel Pandemic Pathogen,100000000,0.0,0.7,1.0,26,1288920338,10.0
+pancreatic_cancer,Pancreatic Cancer,500000,0.01,0.75,0.034,26,262253,9.5
+rare_genetic,Rare Genetic Disease (Generic),30000,0.0,0.5,1.0,26,276197,9.0

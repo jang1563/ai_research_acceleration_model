@@ -1,0 +1,71 @@
+disease,year,cure_probability
+Breast Cancer,2024,0.0
+Breast Cancer,2026,0.0
+Breast Cancer,2028,0.0
+Breast Cancer,2030,0.512
+Breast Cancer,2032,0.949
+Breast Cancer,2034,0.998
+Breast Cancer,2036,1.0
+Breast Cancer,2038,1.0
+Breast Cancer,2040,1.0
+Breast Cancer,2042,1.0
+Breast Cancer,2044,1.0
+Breast Cancer,2046,1.0
+Breast Cancer,2048,1.0
+Breast Cancer,2050,1.0
+Alzheimer's Disease,2024,0.0
+Alzheimer's Disease,2026,0.0
+Alzheimer's Disease,2028,0.0
+Alzheimer's Disease,2030,0.0
+Alzheimer's Disease,2032,0.0
+Alzheimer's Disease,2034,0.0
+Alzheimer's Disease,2036,0.0
+Alzheimer's Disease,2038,0.003
+Alzheimer's Disease,2040,0.012
+Alzheimer's Disease,2042,0.041
+Alzheimer's Disease,2044,0.098
+Alzheimer's Disease,2046,0.236
+Alzheimer's Disease,2048,0.426
+Alzheimer's Disease,2050,0.643
+Novel Pandemic Pathogen,2024,0.0
+Novel Pandemic Pathogen,2026,0.0
+Novel Pandemic Pathogen,2028,0.766
+Novel Pandemic Pathogen,2030,0.998
+Novel Pandemic Pathogen,2032,1.0
+Novel Pandemic Pathogen,2034,1.0
+Novel Pandemic Pathogen,2036,1.0
+Novel Pandemic Pathogen,2038,1.0
+Novel Pandemic Pathogen,2040,1.0
+Novel Pandemic Pathogen,2042,1.0
+Novel Pandemic Pathogen,2044,1.0
+Novel Pandemic Pathogen,2046,1.0
+Novel Pandemic Pathogen,2048,1.0
+Novel Pandemic Pathogen,2050,1.0
+Pancreatic Cancer,2024,0.0
+Pancreatic Cancer,2026,0.0
+Pancreatic Cancer,2028,0.0
+Pancreatic Cancer,2030,0.0
+Pancreatic Cancer,2032,0.0
+Pancreatic Cancer,2034,0.0
+Pancreatic Cancer,2036,0.0
+Pancreatic Cancer,2038,0.0
+Pancreatic Cancer,2040,0.0
+Pancreatic Cancer,2042,0.0
+Pancreatic Cancer,2044,0.0
+Pancreatic Cancer,2046,0.003
+Pancreatic Cancer,2048,0.01
+Pancreatic Cancer,2050,0.034
+Rare Genetic Disease (Generic),2024,0.0
+Rare Genetic Disease (Generic),2026,0.736
+Rare Genetic Disease (Generic),2028,0.998
+Rare Genetic Disease (Generic),2030,1.0
+Rare Genetic Disease (Generic),2032,1.0
+Rare Genetic Disease (Generic),2034,1.0
+Rare Genetic Disease (Generic),2036,1.0
+Rare Genetic Disease (Generic),2038,1.0
+Rare Genetic Disease (Generic),2040,1.0
+Rare Genetic Disease (Generic),2042,1.0
+Rare Genetic Disease (Generic),2044,1.0
+Rare Genetic Disease (Generic),2046,1.0
+Rare Genetic Disease (Generic),2048,1.0
+Rare Genetic Disease (Generic),2050,1.0

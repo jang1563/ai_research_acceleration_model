@@ -1,0 +1,103 @@
+AI-Accelerated Biological Discovery Model - Summary
+============================================================
+Version: 0.2
+Run Date: 2026-01-13 22:31:35
+
+Model Configuration
+------------------------------------------------------------
+Time horizon: 2024 - 2050
+Time step: 1.0 year(s)
+
+Pipeline Stages
+------------------------------------------------------------
+S1: Hypothesis Generation
+    Baseline duration: 6.0 months
+    Max AI multiplier: 50.0x
+    Success probability: 95%
+    Saturation rate: 1.0
+
+S2: Experiment Design
+    Baseline duration: 3.0 months
+    Max AI multiplier: 20.0x
+    Success probability: 90%
+    Saturation rate: 1.0
+
+S3: Wet Lab Execution
+    Baseline duration: 12.0 months
+    Max AI multiplier: 5.0x
+    Success probability: 30%
+    Saturation rate: 0.5
+
+S4: Data Analysis
+    Baseline duration: 2.0 months
+    Max AI multiplier: 100.0x
+    Success probability: 95%
+    Saturation rate: 1.0
+
+S5: Validation & Replication
+    Baseline duration: 8.0 months
+    Max AI multiplier: 5.0x
+    Success probability: 50%
+    Saturation rate: 0.5
+
+S6: Phase I Trials
+    Baseline duration: 12.0 months
+    Max AI multiplier: 4.0x
+    Success probability: 66%
+    Saturation rate: 0.5
+
+S7: Phase II Trials
+    Baseline duration: 24.0 months
+    Max AI multiplier: 2.8x
+    Success probability: 33%
+    Saturation rate: 0.3
+
+S8: Phase III Trials
+    Baseline duration: 36.0 months
+    Max AI multiplier: 3.2x
+    Success probability: 58%
+    Saturation rate: 0.4
+
+S9: Regulatory Approval
+    Baseline duration: 12.0 months
+    Max AI multiplier: 2.0x
+    Success probability: 90%
+    Saturation rate: 0.3
+
+S10: Deployment
+    Baseline duration: 12.0 months
+    Max AI multiplier: 4.0x
+    Success probability: 95%
+    Saturation rate: 0.5
+
+Scenarios
+------------------------------------------------------------
+Pessimistic: g = 0.3
+    AI progress slows, institutional resistance, limited adoption
+
+Baseline: g = 0.5
+    Current trends continue, moderate adoption
+
+Optimistic: g = 0.7
+    AI breakthroughs, regulatory reform, rapid adoption
+
+Summary Statistics
+------------------------------------------------------------
+   scenario  g_ai  progress_by_2030  progress_by_2040  progress_by_2050  max_progress_rate  year_10_equiv_years year_50_equiv_years year_100_equiv_years  final_bottleneck
+Pessimistic   0.3          8.029530         23.219623         41.837267           1.985839               2032.0               >2050                >2050                 7
+   Baseline   0.5         12.070731         44.932327         85.595049           4.187519               2030.0              2042.0                >2050                 7
+ Optimistic   0.7         20.023363         70.206312        123.179411           5.302858               2028.0              2037.0               2046.0                 8
+
+Bottleneck Transitions (Baseline)
+------------------------------------------------------------
+No bottleneck transitions detected
+
+
+Key Findings
+------------------------------------------------------------
+By 2030 (Baseline): 12.1 equivalent years
+By 2040 (Baseline): 44.9 equivalent years
+By 2050 (Baseline): 85.6 equivalent years
+
+Maximum progress rate achieved: 4.2x
+Final bottleneck stage: S7

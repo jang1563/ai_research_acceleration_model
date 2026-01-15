@@ -1,0 +1,91 @@
+AI-Accelerated Biological Discovery Model - Summary
+============================================================
+Version: 0.1
+Run Date: 2026-01-13 12:23:46
+
+Model Configuration
+------------------------------------------------------------
+Time horizon: 2024 - 2050
+Time step: 1.0 year(s)
+
+Pipeline Stages
+------------------------------------------------------------
+S1: Hypothesis Generation
+    Baseline duration: 6.0 months
+    Max AI multiplier: 50.0x
+    Success probability: 95%
+    Saturation rate: 1.0
+
+S2: Experiment Design
+    Baseline duration: 3.0 months
+    Max AI multiplier: 20.0x
+    Success probability: 90%
+    Saturation rate: 1.0
+
+S3: Wet Lab Execution
+    Baseline duration: 12.0 months
+    Max AI multiplier: 5.0x
+    Success probability: 30%
+    Saturation rate: 0.5
+
+S4: Data Analysis
+    Baseline duration: 2.0 months
+    Max AI multiplier: 100.0x
+    Success probability: 95%
+    Saturation rate: 1.0
+
+S5: Validation & Replication
+    Baseline duration: 8.0 months
+    Max AI multiplier: 5.0x
+    Success probability: 50%
+    Saturation rate: 0.5
+
+S6: Clinical Trials
+    Baseline duration: 72.0 months
+    Max AI multiplier: 3.0x
+    Success probability: 15%
+    Saturation rate: 0.4
+
+S7: Regulatory Approval
+    Baseline duration: 12.0 months
+    Max AI multiplier: 2.0x
+    Success probability: 90%
+    Saturation rate: 0.3
+
+S8: Deployment
+    Baseline duration: 12.0 months
+    Max AI multiplier: 4.0x
+    Success probability: 95%
+    Saturation rate: 0.5
+
+Scenarios
+------------------------------------------------------------
+Pessimistic: g = 0.3
+    AI progress slows, institutional resistance, limited adoption
+
+Baseline: g = 0.5
+    Current trends continue, moderate adoption
+
+Optimistic: g = 0.7
+    AI breakthroughs, regulatory reform, rapid adoption
+
+Summary Statistics
+------------------------------------------------------------
+   scenario  g_ai  progress_by_2030  progress_by_2040  progress_by_2050  max_progress_rate  year_10_equiv_years  year_50_equiv_years year_100_equiv_years  final_bottleneck
+Pessimistic   0.3          9.961642         30.959834         54.754513           2.433764               2031.0               2049.0                >2050                 6
+   Baseline   0.5         12.687470         40.334907         70.016522           2.988967               2029.0               2044.0                >2050                 6
+ Optimistic   0.7         17.446138         55.821027         95.722204           3.997932               2028.0               2039.0                >2050                 6
+
+Bottleneck Transitions (Baseline)
+------------------------------------------------------------
+No bottleneck transitions detected
+
+
+Key Findings
+------------------------------------------------------------
+By 2030 (Baseline): 12.7 equivalent years
+By 2040 (Baseline): 40.3 equivalent years
+By 2050 (Baseline): 70.0 equivalent years
+
+Maximum progress rate achieved: 3.0x
+Final bottleneck stage: S6
