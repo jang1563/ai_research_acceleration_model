@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Bio Acceleration | Research & Insights</title>
+    <meta name="description" content="Exploring how AI accelerates biology research. The AI Research Acceleration Model quantifies AI's true impact on scientific discovery.">
+    <meta name="keywords" content="AI acceleration, biology, drug discovery, research acceleration, AlphaFold, scientific computing">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI Bio Acceleration | Research & Insights">
+    <meta property="og:description" content="Exploring how AI accelerates biology research. Quantifying AI's true impact on scientific discovery.">
+    <meta property="og:image" content="figures/fig8_summary.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#0a0a12">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           AI BIO ACCELERATION THEME v2.0
+           ============================================ */
+
+        :root {
+            /* Core Colors - "Velocity" palette */
+            --color-bg-primary: #0a0a12;
+            --color-bg-secondary: #12121c;
+            --color-bg-card: #1a1a28;
+            --color-bg-hover: #222235;
+
+            /* Text */
+            --color-text-primary: #f0f0f8;
+            --color-text-secondary: #b8b8cc;
+            --color-text-muted: #8888a0;
+
+            /* Accent - Velocity Blue (AI/Speed) */
+            --color-velocity: #0967d2;
+            --color-velocity-light: #2186eb;
+            --color-velocity-glow: rgba(9, 103, 210, 0.4);
+
+            /* Accent - Bio Green (Biology/Growth) */
+            --color-bio: #0ca750;
+            --color-bio-light: #1db954;
+            --color-bio-glow: rgba(12, 167, 80, 0.4);
+
+            /* Accent - Acceleration gradient */
+            --gradient-acceleration: linear-gradient(135deg, #0552b5 0%, #0967d2 30%, #0ca750 70%, #1db954 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(9, 103, 210, 0.15) 0%, rgba(12, 167, 80, 0.15) 100%);
+
+            /* Borders */
+            --color-border: #2a2a40;
+            --color-border-active: rgba(9, 103, 210, 0.5);
+
+            /* Typography */
+            --font-display: 'Space Grotesk', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 40px;
+            --space-2xl: 64px;
+
+            /* Radius */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.25s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .site-header {
+            padding: var(--space-lg) var(--space-xl);
+            border-bottom: 1px solid var(--color-border);
+            background: var(--color-bg-secondary);
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-acceleration);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-velocity-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: var(--space-2xl) var(--space-xl);
+            background: var(--gradient-hero);
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+            line-height: 1.2;
+        }
+
+        .hero .highlight {
+            background: var(--gradient-acceleration);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-xl);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-primary);
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            background: var(--color-bg-hover);
+            border-color: var(--color-border-active);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(9, 103, 210, 0.15);
+        }
+
+        .card-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .card-label.manuscript {
+            color: var(--color-velocity-light);
+        }
+
+        .card-label.blog {
+            color: var(--color-bio-light);
+        }
+
+        .card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            line-height: 1.3;
+        }
+
+        .card p {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-border);
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Featured Card */
+        .featured-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(9, 103, 210, 0.1) 100%);
+            border: 1px solid var(--color-velocity);
+        }
+
+        .featured-card:hover {
+            border-color: var(--color-velocity-light);
+        }
+
+        /* Key Stats */
+        .stats-row {
+            display: flex;
+            gap: var(--space-xl);
+            margin-top: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-acceleration);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-top: var(--space-xs);
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--space-xl);
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--color-velocity-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .stats-row {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="index.html" class="logo">AI Bio Acceleration</a>
+            <nav class="nav-links">
+                <a href="manuscript.html">Full Paper</a>
+                <a href="https://github.com/jang1563/ai_research_acceleration_model" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Quantifying AI's <span class="highlight">True Impact</span> on Biology</h1>
+            <p>The AI Research Acceleration Model provides rigorous forecasts of how AI transforms biological research across five domains.</p>
+
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-value">2.8×</div>
+                    <div class="stat-label">System Acceleration</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Research Domains</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">Validation Cases</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <h2 class="section-title">Publications & Insights</h2>
+
+        <div class="card-grid">
+            <!-- Featured: Full Manuscript -->
+            <a href="manuscript.html" class="card featured-card">
+                <span class="card-label manuscript">Full Manuscript</span>
+                <h3>AI-Driven Acceleration of Biological Research: A Quantitative Framework</h3>
+                <p>The complete scientific paper presenting the AI Research Acceleration Model with methodology, validation, and forecasts through 2035.</p>
+                <div class="card-meta">
+                    JangKeun Kim et al. • Complete analysis with 8 figures
+                </div>
+            </a>
+
+            <!-- Blog Post 1 -->
+            <a href="post1_pipeline_problem.html" class="card">
+                <span class="card-label blog">Blog Post</span>
+                <h3>The 2.8× Ceiling: What Really Limits AI's Impact on Biology</h3>
+                <p>AI predicts protein structures 24× faster—but drug development only speeds up 1.7×. Discover the "pipeline problem" that limits end-to-end acceleration.</p>
+                <div class="card-meta">
+                    5 min read • Understanding bottlenecks
+                </div>
+            </a>
+
+            <!-- Blog Post 2 -->
+            <a href="post2_explainer_students.html" class="card">
+                <span class="card-label blog">Blog Post</span>
+                <h3>AI in Biology: A Student's Guide to Research Acceleration</h3>
+                <p>An accessible introduction to how AI is transforming biological research, designed for students and newcomers to the field.</p>
+                <div class="card-meta">
+                    7 min read • Educational overview
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            AI Research Acceleration Model v1.1 •
+            <a href="mailto:jak4013@med.cornell.edu">Contact</a> •
+            <a href="https://github.com/jang1563/ai_research_acceleration_model">View on GitHub</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -361,10 +361,10 @@ def figure3_spillover_network():
     ax.set_facecolor(COLORS['background'])
     ax.set_aspect('equal')
 
-    # Node positions (pentagon layout)
+    # Node positions (pentagon layout) - increased radius to reduce text crowding
     n_domains = 5
     angles = np.linspace(np.pi/2, np.pi/2 + 2*np.pi, n_domains, endpoint=False)
-    radius = 0.35
+    radius = 0.30  # Reduced from 0.35 to give more space for labels at edges
 
     domains = ['structural_biology', 'protein_design', 'clinical_genomics',
                'drug_discovery', 'materials_science']
@@ -437,7 +437,7 @@ def figure3_spillover_network():
 
         # Domain label (outside node) - increased distance to prevent overlap
         angle = np.arctan2(y - 0.5, x - 0.5)
-        label_dist = node_size + 0.12  # Increased from 0.08
+        label_dist = node_size + 0.16  # Increased from 0.12 for better spacing
         label_x = x + label_dist * np.cos(angle)
         label_y = y + label_dist * np.sin(angle)
 
