@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Can't AI Just Cure Everything Already? | AI Bio Acceleration</title>
+    <meta name="description" content="A high school guide to the biggest plot twist in science: why AI speedups don't translate to faster cures. Learn about the pipeline discount and what really limits scientific progress.">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Why Can't AI Just Cure Everything Already?">
+    <meta property="og:description" content="A high school guide to the biggest plot twist in science. No biology degree required.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="figures/fig1_domain_overview.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           AI Bio Acceleration Theme v2.0 - Student Edition
+           Velocity palette with enhanced vibrancy for younger audience
+           ============================================ */
+
+        :root {
+            /* Velocity Color Palette */
+            --color-bg-primary: #0a0a12;
+            --color-bg-secondary: #12121c;
+            --color-bg-card: #16162a;
+            --color-bg-elevated: #1e1e35;
+            --color-bg-hover: #252542;
+
+            /* Brand Colors - Velocity System */
+            --color-velocity: #0967d2;
+            --color-velocity-light: #2186eb;
+            --color-velocity-dark: #0552b5;
+            --color-bio: #0ca750;
+            --color-bio-light: #1db954;
+            --color-bio-dark: #088040;
+            --color-acceleration: #f5a623;
+            --color-acceleration-light: #f7b84a;
+            --color-bottleneck: #e53e3e;
+            --color-bottleneck-light: #fc5858;
+            --color-hybrid: #8b5cf6;
+            --color-hybrid-light: #a78bfa;
+
+            /* Text Colors */
+            --color-text-primary: #f0f0f8;
+            --color-text-secondary: #b8b8d0;
+            --color-text-muted: #8888a8;
+
+            /* Borders */
+            --color-border: #2a2a45;
+            --color-border-light: #3a3a60;
+
+            /* Gradients */
+            --gradient-acceleration: linear-gradient(135deg, #0552b5 0%, #0967d2 30%, #0ca750 70%, #1db954 100%);
+            --gradient-hero: linear-gradient(180deg, #12121c 0%, #0a0a12 100%);
+            --gradient-card-hover: linear-gradient(135deg, rgba(9, 103, 210, 0.1) 0%, rgba(12, 167, 80, 0.1) 100%);
+
+            /* Typography */
+            --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+
+            /* Animation */
+            --transition-fast: 150ms ease;
+            --transition-normal: 250ms ease;
+            --transition-slow: 400ms ease;
+
+            /* Layout */
+            --content-width: 780px;
+            --nav-height: 60px;
+        }
+
+        /* Reset */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base */
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Accessibility - Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-velocity);
+            color: white;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 0 0 8px 8px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 1000;
+            transition: top var(--transition-fast);
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid var(--color-acceleration);
+            outline-offset: 2px;
+        }
+
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Navigation */
+        .article-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 18, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            height: var(--nav-height);
+        }
+
+        .nav-content {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-back:hover,
+        .nav-back:focus {
+            color: var(--color-velocity-light);
+        }
+
+        .nav-back:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .nav-progress {
+            height: 4px;
+            background: var(--color-border);
+            border-radius: 2px;
+            width: 180px;
+            overflow: hidden;
+        }
+
+        .nav-progress-bar {
+            height: 100%;
+            background: var(--gradient-acceleration);
+            width: 0%;
+            border-radius: 2px;
+            transition: width 50ms linear;
+        }
+
+        /* Article Container */
+        .article-container {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: calc(var(--nav-height) + var(--space-2xl)) var(--space-lg) var(--space-3xl);
+        }
+
+        /* Header */
+        .article-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .article-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--gradient-acceleration);
+            color: white;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .article-tag::before {
+            content: '🎓';
+        }
+
+        .article-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: var(--space-md);
+            background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-velocity-light) 50%, var(--color-bio-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
+            font-weight: 400;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        /* Content Typography */
+        .article-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: var(--space-3xl);
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-primary);
+        }
+
+        .article-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-md);
+            color: var(--color-bio-light);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5em;
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 65ch;
+        }
+
+        .article-content strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        .article-content em {
+            color: var(--color-velocity-light);
+            font-style: italic;
+        }
+
+        /* Emoji Section Headers - Enhanced for students */
+        .emoji-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: var(--space-3xl);
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-primary);
+        }
+
+        .emoji-header .emoji {
+            font-size: 2.25rem;
+            display: inline-flex;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Analogy Box - Enhanced */
+        .analogy-box {
+            background: linear-gradient(135deg, rgba(12, 167, 80, 0.08) 0%, rgba(9, 103, 210, 0.08) 100%);
+            border: 1px solid rgba(12, 167, 80, 0.25);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .analogy-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-acceleration);
+        }
+
+        .analogy-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-bio-light);
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .analogy-box p {
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .analogy-comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+            margin-top: var(--space-lg);
+        }
+
+        .analogy-side {
+            background: var(--color-bg-card);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--color-border);
+        }
+
+        .analogy-side h4 {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .analogy-side .big-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-velocity) 0%, var(--color-velocity-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .analogy-side .big-number.result {
+            background: linear-gradient(135deg, var(--color-bottleneck) 0%, var(--color-acceleration) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .analogy-side .label {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-top: var(--space-xs);
+        }
+
+        .analogy-arrow {
+            font-size: 2rem;
+            color: var(--color-text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .analogy-footer {
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-border);
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Data Tables */
+        .data-table-container {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin: var(--space-xl) 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background: var(--color-bg-secondary);
+            padding: var(--space-md) var(--space-lg);
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            border-bottom: 1px solid var(--color-border);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table td {
+            padding: var(--space-md) var(--space-lg);
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tbody tr {
+            transition: background var(--transition-fast);
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--color-bg-hover);
+        }
+
+        .data-table tbody tr:focus-within {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: -2px;
+        }
+
+        /* Highlight colors for speedup values */
+        .speed-fast { color: var(--color-bio-light) !important; font-weight: 700; }
+        .speed-medium { color: var(--color-acceleration) !important; font-weight: 700; }
+        .speed-slow { color: var(--color-bottleneck-light) !important; font-weight: 700; }
+
+        /* Work Type Cards */
+        .work-type-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .work-type-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            text-align: center;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .work-type-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-border-light);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .work-type-card:hover::before {
+            opacity: 1;
+        }
+
+        .work-type-card.bits::before {
+            background: var(--color-bio-light);
+        }
+
+        .work-type-card.hybrid::before {
+            background: var(--color-acceleration);
+        }
+
+        .work-type-card.atoms::before {
+            background: var(--color-bottleneck);
+        }
+
+        .work-type-card .icon {
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+
+        .work-type-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-primary);
+        }
+
+        .work-type-card .speedup {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .work-type-card .speedup.fast {
+            color: var(--color-bio-light);
+        }
+
+        .work-type-card .speedup.medium {
+            color: var(--color-acceleration);
+        }
+
+        .work-type-card .speedup.slow {
+            color: var(--color-bottleneck-light);
+        }
+
+        .work-type-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Key Insight Box */
+        .key-insight {
+            background: var(--color-bg-card);
+            border-left: 4px solid var(--color-hybrid);
+            border-radius: 0 12px 12px 0;
+            padding: var(--space-xl) var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+
+        .key-insight h4 {
+            color: var(--color-hybrid-light);
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .key-insight p {
+            color: var(--color-text-primary);
+            font-size: 1.05rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Figure Container */
+        .figure-container {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+
+        .figure-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+
+        .figure-caption {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .figure-caption strong {
+            color: var(--color-text-secondary);
+        }
+
+        /* Big Highlight Number */
+        .highlight-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin: var(--space-xl) 0;
+            background: var(--gradient-acceleration);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .highlight-number span {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            -webkit-text-fill-color: var(--color-text-muted);
+            margin-top: var(--space-xs);
+        }
+
+        /* Career Cards */
+        .career-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .career-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            transition: all var(--transition-normal);
+        }
+
+        .career-card:hover {
+            border-color: var(--color-bio);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(12, 167, 80, 0.1);
+        }
+
+        .career-card h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-bio-light);
+            margin-bottom: var(--space-sm);
+        }
+
+        .career-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Quiz Section - Enhanced with ARIA support */
+        .quiz-section {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+
+        .quiz-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .quiz-section h3::before {
+            content: '🧪';
+        }
+
+        .quiz-question {
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .quiz-question:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .quiz-question p {
+            font-size: 1rem;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .quiz-question p strong {
+            color: var(--color-velocity-light);
+        }
+
+        .quiz-answer {
+            background: var(--color-bg-secondary);
+            border-radius: 8px;
+            padding: var(--space-md) var(--space-lg);
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all var(--transition-normal);
+            margin-top: var(--space-md);
+        }
+
+        .quiz-answer.show {
+            max-height: 500px;
+            opacity: 1;
+            padding: var(--space-md) var(--space-lg);
+        }
+
+        .quiz-toggle {
+            background: var(--color-velocity);
+            color: white;
+            border: none;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .quiz-toggle:hover {
+            background: var(--color-velocity-light);
+            transform: translateY(-1px);
+        }
+
+        .quiz-toggle:focus {
+            outline: 3px solid var(--color-acceleration);
+            outline-offset: 2px;
+        }
+
+        .quiz-toggle[aria-expanded="true"] {
+            background: var(--color-bio);
+        }
+
+        .quiz-toggle svg {
+            width: 16px;
+            height: 16px;
+            transition: transform var(--transition-fast);
+        }
+
+        .quiz-toggle[aria-expanded="true"] svg {
+            transform: rotate(180deg);
+        }
+
+        /* Summary Table */
+        .summary-table {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin: var(--space-xl) 0;
+        }
+
+        .summary-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .summary-table th,
+        .summary-table td {
+            padding: var(--space-md) var(--space-lg);
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .summary-table th {
+            background: var(--color-bg-secondary);
+            font-weight: 600;
+            color: var(--color-text-primary);
+            font-size: 0.9rem;
+        }
+
+        .summary-table td {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .summary-table td strong {
+            color: var(--color-velocity-light);
+        }
+
+        .summary-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .summary-table tbody tr:hover {
+            background: var(--color-bg-hover);
+        }
+
+        /* Glossary */
+        .glossary {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+
+        .glossary h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-lg);
+            color: var(--color-bio-light);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .glossary h3::before {
+            content: '📚';
+        }
+
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .glossary-item {
+            padding: var(--space-md);
+            background: var(--color-bg-secondary);
+            border-radius: 8px;
+            transition: background var(--transition-fast);
+        }
+
+        .glossary-item:hover {
+            background: var(--color-bg-hover);
+        }
+
+        .glossary-item strong {
+            color: var(--color-text-primary);
+            display: block;
+            margin-bottom: var(--space-xs);
+        }
+
+        .glossary-item p {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .article-footer {
+            margin-top: var(--space-3xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .article-footer p {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-footer a {
+            color: var(--color-bio-light);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .article-footer a:hover {
+            color: var(--color-bio);
+            text-decoration: underline;
+        }
+
+        .article-footer a:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-md) var(--space-xl);
+            margin-top: var(--space-md);
+        }
+
+        /* Focus visible for keyboard navigation */
+        :focus-visible {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            .emoji-header .emoji {
+                animation: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            :root {
+                --space-lg: 20px;
+                --space-xl: 28px;
+                --space-2xl: 40px;
+                --space-3xl: 56px;
+            }
+
+            .article-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .work-type-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .career-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .analogy-comparison {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .analogy-arrow {
+                transform: rotate(90deg);
+            }
+
+            .nav-progress {
+                width: 120px;
+            }
+
+            .glossary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .data-table {
+                font-size: 0.85rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: var(--space-sm) var(--space-md);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .article-nav,
+            .skip-link,
+            .quiz-toggle {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .article-container {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            .quiz-answer {
+                max-height: none;
+                opacity: 1;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="article-nav" role="navigation" aria-label="Article navigation">
+        <div class="nav-content">
+            <a href="blog.html" class="nav-back" aria-label="Back to blog index">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Blog
+            </a>
+            <div class="nav-progress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="nav-progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="article-container" id="main-content">
+        <header class="article-header">
+            <span class="article-tag">Student Guide</span>
+            <h1>Why Can't AI Just Cure Everything Already?</h1>
+            <p class="article-subtitle">A High School Guide to the Biggest Plot Twist in Science</p>
+            <div class="article-meta">
+                <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                    </svg>
+                    15 min read
+                </span>
+                <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                    No biology degree required
+                </span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h2>The Promise That Seemed Too Good</h2>
+
+            <p>You've probably heard it: <strong>AI is going to revolutionize medicine.</strong> It can predict protein structures in minutes instead of years. It can screen millions of drug candidates in hours. It can analyze your genome before you finish lunch.</p>
+
+            <p>So... where are all the cures?</p>
+
+            <p>If AI is 24x faster at predicting protein structures, why don't we have 24x more treatments? If computers can test 2 million new materials in a single study, why can't we just print the ones we need?</p>
+
+            <p>This is the story of <strong>the biggest plot twist in modern science</strong>: why being 1000x faster at the thinking part doesn't mean we're 1000x faster at the doing part.</p>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">🍕</span> The Pizza Delivery Problem
+            </div>
+
+            <p>Let me start with something you definitely understand: pizza delivery.</p>
+
+            <div class="analogy-box">
+                <div class="analogy-title">The Pizza Delivery Analogy</div>
+                <p>Imagine ordering pizza. The process: decide (2 min) → order online (1 min) → kitchen makes it (15 min) → oven (12 min) → delivery (20 min). <strong>Total: ~50 minutes.</strong></p>
+
+                <p>Now, a genius invents an AI that makes ordering <strong>100x faster</strong>—0.6 seconds instead of 1 minute!</p>
+
+                <div class="analogy-comparison">
+                    <div class="analogy-side">
+                        <h4>Task Speedup</h4>
+                        <div class="big-number">100x</div>
+                        <div class="label">AI ordering speed</div>
+                    </div>
+                    <div class="analogy-arrow" aria-hidden="true">→</div>
+                    <div class="analogy-side">
+                        <h4>Pizza Arrives</h4>
+                        <div class="big-number result">2%</div>
+                        <div class="label">faster (49 min vs 50)</div>
+                    </div>
+                </div>
+
+                <p class="analogy-footer">The pizza still needs to be made, baked, and delivered. <strong>The ordering step was never the bottleneck.</strong></p>
+            </div>
+
+            <p>This is called the <strong>pipeline discount</strong>. And it's the single biggest thing limiting how fast AI can transform medicine.</p>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">🎮</span> The Video Game Loading Screen
+            </div>
+
+            <p>Here's another way to think about it. Imagine a video game with these phases:</p>
+
+            <div class="data-table-container" role="region" aria-label="Video game phases breakdown">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Phase</th>
+                            <th scope="col">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Loading screen</td><td>30 seconds</td></tr>
+                        <tr><td>Tutorial (can't skip)</td><td>5 minutes</td></tr>
+                        <tr><td>Actual gameplay</td><td>45 minutes</td></tr>
+                        <tr><td>Cutscenes (can't skip)</td><td>10 minutes</td></tr>
+                        <tr><td><strong>Total</strong></td><td><strong>60 minutes</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Now imagine someone invents an SSD that makes loading screens <strong>instant</strong>—a 1000x speedup!</p>
+
+            <p><strong>New total time: 59 minutes and 30 seconds.</strong></p>
+
+            <p>You barely notice. The loading screen was never the bottleneck.</p>
+
+            <div class="key-insight">
+                <h4>The Key Insight</h4>
+                <p>In biology, AI is like an insanely fast SSD. It makes the computational parts nearly instant. But the "unskippable cutscenes"—growing cells, running experiments, waiting for patients to respond to drugs—don't care about Moore's Law.</p>
+            </div>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">🔬</span> The Three Types of Science Work
+            </div>
+
+            <p>Here's a framework that explains everything:</p>
+
+            <div class="work-type-cards" role="list" aria-label="Types of scientific work">
+                <div class="work-type-card bits" role="listitem">
+                    <span class="icon" aria-hidden="true">🖥️</span>
+                    <h4>Bits-Only Work</h4>
+                    <div class="speedup fast">10-1000x</div>
+                    <p>Predicting protein shapes, scanning drugs, analyzing DNA. AI crushes this—it's just math.</p>
+                </div>
+                <div class="work-type-card hybrid" role="listitem">
+                    <span class="icon" aria-hidden="true">🔬</span>
+                    <h4>Hybrid Work</h4>
+                    <div class="speedup medium">2-5x</div>
+                    <p>Experiments guided by computers. AI helps pick smarter experiments, but you still have to do them.</p>
+                </div>
+                <div class="work-type-card atoms" role="listitem">
+                    <span class="icon" aria-hidden="true">⚛️</span>
+                    <h4>Atoms-Bound Work</h4>
+                    <div class="speedup slow">~1x</div>
+                    <p>Cells dividing, patients responding, reactions completing. Physics doesn't negotiate.</p>
+                </div>
+            </div>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">📊</span> The Brutal Math
+            </div>
+
+            <p>Here's what happens when you combine these types of work:</p>
+
+            <div class="data-table-container" role="region" aria-label="AI acceleration by field">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Field</th>
+                            <th scope="col">AI Speed Boost</th>
+                            <th scope="col">Pipeline Discount</th>
+                            <th scope="col">Actual Speed Boost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Structural Biology</td>
+                            <td>24x</td>
+                            <td>0.37</td>
+                            <td><strong class="speed-fast">8.9x</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Protein Design</td>
+                            <td>8x</td>
+                            <td>0.69</td>
+                            <td><strong class="speed-fast">5.5x</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Clinical Genomics</td>
+                            <td>6x</td>
+                            <td>0.70</td>
+                            <td><strong class="speed-medium">4.2x</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Drug Discovery</td>
+                            <td>3x</td>
+                            <td>0.57</td>
+                            <td><strong class="speed-medium">1.7x</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Materials Science</td>
+                            <td>2000x</td>
+                            <td>0.0007</td>
+                            <td><strong class="speed-slow">1.3x</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Look at that materials science row. AI can predict new materials <strong>2000x faster</strong>. But the pipeline discount is <strong>0.0007</strong>. Nearly zero.</p>
+
+            <p>Why? Because actually <em>making</em> those materials—mixing chemicals, heating them up, checking if they worked—is painfully slow. AI discovered 2.2 million new materials in one study. At current lab speeds, it would take <strong>2,200 years</strong> to actually make them all.</p>
+
+            <!-- Figure 1 -->
+            <figure class="figure-container">
+                <img src="figures/fig1_domain_overview.png"
+                     alt="Bar chart showing AI acceleration varies by domain: structural biology at 8.9x leads, followed by protein design at 5.5x, clinical genomics at 4.2x, drug discovery at 1.7x, and materials science trailing at just 1.3x despite 2000x faster predictions"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+                <figcaption class="figure-caption"><strong>Figure 1.</strong> AI acceleration varies dramatically by domain—from 8.9x in structural biology to just 1.3x in materials science, despite 2000x faster predictions.</figcaption>
+            </figure>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">💊</span> Why Drug Discovery Is So Slow
+            </div>
+
+            <p>Let's zoom in on the field that matters most for human health: drug discovery.</p>
+
+            <div class="data-table-container" role="region" aria-label="Drug discovery timeline">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Stage</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Can AI Help?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Find a target (what to fix)</td>
+                            <td>1-2 years</td>
+                            <td class="speed-fast">Yes - genomics helps</td>
+                        </tr>
+                        <tr>
+                            <td>Find a starting molecule</td>
+                            <td>2-3 years</td>
+                            <td class="speed-fast">Yes - virtual screening</td>
+                        </tr>
+                        <tr>
+                            <td>Test in animals</td>
+                            <td>1-2 years</td>
+                            <td class="speed-medium">A little</td>
+                        </tr>
+                        <tr>
+                            <td>Phase 1 trials (is it safe?)</td>
+                            <td>1-2 years</td>
+                            <td class="speed-slow">Barely</td>
+                        </tr>
+                        <tr>
+                            <td>Phase 2 trials (does it work?)</td>
+                            <td>2-3 years</td>
+                            <td class="speed-slow">No</td>
+                        </tr>
+                        <tr>
+                            <td>Phase 3 trials (prove it)</td>
+                            <td>3-4 years</td>
+                            <td class="speed-slow">No</td>
+                        </tr>
+                        <tr>
+                            <td>FDA review</td>
+                            <td>1-2 years</td>
+                            <td class="speed-slow">No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>12-18 years</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>See the problem? AI can help with the early stuff (finding targets, screening molecules). That's maybe 25-30% of the time.</p>
+
+            <p>But clinical trials—testing drugs in actual humans—take up most of the time. And you <strong>cannot speed up biology</strong>. If a drug prevents heart attacks, you need to wait years to see if fewer people have heart attacks.</p>
+
+            <div class="key-insight">
+                <h4>Key Insight</h4>
+                <p>AI helps with the first 25% of drug development. It barely touches the last 75%. That's why drug discovery only speeds up 1.7x despite all the AI hype.</p>
+            </div>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">📈</span> So What Does This Actually Mean?
+            </div>
+
+            <p>Here's the actual prediction for how much AI will speed up biology by 2030:</p>
+
+            <div class="highlight-number" role="text" aria-label="2.8 times faster overall">
+                2.8x faster overall
+                <span>weighted average across all biology fields</span>
+            </div>
+
+            <p>That sounds disappointing compared to "1000x" headlines. But let me reframe it.</p>
+
+            <h3>The "Compressed Century"</h3>
+
+            <p>2.8x acceleration means that scientific progress that would have taken <strong>100 years</strong> will now take about <strong>35 years</strong>.</p>
+
+            <p>Think about that. We're compressing a century of discoveries into 35 years. That means treatments that your grandkids would have gotten... you might get.</p>
+
+            <p><strong>That's 64 years of human suffering prevented.</strong> Sixty-four years of diseases that won't kill people. Disabilities that won't limit lives. Mysteries that won't remain unsolved.</p>
+
+            <!-- Figure 8: Summary -->
+            <figure class="figure-container">
+                <img src="figures/fig8_summary.png"
+                     alt="Summary infographic showing key findings: 2.8x overall acceleration, 64 years of progress compressed, and visualization of the pipeline discount concept"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+                <figcaption class="figure-caption"><strong>Figure 8.</strong> Key findings summary: 2.8x might not sound dramatic, but it means compressing a century of progress into 35 years.</figcaption>
+            </figure>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">🔧</span> How Do We Go Faster?
+            </div>
+
+            <p>If the bottleneck isn't AI... what is it? And can we fix it?</p>
+
+            <p><strong>Yes.</strong> Here's what would actually accelerate science:</p>
+
+            <div class="career-cards" role="list" aria-label="Ways to accelerate science">
+                <div class="career-card" role="listitem">
+                    <h4>1. Build Robot Laboratories ($1-2 billion)</h4>
+                    <p>Robot labs that run 24/7, doing thousands of experiments per week. Could speed up materials science by 10-50x.</p>
+                </div>
+                <div class="career-card" role="listitem">
+                    <h4>2. Reform Clinical Trials</h4>
+                    <p>Faster trial designs, better biomarkers, international cooperation. Could cut drug development time by 30-50%.</p>
+                </div>
+                <div class="career-card" role="listitem">
+                    <h4>3. Build More Cryo-EM Facilities</h4>
+                    <p>These microscopes validate AI predictions. More of them means structural biology can use all those AI predictions.</p>
+                </div>
+                <div class="career-card" role="listitem">
+                    <h4>4. Train Hybrid Scientists</h4>
+                    <p>People who can both code AND do lab work. They're the bridge between AI predictions and real-world impact.</p>
+                </div>
+            </div>
+
+            <!-- Figure 10: Policy ROI -->
+            <figure class="figure-container">
+                <img src="figures/fig10_policy_roi.png"
+                     alt="Policy ROI analysis chart showing autonomous synthesis facilities provide highest return at 0.30 acceleration per billion dollars invested, followed by regulatory reform and workforce development"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+                <figcaption class="figure-caption"><strong>Figure 10.</strong> Where should we invest? Autonomous synthesis facilities offer the highest return on investment (0.30 acceleration per $B invested).</figcaption>
+            </figure>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">💡</span> What Does This Mean For You?
+            </div>
+
+            <p>If you're thinking about careers in science or technology, here's what's valuable:</p>
+
+            <p><strong>Not just AI skills.</strong> Yes, machine learning is important. But the actual bottleneck is the physical-digital interface.</p>
+
+            <div class="career-cards" role="list" aria-label="Career paths in science">
+                <div class="career-card" role="listitem">
+                    <h4>Lab Automation Engineering</h4>
+                    <p>Building robots that do experiments. High demand, directly addresses bottlenecks.</p>
+                </div>
+                <div class="career-card" role="listitem">
+                    <h4>Bioprocess Engineering</h4>
+                    <p>Making it easier to grow cells and manufacture drugs at scale.</p>
+                </div>
+                <div class="career-card" role="listitem">
+                    <h4>Regulatory Science</h4>
+                    <p>Designing better, faster clinical trials while maintaining safety.</p>
+                </div>
+                <div class="career-card" role="listitem">
+                    <h4>Computational-Experimental Hybrids</h4>
+                    <p>Scientists who can both design on a computer AND validate in a lab.</p>
+                </div>
+            </div>
+
+            <div class="key-insight">
+                <h4>The Real Heroes</h4>
+                <p>The heroes of the next scientific revolution won't just be the AI researchers. They'll be the engineers who build robot labs, the regulators who design better trials, and the scientists who can work at the boundary between the digital and physical worlds. Maybe that's you.</p>
+            </div>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">🧪</span> Test Your Understanding
+            </div>
+
+            <section class="quiz-section" aria-labelledby="quiz-heading">
+                <h3 id="quiz-heading">Quick Quiz</h3>
+
+                <div class="quiz-question">
+                    <p><strong>Q1:</strong> If an AI can screen drug candidates 100x faster, why don't we get drugs 100x faster?</p>
+                    <button class="quiz-toggle"
+                            onclick="toggleAnswer('a1', this)"
+                            aria-expanded="false"
+                            aria-controls="a1">
+                        <span>Show Answer</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="quiz-answer" id="a1" role="region" aria-live="polite">
+                        Because drug screening is only one step in a long pipeline. Clinical trials (testing in humans) take 8-10 years and can't be sped up by AI. The 100x speedup on screening might translate to only 1.5-2x speedup overall.
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q2:</strong> Why does materials science have such a tiny pipeline discount (0.0007)?</p>
+                    <button class="quiz-toggle"
+                            onclick="toggleAnswer('a2', this)"
+                            aria-expanded="false"
+                            aria-controls="a2">
+                        <span>Show Answer</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="quiz-answer" id="a2" role="region" aria-live="polite">
+                        Because AI can predict millions of materials instantly, but actually making them in a lab is extremely slow. The A-Lab can only synthesize ~1,000 materials per year. GNoME predicted 2.2 million—it would take 2,200 years to make them all. The bottleneck is entirely physical synthesis, not prediction.
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q3:</strong> What's more valuable for speeding up drug discovery—better AI or better clinical trial design?</p>
+                    <button class="quiz-toggle"
+                            onclick="toggleAnswer('a3', this)"
+                            aria-expanded="false"
+                            aria-controls="a3">
+                        <span>Show Answer</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="quiz-answer" id="a3" role="region" aria-live="polite">
+                        Better clinical trial design. AI helps with the first 25-30% of drug development, but clinical trials dominate the timeline (60-70%). Regulatory innovation could have more impact than any AI improvement.
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q4:</strong> What is the "pipeline discount" and why does it matter?</p>
+                    <button class="quiz-toggle"
+                            onclick="toggleAnswer('a4', this)"
+                            aria-expanded="false"
+                            aria-controls="a4">
+                        <span>Show Answer</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="quiz-answer" id="a4" role="region" aria-live="polite">
+                        The pipeline discount is the ratio between how fast one step gets and how fast the whole process gets. It matters because it explains the gap between AI hype ("1000x faster!") and reality. Even massive speedups on individual tasks translate to modest overall improvements when other steps in the pipeline can't be accelerated.
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <p><strong>Q5:</strong> Which career path addresses the actual bottleneck in science—AI researcher or lab automation engineer?</p>
+                    <button class="quiz-toggle"
+                            onclick="toggleAnswer('a5', this)"
+                            aria-expanded="false"
+                            aria-controls="a5">
+                        <span>Show Answer</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="quiz-answer" id="a5" role="region" aria-live="polite">
+                        Both are valuable, but lab automation engineers address the current bottleneck more directly. AI has already massively sped up the computational parts of science. The new bottleneck is the physical lab work—robots that can run experiments 24/7 would help science actually use all those AI predictions. The physical-digital interface is where the biggest impact can be made now.
+                    </div>
+                </div>
+            </section>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">📝</span> Quick Summary
+            </div>
+
+            <div class="summary-table" role="region" aria-label="Key concepts summary">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Concept</th>
+                            <th scope="col">What It Means</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pipeline Discount</strong></td>
+                            <td>The ratio between how fast one step gets and how fast the whole process gets</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bits-Only Work</strong></td>
+                            <td>Computation—AI makes this 10-1000x faster</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Atoms-Bound Work</strong></td>
+                            <td>Physical experiments, clinical trials—AI barely helps</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2.8x by 2030</strong></td>
+                            <td>How much faster biology will actually move</td>
+                        </tr>
+                        <tr>
+                            <td><strong>64 Years</strong></td>
+                            <td>Human suffering prevented by this acceleration</td>
+                        </tr>
+                        <tr>
+                            <td><strong>The Real Bottleneck</strong></td>
+                            <td>Not AI capability—it's physical infrastructure and regulations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="glossary" aria-labelledby="glossary-heading">
+                <h3 id="glossary-heading">Glossary</h3>
+                <div class="glossary-grid">
+                    <div class="glossary-item">
+                        <strong>AlphaFold</strong>
+                        <p>AI system from DeepMind that predicts protein structures. Solved a 50-year-old problem in biology.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <strong>Clinical Trial</strong>
+                        <p>Testing drugs in human patients. Happens in phases (1, 2, 3) and takes 6-10 years total.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <strong>Cryo-EM</strong>
+                        <p>A type of microscope that can see molecular structures. Uses frozen samples and electron beams.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <strong>GNoME</strong>
+                        <p>AI system from DeepMind that predicts stable materials. Found 2.2 million candidates in one study.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <strong>Pipeline Discount</strong>
+                        <p>The ratio showing how much of a single-step speedup actually translates to overall speedup.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <strong>Protein</strong>
+                        <p>Molecules that do most of the work in living things. Made of amino acids folded into specific shapes.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <strong>Structural Biology</strong>
+                        <p>The field studying 3D shapes of biological molecules to understand how they work.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <strong>Lab Automation</strong>
+                        <p>Using robots to perform experiments automatically, enabling 24/7 operation and higher throughput.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="emoji-header">
+                <span class="emoji" aria-hidden="true">🌟</span> Final Thought
+            </div>
+
+            <p>The next time someone says "AI will cure cancer in 5 years," you now know the real answer:</p>
+
+            <p>AI is making science faster. But not as fast as headlines suggest. And not as fast as it could be.</p>
+
+            <p>The bottleneck has shifted from "thinking" to "doing." From bits to atoms. From computation to physical reality.</p>
+
+            <p><strong>And that means the heroes of the next scientific revolution won't just be the AI researchers.</strong> They'll be the engineers who build robot labs. The regulators who design better trials. The scientists who can work at the boundary between the digital and physical worlds.</p>
+
+            <p>Maybe that's you.</p>
+        </div>
+
+        <footer class="article-footer">
+            <p>Based on the AI Research Acceleration Model v1.1</p>
+            <nav class="footer-links" aria-label="Related content">
+                <a href="post1_pipeline_problem.html">Read the Technical Analysis</a>
+                <a href="manuscript.html">Full Manuscript</a>
+                <a href="https://github.com/jang1563/ai-bio-acceleration" target="_blank" rel="noopener noreferrer">View Model on GitHub</a>
+            </nav>
+        </footer>
+    </article>
+
+    <script>
+        // Throttled scroll handler for progress bar
+        (function() {
+            const progressBar = document.getElementById('progressBar');
+            const progressContainer = progressBar.parentElement;
+            let ticking = false;
+
+            function updateProgress() {
+                const winScroll = window.scrollY || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = height > 0 ? Math.min((winScroll / height) * 100, 100) : 0;
+
+                progressBar.style.width = scrolled + '%';
+                progressContainer.setAttribute('aria-valuenow', Math.round(scrolled));
+                ticking = false;
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(updateProgress);
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            updateProgress(); // Initial call
+        })();
+
+        // Quiz toggle with accessibility support
+        function toggleAnswer(id, button) {
+            const answer = document.getElementById(id);
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            const buttonText = button.querySelector('span');
+
+            answer.classList.toggle('show');
+            button.setAttribute('aria-expanded', !isExpanded);
+            buttonText.textContent = isExpanded ? 'Show Answer' : 'Hide Answer';
+        }
+    </script>
+</body>
+</html>

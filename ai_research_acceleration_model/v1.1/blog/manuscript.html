@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuscript: Quantifying AI-Driven Acceleration of Biological Research | AI Bio Acceleration</title>
+
+    <!-- SEO & Social -->
+    <meta name="description" content="A Multi-Domain Forecasting Model for AI-Driven Research Acceleration. Validated model projecting 2.8x acceleration by 2030 across five biological research domains.">
+    <meta name="keywords" content="AI, biology, drug discovery, research acceleration, forecasting model, manuscript, AlphaFold, protein structure">
+    <meta property="og:title" content="Quantifying AI-Driven Acceleration of Biological Research">
+    <meta property="og:description" content="Validated forecasting model projecting 2.8x acceleration by 2030 across five biological research domains.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="figures/fig1_domain_overview.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           AI Bio Acceleration Theme v2.0 - Manuscript Edition
+           Velocity palette with academic styling
+           ============================================ */
+
+        :root {
+            /* Velocity Color Palette */
+            --color-bg-primary: #0a0a12;
+            --color-bg-secondary: #12121c;
+            --color-bg-card: #16162a;
+            --color-bg-elevated: #1e1e35;
+            --color-bg-hover: #252542;
+
+            /* Brand Colors - Velocity System */
+            --color-velocity: #0967d2;
+            --color-velocity-light: #2186eb;
+            --color-velocity-dark: #0552b5;
+            --color-bio: #0ca750;
+            --color-bio-light: #1db954;
+            --color-bio-dark: #088040;
+            --color-acceleration: #f5a623;
+            --color-acceleration-light: #f7b84a;
+            --color-bottleneck: #e53e3e;
+            --color-bottleneck-light: #fc5858;
+            --color-hybrid: #8b5cf6;
+            --color-hybrid-light: #a78bfa;
+
+            /* Text Colors */
+            --color-text-primary: #f0f0f8;
+            --color-text-secondary: #b8b8d0;
+            --color-text-muted: #8888a8;
+
+            /* Borders */
+            --color-border: #2a2a45;
+            --color-border-light: #3a3a60;
+
+            /* Gradients */
+            --gradient-acceleration: linear-gradient(135deg, #0552b5 0%, #0967d2 30%, #0ca750 70%, #1db954 100%);
+            --gradient-hero: linear-gradient(180deg, #12121c 0%, #0a0a12 100%);
+
+            /* Typography */
+            --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+
+            /* Animation */
+            --transition-fast: 150ms ease;
+            --transition-normal: 250ms ease;
+            --transition-slow: 400ms ease;
+
+            /* Layout */
+            --content-width: 900px;
+            --nav-height: 60px;
+        }
+
+        /* Reset */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base */
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Accessibility - Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-velocity);
+            color: white;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 0 0 8px 8px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 1002;
+            transition: top var(--transition-fast);
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid var(--color-acceleration);
+            outline-offset: 2px;
+        }
+
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--gradient-acceleration);
+            z-index: 1001;
+            width: 0%;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 18, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            height: var(--nav-height);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-logo:hover {
+            color: var(--color-velocity-light);
+        }
+
+        .nav-logo:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 6px;
+            transition: all var(--transition-fast);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-velocity-light);
+            background: rgba(9, 103, 210, 0.1);
+        }
+
+        .nav-links a:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+        }
+
+        .nav-links a.active {
+            color: var(--color-velocity-light);
+            background: rgba(9, 103, 210, 0.15);
+        }
+
+        /* Mobile Navigation */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .nav-hamburger:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+        }
+
+        .nav-hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-text-primary);
+            transition: transform var(--transition-fast);
+            display: block;
+        }
+
+        .nav-hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Manuscript Container */
+        .manuscript-container {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: calc(var(--nav-height) + var(--space-2xl)) var(--space-lg) var(--space-3xl);
+        }
+
+        /* Back Link */
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            margin-bottom: var(--space-xl);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: var(--space-sm) var(--space-md);
+            margin-left: calc(var(--space-md) * -1);
+            border-radius: 6px;
+            transition: all var(--transition-fast);
+            min-height: 44px;
+        }
+
+        .back-to-blog:hover {
+            color: var(--color-velocity-light);
+            background: rgba(9, 103, 210, 0.1);
+        }
+
+        .back-to-blog:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+        }
+
+        .back-to-blog svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Manuscript Header */
+        .manuscript-header {
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 3px solid;
+            border-image: var(--gradient-acceleration) 1;
+        }
+
+        .manuscript-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--gradient-acceleration);
+            color: white;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .manuscript-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-primary);
+        }
+
+        /* Author Info */
+        .author-info {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .author-info h2 {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-md);
+        }
+
+        .author-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md) var(--space-xl);
+            margin-bottom: var(--space-md);
+        }
+
+        .author {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .author-affiliation {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+
+        .corresponding {
+            font-size: 0.85rem;
+            color: var(--color-velocity-light);
+            margin-top: var(--space-sm);
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        /* Model Link Banner */
+        .model-link-banner {
+            background: linear-gradient(135deg, rgba(9, 103, 210, 0.15) 0%, rgba(12, 167, 80, 0.15) 100%);
+            border: 1px solid var(--color-velocity);
+            border-radius: 16px;
+            padding: var(--space-lg) var(--space-xl);
+            margin: var(--space-xl) 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .model-link-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--color-text-primary);
+        }
+
+        .model-link-info p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+
+        .model-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--color-velocity);
+            color: white;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            min-height: 44px;
+        }
+
+        .model-link-btn:hover {
+            background: var(--color-velocity-light);
+            transform: translateY(-2px);
+        }
+
+        .model-link-btn:focus {
+            outline: 3px solid var(--color-acceleration);
+            outline-offset: 2px;
+        }
+
+        .model-link-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Key Stats Banner */
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+            padding: var(--space-xl);
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-acceleration);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @supports not (-webkit-background-clip: text) {
+            .stat-value {
+                color: var(--color-velocity);
+                -webkit-text-fill-color: initial;
+            }
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-top: var(--space-xs);
+        }
+
+        /* Abstract Box */
+        .abstract-box {
+            background: var(--color-bg-card);
+            border-left: 4px solid var(--color-velocity);
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .abstract-box h2 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--color-velocity-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .abstract-box p {
+            color: var(--color-text-primary);
+            line-height: 1.8;
+            max-width: 70ch;
+        }
+
+        /* Content Typography */
+        .manuscript-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: var(--space-3xl);
+            margin-bottom: var(--space-lg);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+        }
+
+        .manuscript-content h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .manuscript-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-md);
+            color: var(--color-bio-light);
+        }
+
+        .manuscript-content p {
+            margin-bottom: 1.5em;
+            color: var(--color-text-secondary);
+            max-width: 70ch;
+        }
+
+        .manuscript-content strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+
+        .manuscript-content ul,
+        .manuscript-content ol {
+            margin-bottom: 1.5em;
+            padding-left: var(--space-xl);
+            color: var(--color-text-secondary);
+        }
+
+        .manuscript-content li {
+            margin-bottom: 0.5em;
+        }
+
+        .manuscript-content hr {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: var(--space-2xl) 0;
+        }
+
+        /* Figure Container */
+        .figure-container {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+
+        .figure-title {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-velocity-light);
+            margin-bottom: var(--space-xs);
+        }
+
+        .figure-caption {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-lg);
+            line-height: 1.5;
+        }
+
+        .figure-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        /* Table Wrapper */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: var(--space-lg) 0;
+        }
+
+        /* Interactive Table */
+        .interactive-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        .interactive-table th {
+            background: var(--color-bg-secondary);
+            padding: var(--space-md) var(--space-lg);
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            border-bottom: 2px solid var(--color-velocity);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .interactive-table th:nth-child(2),
+        .interactive-table th:nth-child(3) {
+            text-align: right;
+        }
+
+        .interactive-table td {
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+
+        .interactive-table td:nth-child(2),
+        .interactive-table td:nth-child(3) {
+            text-align: right;
+        }
+
+        .interactive-table tbody tr {
+            transition: background var(--transition-fast);
+        }
+
+        .interactive-table tbody tr:nth-child(odd) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .interactive-table tbody tr:hover {
+            background: var(--color-bg-hover);
+        }
+
+        .interactive-table tbody tr:focus-within {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: -2px;
+        }
+
+        .bar-cell {
+            position: relative;
+        }
+
+        .bar-visual {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 8px;
+            background: var(--gradient-acceleration);
+            border-radius: 4px;
+            opacity: 0.3;
+        }
+
+        .bar-value {
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        /* Key Finding Box */
+        .key-finding {
+            background: linear-gradient(135deg, rgba(9, 103, 210, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid var(--color-velocity);
+            border-radius: 12px;
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .key-finding.primary {
+            border-width: 2px;
+            background: linear-gradient(135deg, rgba(12, 167, 80, 0.1) 0%, rgba(9, 103, 210, 0.1) 100%);
+            border-color: var(--color-bio);
+        }
+
+        .key-finding-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .key-finding strong {
+            font-family: var(--font-display);
+            color: var(--color-velocity-light);
+            font-size: 1.1rem;
+        }
+
+        .key-finding.primary strong {
+            color: var(--color-bio-light);
+        }
+
+        /* Validation Summary */
+        .validation-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .validation-stat {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .validation-number {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-bio-light);
+        }
+
+        .validation-label {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-top: var(--space-xs);
+        }
+
+        /* Equation Box */
+        .equation {
+            background: var(--color-bg-secondary);
+            padding: var(--space-lg);
+            border-radius: 12px;
+            font-family: var(--font-mono);
+            text-align: center;
+            margin: var(--space-xl) 0;
+            font-size: 1.1rem;
+            overflow-x: auto;
+            color: var(--color-text-primary);
+        }
+
+        /* Spillover Section */
+        .spillover-section {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .spillover-section strong {
+            color: var(--color-text-primary);
+        }
+
+        .spillover-section ul {
+            margin-top: var(--space-sm);
+            color: var(--color-text-secondary);
+        }
+
+        /* Conflict/Funding Statement */
+        .disclosure-section {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .disclosure-section h3 {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-md);
+        }
+
+        .disclosure-section p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .disclosure-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* References Section */
+        .references-section {
+            font-size: 0.9rem;
+        }
+
+        .references-section ol {
+            padding-left: var(--space-xl);
+        }
+
+        .references-section li {
+            margin-bottom: var(--space-md);
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        .references-section em {
+            color: var(--color-text-muted);
+        }
+
+        sup {
+            font-size: 0.7em;
+            color: var(--color-velocity-light);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: var(--space-2xl) var(--space-lg);
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--color-bio-light);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer a:hover {
+            color: var(--color-bio);
+            text-decoration: underline;
+        }
+
+        .footer a:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            margin-top: var(--space-md);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-md) var(--space-lg);
+        }
+
+        /* Focus visible */
+        :focus-visible {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* Responsive - Tablet */
+        @media (max-width: 768px) {
+            :root {
+                --space-lg: 20px;
+                --space-xl: 28px;
+                --space-2xl: 40px;
+                --space-3xl: 56px;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-bg-secondary);
+                flex-direction: column;
+                padding: var(--space-lg);
+                gap: var(--space-xs);
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .stats-banner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .validation-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .model-link-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-list {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 480px) {
+            .stats-banner {
+                grid-template-columns: 1fr;
+                padding: var(--space-lg);
+            }
+
+            .stat-value {
+                font-size: 1.75rem;
+            }
+
+            .manuscript-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .meta-info {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-container,
+            .progress-bar,
+            .skip-link,
+            .back-to-blog,
+            .model-link-btn {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .manuscript-container {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            .figure-container {
+                break-inside: avoid;
+                border: 1px solid #ccc;
+            }
+
+            a {
+                color: inherit;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-container" aria-label="Main navigation">
+        <div class="nav-content">
+            <a href="blog.html" class="nav-logo">AI Bio Acceleration</a>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks" role="menubar">
+                <a href="blog.html" role="menuitem">Blog Home</a>
+                <a href="post1_pipeline_problem.html" role="menuitem">Technical Analysis</a>
+                <a href="post2_explainer_students.html" role="menuitem">Student Guide</a>
+                <a href="manuscript.html" class="active" role="menuitem" aria-current="page">Manuscript</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="manuscript-container" id="main-content">
+        <a href="blog.html" class="back-to-blog" aria-label="Back to Blog Home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Blog
+        </a>
+
+        <header class="manuscript-header">
+            <span class="manuscript-tag">Research Manuscript</span>
+            <h1>Quantifying AI-Driven Acceleration of Biological Research: A Multi-Domain Forecasting Model</h1>
+
+            <!-- Author Information -->
+            <div class="author-info">
+                <h2>Authors</h2>
+                <div class="author-list">
+                    <div class="author">
+                        <span class="author-name">Jake Jang</span>
+                        <span class="author-affiliation">Department of Physiology and Biophysics, Weill Cornell Medicine</span>
+                    </div>
+                    <div class="author">
+                        <span class="author-name">Christopher E. Mason</span>
+                        <span class="author-affiliation">Department of Physiology and Biophysics, Weill Cornell Medicine</span>
+                    </div>
+                </div>
+                <p class="corresponding">Corresponding author: Jake Jang (jang4013@gmail.com)</p>
+            </div>
+
+            <div class="meta-info">
+                <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>
+                    </svg>
+                    ~3,400 words
+                </span>
+                <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <path d="m21 15-5-5L5 21"/>
+                    </svg>
+                    10 figures
+                </span>
+                <span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                    </svg>
+                    v1.1
+                </span>
+            </div>
+        </header>
+
+        <!-- Model Link Banner -->
+        <div class="model-link-banner">
+            <div class="model-link-info">
+                <h3>Access the Model</h3>
+                <p>Explore the full AI Bio Acceleration Model with interactive visualizations and documentation.</p>
+            </div>
+            <a href="https://github.com/jang1563/ai-bio-acceleration" class="model-link-btn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                View on GitHub
+            </a>
+        </div>
+
+        <!-- Key Stats Banner -->
+        <div class="stats-banner" role="region" aria-label="Key Statistics">
+            <div class="stat-item">
+                <div class="stat-value" data-count="2.8" data-suffix="x">0</div>
+                <div class="stat-label">System Acceleration (2030)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" data-count="15" data-suffix="">0</div>
+                <div class="stat-label">Validated Cases</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" data-count="0.21" data-suffix="">0</div>
+                <div class="stat-label">Mean Log Error</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" data-count="2.1" data-suffix="M">0</div>
+                <div class="stat-label">Net Jobs Created</div>
+            </div>
+        </div>
+
+        <div class="abstract-box">
+            <h2>Abstract</h2>
+            <p>Artificial intelligence is transforming biological research, yet quantitative forecasts of its impact remain elusive. Here we present a validated forecasting model that projects AI-driven research acceleration across five domains: structural biology, drug discovery, materials science, protein design, and clinical genomics. Our model distinguishes task-level acceleration from pipeline-level acceleration, revealing that physical bottlenecks fundamentally constrain AI's impact. We project system-wide acceleration of <strong>2.8x by 2030</strong> (90% CI: 2.1-3.8x), with structural biology leading (8.9x) and drug discovery most constrained (1.7x). Validation against 15 historical case studies yields mean log error of 0.21.</p>
+        </div>
+
+        <div class="manuscript-content">
+            <h2 id="introduction">Introduction</h2>
+
+            <p>The release of AlphaFold2 in 2021 marked a watershed moment for artificial intelligence in biology, solving a 50-year grand challenge in protein structure prediction with unprecedented accuracy<sup>1</sup>. Since then, AI systems have demonstrated remarkable capabilities across biological research: ESM-3 designs functional proteins from scratch<sup>2</sup>, GNoME predicts 2.2 million stable crystal structures<sup>3</sup>, and AlphaMissense classifies the pathogenicity of 71 million human variants<sup>4</sup>.</p>
+
+            <p>Yet despite intense interest, rigorous quantitative forecasts of AI's research impact remain scarce. Current discourse is dominated by qualitative claims without systematic assessment of how much acceleration to expect, when it will materialize, or what limits it will encounter.</p>
+
+            <p>Our framework makes three key contributions:</p>
+
+            <ol>
+                <li><strong>Pipeline discount factors</strong> that distinguish task-level acceleration from pipeline-level acceleration</li>
+                <li><strong>Cross-domain spillover quantification</strong> using established R&D spillover methodology<sup>5,6</sup></li>
+                <li><strong>Historical validation</strong> against 15 case studies with mean log error of 0.21</li>
+            </ol>
+
+            <hr>
+
+            <h2 id="results">Results</h2>
+
+            <h3>Figure 1: Domain-Specific Acceleration Forecasts</h3>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig1-title fig1-desc">
+                <div class="figure-title" id="fig1-title">Figure 1. AI-driven research acceleration by domain (2030 projections)</div>
+                <div class="figure-caption" id="fig1-desc">Horizontal bars show projected acceleration factors with 90% confidence intervals. Structural biology leads while drug discovery and materials science are constrained by physical bottlenecks.</div>
+                <img src="figures/fig1_domain_overview.png"
+                     alt="Domain acceleration chart showing Structural Biology at 8.9x, Protein Design at 5.5x, Clinical Genomics at 4.2x, Drug Discovery at 1.7x, and Materials Science at 1.3x"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <div class="table-wrapper" role="region" aria-label="Domain acceleration data table">
+                <table class="interactive-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Domain</th>
+                            <th scope="col">Acceleration</th>
+                            <th scope="col">90% CI</th>
+                            <th scope="col">Key Constraint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Structural Biology</td>
+                            <td class="bar-cell"><span class="bar-visual" style="width: 89%;"></span><span class="bar-value">8.9x</span></td>
+                            <td>5.8-13.7x</td>
+                            <td>Cryo-EM capacity</td>
+                        </tr>
+                        <tr>
+                            <td>Protein Design</td>
+                            <td class="bar-cell"><span class="bar-visual" style="width: 55%;"></span><span class="bar-value">5.5x</span></td>
+                            <td>3.9-7.7x</td>
+                            <td>Expression validation</td>
+                        </tr>
+                        <tr>
+                            <td>Clinical Genomics</td>
+                            <td class="bar-cell"><span class="bar-visual" style="width: 42%;"></span><span class="bar-value">4.2x</span></td>
+                            <td>3.0-5.9x</td>
+                            <td>Clinical adoption</td>
+                        </tr>
+                        <tr>
+                            <td>Drug Discovery</td>
+                            <td class="bar-cell"><span class="bar-visual" style="width: 17%;"></span><span class="bar-value">1.7x</span></td>
+                            <td>1.3-2.1x</td>
+                            <td>Clinical trials</td>
+                        </tr>
+                        <tr>
+                            <td>Materials Science</td>
+                            <td class="bar-cell"><span class="bar-visual" style="width: 13%;"></span><span class="bar-value">1.3x</span></td>
+                            <td>0.9-1.7x</td>
+                            <td>Synthesis throughput</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Figure 2: The Pipeline Discount Effect</h3>
+
+            <p>A key insight from our analysis is that task-level acceleration substantially overstates pipeline-level impact.</p>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig2-title fig2-desc">
+                <div class="figure-title" id="fig2-title">Figure 2. Acceleration trajectories follow S-curve dynamics</div>
+                <div class="figure-caption" id="fig2-desc">Projected acceleration over time for each domain. Dashed lines indicate domain-specific ceilings determined by irreducible physical constraints. Diamond markers highlight 2030 projections.</div>
+                <img src="figures/fig2_trajectories.png"
+                     alt="S-curve trajectories showing how each domain approaches its ceiling over time, with structural biology reaching highest ceiling and materials science lowest"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <div class="key-finding">
+                <div class="key-finding-icon" aria-hidden="true">⚠️</div>
+                <strong>Physical bottlenecks dominate computational gains.</strong><br>
+                <span style="color: var(--color-text-secondary);">In materials science, infinite computational discovery capability is worthless without synthesis capacity to validate predictions.</span>
+            </div>
+
+            <h3>Figure 3: Cross-Domain Spillover Network</h3>
+
+            <p>Research domains don't evolve in isolation. We quantify eight spillover pathways using the Griliches-Jaffe framework for R&D externalities<sup>5,6</sup>.</p>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig3-title fig3-desc">
+                <div class="figure-title" id="fig3-title">Figure 3. Cross-domain spillover network</div>
+                <div class="figure-caption" id="fig3-desc">Node-link diagram showing knowledge spillovers between domains. Arrow thickness proportional to spillover coefficient. Dominant pathway: Structural Biology → Drug Discovery (25%).</div>
+                <img src="figures/fig3_spillover_network.png"
+                     alt="Network diagram showing spillover effects between research domains with structural biology as central hub"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <div class="spillover-section">
+                <strong>Key Spillover Pathways:</strong>
+                <ul>
+                    <li>Structural Biology → Drug Discovery: <strong style="color: var(--color-velocity-light);">25%</strong></li>
+                    <li>Structural Biology → Protein Design: <strong style="color: var(--color-velocity-light);">30%</strong></li>
+                    <li>Protein Design → Drug Discovery: <strong style="color: var(--color-hybrid-light);">12%</strong></li>
+                    <li>Clinical Genomics → Drug Discovery: <strong style="color: var(--color-hybrid-light);">8%</strong></li>
+                </ul>
+            </div>
+
+            <h3>Figure 4: Scenario Analysis</h3>
+
+            <p>We examine five scenarios spanning pessimistic to breakthrough conditions. Scenario probabilities derive from structured expert elicitation with 12 domain experts.</p>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig4-title fig4-desc">
+                <div class="figure-title" id="fig4-title">Figure 4. Scenario analysis spanning pessimistic to breakthrough conditions</div>
+                <div class="figure-caption" id="fig4-desc">Connected dot plot showing acceleration projections across five scenarios for each domain. Range between scenarios: 2.7x, reflecting genuine uncertainty about AI trajectories.</div>
+                <img src="figures/fig4_scenarios.png"
+                     alt="Scenario analysis chart showing acceleration ranges from 1.7x (pessimistic) to 4.5x (breakthrough) across different conditions"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <h3>Figure 5: Model Validation</h3>
+
+            <p>We validate our model against 15 historical case studies from 2022-2024, spanning all five domains.</p>
+
+            <div class="validation-summary" role="region" aria-label="Validation metrics">
+                <div class="validation-stat">
+                    <div class="validation-number">0.21</div>
+                    <div class="validation-label">Mean Log Error</div>
+                </div>
+                <div class="validation-stat">
+                    <div class="validation-number">15</div>
+                    <div class="validation-label">Case Studies</div>
+                </div>
+                <div class="validation-stat">
+                    <div class="validation-number">&lt;25%</div>
+                    <div class="validation-label">Typical Deviation</div>
+                </div>
+            </div>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig5-title fig5-desc">
+                <div class="figure-title" id="fig5-title">Figure 5. Predicted vs Observed Acceleration</div>
+                <div class="figure-caption" id="fig5-desc">Validation against 15 historical cases (2022-2024). Diagonal line indicates perfect calibration; shading shows acceptable error band. Overall mean log error: 0.21.</div>
+                <img src="figures/fig5_validation.png"
+                     alt="Scatter plot showing predicted vs observed acceleration with 15 validation cases clustered near the perfect calibration line"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <h3>Figure 6: Sensitivity Analysis</h3>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig6-title fig6-desc">
+                <div class="figure-title" id="fig6-title">Figure 6. Sensitivity analysis (tornado diagram)</div>
+                <div class="figure-caption" id="fig6-desc">Parameter impact on system acceleration (±20% variation). Base accelerations dominate uncertainty (~80% of variance).</div>
+                <img src="figures/fig6_sensitivity.png"
+                     alt="Tornado diagram showing parameter sensitivity analysis with base accelerations having largest impact on outcomes"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <h3>Figure 7: Workforce Implications</h3>
+
+            <p>AI-driven acceleration reshapes research workforce demands.</p>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig7-title fig7-desc">
+                <div class="figure-title" id="fig7-title">Figure 7. Workforce implications by domain</div>
+                <div class="figure-caption" id="fig7-desc">Job displacement (routine tasks) vs. creation (new capabilities) by domain. Total net impact: +2.1M jobs by 2030.</div>
+                <img src="figures/fig7_workforce.png"
+                     alt="Workforce implications chart showing job creation exceeding displacement across all domains, with net positive 2.1 million jobs"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <div class="key-finding primary">
+                <strong>Net Impact: +2.1 Million Jobs by 2030</strong><br>
+                <span style="color: var(--color-text-secondary);">Job creation exceeds displacement through expanded research capacity and new AI-biology interface roles.</span>
+            </div>
+
+            <h3>Figure 8: Key Findings Summary</h3>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig8-title fig8-desc">
+                <div class="figure-title" id="fig8-title">Figure 8. Key findings summary</div>
+                <div class="figure-caption" id="fig8-desc">Infographic combining main results: 2.8x system acceleration, +2.1M net jobs, 0.21 mean log error, domain rankings, and key insights.</div>
+                <img src="figures/fig8_summary.png"
+                     alt="Summary infographic of key findings including 2.8x acceleration, 2.1 million net jobs, and domain-specific results"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <h3>Figure 9: Bottleneck Transitions</h3>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig9-title fig9-desc">
+                <div class="figure-title" id="fig9-title">Figure 9. Bottleneck transition timeline (2024-2040)</div>
+                <div class="figure-caption" id="fig9-desc">Domain acceleration trajectories with bottleneck domain highlighted. Materials science remains primary bottleneck through ~2035.</div>
+                <img src="figures/fig9_bottleneck_transitions.png"
+                     alt="Timeline showing bottleneck transitions over time with materials science as primary constraint until 2035"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <h3>Figure 10: Policy Intervention ROI</h3>
+
+            <p>Return on investment for policy interventions, ranked by acceleration gain per $B invested:</p>
+
+            <figure class="figure-container" role="figure" aria-labelledby="fig10-title fig10-desc">
+                <div class="figure-title" id="fig10-title">Figure 10. Policy intervention ROI analysis</div>
+                <div class="figure-caption" id="fig10-desc">Highest ROI: Autonomous Synthesis Facilities (0.30/$B) and Regulatory Harmonization (0.20/$B).</div>
+                <img src="figures/fig10_policy_roi.png"
+                     alt="Policy ROI analysis showing autonomous synthesis facilities with highest return on investment at 0.30 acceleration per billion dollars"
+                     loading="lazy"
+                     width="800"
+                     height="500">
+            </figure>
+
+            <hr>
+
+            <h2 id="discussion">Discussion</h2>
+
+            <p>Our model reveals a fundamental insight about AI in biology: <strong>physical bottlenecks dominate computational gains</strong>. The field has invested heavily in AI capability, but the binding constraints are increasingly wet lab throughput, clinical trial timelines, and synthesis capacity.</p>
+
+            <p>The Materials Science Paradox deserves particular attention. GNoME represents perhaps the most dramatic AI success story in terms of raw predictive capability—discovering 2.2 million stable materials in a single study. Yet this translates to only 1.3x research acceleration because synthesis remains rate-limiting. At current lab capacity (~1,000 materials/year), it would take 2,200 years to validate all predictions.</p>
+
+            <p>Our cross-domain spillover analysis highlights structural biology as a high-leverage target. The 25% spillover to drug discovery means structural biology advances indirectly accelerate the largest and most economically important biological research sector.</p>
+
+            <hr>
+
+            <h2 id="methods">Methods</h2>
+
+            <h3>Model Architecture</h3>
+
+            <p>We model acceleration for domain <em>d</em> at year <em>t</em> as:</p>
+
+            <div class="equation" role="math" aria-label="Acceleration equation: A sub d of t equals B sub d times T sub d of t times one plus S sub d of t times M sub s">
+                A<sub>d</sub>(t) = B<sub>d</sub> × T<sub>d</sub>(t) × (1 + S<sub>d</sub>(t)) × M<sub>s</sub>
+            </div>
+
+            <p>where B<sub>d</sub> is base acceleration, T<sub>d</sub>(t) is time evolution (logistic growth), S<sub>d</sub>(t) is cross-domain spillover, and M<sub>s</sub> is scenario modifier.</p>
+
+            <h3>Uncertainty Quantification</h3>
+
+            <p>We assume log-normal distributions for acceleration factors. Confidence intervals derive from parameter uncertainty propagated through Monte Carlo simulation (N=10,000). Sensitivity analysis identifies base accelerations as dominant uncertainty source (~80% of variance).</p>
+
+            <hr>
+
+            <!-- Disclosure Section -->
+            <div class="disclosure-section">
+                <h3>Funding</h3>
+                <p>This work was supported by internal funds from Weill Cornell Medicine. No external funding was received for this study.</p>
+
+                <h3>Competing Interests</h3>
+                <p>The authors declare no competing interests.</p>
+
+                <h3>Data Availability</h3>
+                <p>The complete model code, data, and documentation are available at <a href="https://github.com/jang1563/ai-bio-acceleration" target="_blank" rel="noopener noreferrer">github.com/jang1563/ai-bio-acceleration</a> under an MIT license.</p>
+            </div>
+
+            <hr>
+
+            <div class="references-section">
+                <h2 id="references">References</h2>
+                <ol>
+                    <li>Jumper, J. et al. Highly accurate protein structure prediction with AlphaFold. <em>Nature</em> 596, 583-589 (2021).</li>
+                    <li>Hayes, T. et al. Simulating 500 million years of evolution with a language model. <em>Science</em> (2024).</li>
+                    <li>Merchant, A. et al. Scaling deep learning for materials discovery. <em>Nature</em> 624, 80-85 (2023).</li>
+                    <li>Cheng, J. et al. Accurate proteome-wide missense variant effect prediction with AlphaMissense. <em>Science</em> 381, 1303-1308 (2023).</li>
+                    <li>Griliches, Z. The search for R&D spillovers. <em>Scandinavian Journal of Economics</em> 94, S29-S47 (1992).</li>
+                    <li>Jaffe, A. B. Real effects of academic research. <em>American Economic Review</em> 79, 957-970 (1989).</li>
+                    <li>Rogers, E. M. <em>Diffusion of Innovations</em> (Free Press, 2003).</li>
+                    <li>Watson, J. L. et al. De novo design of protein structure and function with RFdiffusion. <em>Nature</em> 620, 1089-1100 (2023).</li>
+                    <li>Dauparas, J. et al. Robust deep learning-based protein sequence design using ProteinMPNN. <em>Science</em> 378, 49-56 (2022).</li>
+                    <li>Abramson, J. et al. Accurate structure prediction of biomolecular interactions with AlphaFold 3. <em>Nature</em> 630, 493-500 (2024).</li>
+                    <li>Szymanski, N. J. et al. An autonomous laboratory for the accelerated synthesis of novel materials. <em>Nature</em> 624, 86-91 (2023).</li>
+                </ol>
+            </div>
+
+            <hr>
+
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); text-align: center;"><em>Word count: ~3,400 (main text) | Display items: 10 figures | Version 1.1</em></p>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>AI-Accelerated Biological Discovery Model v1.1</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+            <a href="https://github.com/jang1563/ai-bio-acceleration" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            <a href="blog.html">Blog Home</a>
+            <a href="post1_pipeline_problem.html">Technical Analysis</a>
+            <a href="post2_explainer_students.html">Student Guide</a>
+        </nav>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        (function() {
+            const navHamburger = document.getElementById('navHamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            navHamburger.addEventListener('click', function() {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        })();
+
+        // Throttled Progress Bar
+        (function() {
+            const progressBar = document.getElementById('progressBar');
+            let ticking = false;
+
+            function updateProgress() {
+                const winScroll = window.scrollY || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = height > 0 ? Math.min((winScroll / height) * 100, 100) : 0;
+
+                progressBar.style.width = scrolled + '%';
+                progressBar.setAttribute('aria-valuenow', Math.round(scrolled));
+                ticking = false;
+            }
+
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(updateProgress);
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            updateProgress();
+        })();
+
+        // Animated Counters with Intersection Observer
+        (function() {
+            const observerOptions = { threshold: 0.5 };
+
+            const counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseFloat(el.dataset.count);
+                        const suffix = el.dataset.suffix || '';
+                        const isDecimal = target % 1 !== 0;
+                        let current = 0;
+                        const increment = target / 50;
+                        const duration = 1500;
+                        const stepTime = duration / 50;
+
+                        const timer = setInterval(function() {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+
+                            let display;
+                            if (isDecimal) {
+                                display = current.toFixed(current >= target ? (target === 0.21 ? 2 : 1) : 2);
+                            } else {
+                                display = Math.round(current);
+                            }
+
+                            if (suffix === 'M') {
+                                el.textContent = '+' + display + 'M';
+                            } else if (suffix === 'x') {
+                                el.textContent = display + 'x';
+                            } else {
+                                el.textContent = display;
+                            }
+                        }, stepTime);
+
+                        counterObserver.unobserve(el);
+                    }
+                });
+            }, observerOptions);
+
+            // Check for reduced motion preference
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            document.querySelectorAll('.stat-value').forEach(function(el) {
+                if (prefersReducedMotion) {
+                    // Show final values immediately for users who prefer reduced motion
+                    const target = parseFloat(el.dataset.count);
+                    const suffix = el.dataset.suffix || '';
+                    const display = target % 1 !== 0 ? target.toFixed(target === 0.21 ? 2 : 1) : target;
+
+                    if (suffix === 'M') {
+                        el.textContent = '+' + display + 'M';
+                    } else if (suffix === 'x') {
+                        el.textContent = display + 'x';
+                    } else {
+                        el.textContent = display;
+                    }
+                } else {
+                    counterObserver.observe(el);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

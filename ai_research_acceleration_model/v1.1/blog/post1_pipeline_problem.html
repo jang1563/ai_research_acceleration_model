@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 2.8x Ceiling: What Really Limits AI's Impact on Biology | AI Bio Acceleration</title>
+    <meta name="description" content="AI predicts protein structures 24x faster—but drug development only speeds up 1.7x. The AI Research Acceleration Model explains this 'pipeline problem' and what we can do about it.">
+    <meta name="keywords" content="AI acceleration, biology, drug discovery, pipeline problem, AlphaFold, research acceleration">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The 2.8x Ceiling: Why 24x Faster AI Only Yields 3x Faster Cures">
+    <meta property="og:description" content="AI predicts protein structures 24x faster—but drug development only speeds up 1.7x. Discover the pipeline problem.">
+    <meta property="og:image" content="figures/fig8_summary.png">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#0a0a12">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           AI BIO ACCELERATION THEME v2.0
+           Theme: Speed, Momentum, Scientific Precision
+           ============================================ */
+
+        :root {
+            /* Core Colors - "Velocity" palette */
+            --color-bg-primary: #0a0a12;
+            --color-bg-secondary: #12121c;
+            --color-bg-card: #1a1a28;
+            --color-bg-hover: #222235;
+
+            /* Text */
+            --color-text-primary: #f0f0f8;
+            --color-text-secondary: #b8b8cc;
+            --color-text-muted: #8888a0;
+
+            /* Accent - Velocity Blue (AI/Speed) */
+            --color-velocity: #0967d2;
+            --color-velocity-light: #2186eb;
+            --color-velocity-glow: rgba(9, 103, 210, 0.4);
+
+            /* Accent - Bio Green (Biology/Growth) */
+            --color-bio: #0ca750;
+            --color-bio-light: #1db954;
+            --color-bio-glow: rgba(12, 167, 80, 0.4);
+
+            /* Accent - Acceleration gradient */
+            --gradient-acceleration: linear-gradient(135deg, #0552b5 0%, #0967d2 30%, #0ca750 70%, #1db954 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(9, 103, 210, 0.15) 0%, rgba(12, 167, 80, 0.15) 100%);
+
+            /* Constraint colors */
+            --color-warning: #f59e0b;
+            --color-danger: #ef4444;
+
+            /* Borders */
+            --color-border: #2a2a40;
+            --color-border-active: rgba(9, 103, 210, 0.5);
+
+            /* Typography */
+            --font-display: 'Space Grotesk', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 40px;
+            --space-2xl: 64px;
+
+            /* Radius */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.25s ease;
+            --transition-slow: 0.4s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg-primary);
+            color: var(--color-text-primary);
+            line-height: 1.7;
+        }
+
+        /* Skip Link - Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            background: var(--color-velocity);
+            color: white;
+            padding: 12px 24px;
+            z-index: 1000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 0 0 var(--radius-sm) 0;
+            transition: top var(--transition-fast);
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 2px solid white;
+            outline-offset: 2px;
+        }
+
+        /* Visually Hidden */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Navigation */
+        .article-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 18, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            padding: 14px 0;
+        }
+
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-back {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            margin-left: -12px;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+            min-height: 44px;
+        }
+
+        .nav-back:hover {
+            color: var(--color-velocity-light);
+            background: rgba(9, 103, 210, 0.1);
+        }
+
+        .nav-back:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+        }
+
+        .nav-progress {
+            height: 4px;
+            background: var(--color-border);
+            border-radius: 4px;
+            width: 180px;
+            overflow: hidden;
+        }
+
+        .nav-progress-bar {
+            height: 100%;
+            background: var(--gradient-acceleration);
+            background-size: 200% 100%;
+            width: 0%;
+            transition: width 0.1s linear;
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--color-velocity-glow);
+        }
+
+        /* Article Container */
+        .article-container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 100px 24px 80px;
+        }
+
+        /* Header with Hero Effect */
+        .article-header {
+            margin-bottom: var(--space-2xl);
+            text-align: center;
+            position: relative;
+        }
+
+        .article-header::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--color-velocity-glow) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .article-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--gradient-acceleration);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: var(--space-lg);
+            box-shadow: 0 4px 20px var(--color-velocity-glow);
+        }
+
+        .article-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.02em;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        /* TL;DR Box */
+        .tldr-box {
+            background: var(--gradient-hero);
+            border: 1px solid var(--color-border-active);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .tldr-box h3 {
+            font-family: var(--font-display);
+            color: var(--color-velocity-light);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: var(--space-md);
+        }
+
+        .tldr-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tldr-box li {
+            color: var(--color-text-secondary);
+            padding: var(--space-sm) 0;
+            padding-left: var(--space-lg);
+            position: relative;
+        }
+
+        .tldr-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-velocity);
+            font-weight: 600;
+        }
+
+        .tldr-box strong { color: var(--color-text-primary); }
+
+        /* Hero Stats - Main Acceleration Number */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: var(--space-xl);
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            min-width: 180px;
+            transition: all var(--transition-normal);
+        }
+
+        .hero-stat:first-child {
+            border-color: var(--color-velocity);
+            box-shadow: 0 0 30px var(--color-velocity-glow);
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-border-active);
+        }
+
+        .hero-stat-value {
+            font-family: var(--font-mono);
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-acceleration);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .hero-stat:first-child .hero-stat-value {
+            font-size: 4rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-top: var(--space-sm);
+        }
+
+        /* Content Styles */
+        .article-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-primary);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-border);
+            position: relative;
+        }
+
+        .article-content h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: var(--space-xl);
+        }
+
+        .article-content h2::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: calc(var(--space-xl) + 8px);
+            width: 4px;
+            height: 28px;
+            background: var(--gradient-acceleration);
+            border-radius: 2px;
+        }
+
+        .article-content h2:first-of-type::before {
+            top: 8px;
+        }
+
+        .article-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-md);
+            color: var(--color-velocity-light);
+        }
+
+        .article-content p {
+            margin-bottom: 1.4em;
+            font-size: 1.05rem;
+            color: var(--color-text-secondary);
+            max-width: 65ch;
+        }
+
+        .article-content strong { color: var(--color-text-primary); }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.4em;
+            padding-left: var(--space-lg);
+        }
+
+        .article-content li {
+            margin-bottom: 0.6em;
+            color: var(--color-text-secondary);
+        }
+
+        /* Figure Container */
+        .figure-container {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+            transition: all var(--transition-normal);
+        }
+
+        .figure-container:hover {
+            border-color: var(--color-border-active);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .figure-container img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .figure-caption {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            text-align: center;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .figure-caption strong {
+            color: var(--color-velocity-light);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+        }
+
+        /* Data Table */
+        .data-table-container {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin: var(--space-xl) 0;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        .data-table caption {
+            padding: var(--space-md);
+            font-weight: 600;
+            text-align: left;
+            background: var(--color-bg-secondary);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .data-table th {
+            background: var(--color-bg-secondary);
+            padding: var(--space-md);
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            border-bottom: 2px solid var(--color-velocity);
+        }
+
+        .data-table td {
+            padding: var(--space-md);
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .data-table tr:last-child td { border-bottom: none; }
+
+        .data-table tbody tr:hover {
+            background: var(--color-bg-hover);
+        }
+
+        .data-table tbody tr:focus-within {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: -2px;
+        }
+
+        .acceleration-bar {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .bar-visual {
+            height: 8px;
+            background: var(--gradient-acceleration);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .bar-label {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--color-text-primary);
+            min-width: 50px;
+        }
+
+        /* Insight Box */
+        .insight-box {
+            background: var(--color-bg-card);
+            border-left: 4px solid var(--color-bio);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+            position: relative;
+        }
+
+        .insight-box::before {
+            content: '💡';
+            position: absolute;
+            top: -12px;
+            left: var(--space-md);
+            background: var(--color-bg-primary);
+            padding: 0 var(--space-sm);
+            font-size: 1.2rem;
+        }
+
+        .insight-box h4 {
+            color: var(--color-bio-light);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .insight-box p {
+            color: var(--color-text-primary);
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        /* Blockquote */
+        blockquote {
+            background: var(--color-bg-card);
+            border-left: 4px solid var(--color-velocity);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+            font-style: italic;
+            color: var(--color-text-secondary);
+        }
+
+        blockquote strong {
+            color: var(--color-text-primary);
+            font-style: normal;
+        }
+
+        /* Pipeline Visualization */
+        .pipeline-viz {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .pipeline-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--color-text-primary);
+        }
+
+        .pipeline-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-md);
+        }
+
+        .pipeline-step {
+            background: var(--color-bg-secondary);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            position: relative;
+            transition: all var(--transition-fast);
+        }
+
+        .pipeline-step.ai-accelerated {
+            background: linear-gradient(135deg, rgba(9, 103, 210, 0.2) 0%, rgba(12, 167, 80, 0.2) 100%);
+            border: 1px solid var(--color-velocity);
+            color: var(--color-text-primary);
+        }
+
+        .pipeline-step .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--color-bio);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+
+        .pipeline-arrow {
+            color: var(--color-velocity);
+            font-size: 1.2rem;
+            opacity: 0.6;
+            animation: pulse-arrow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-arrow {
+            0%, 100% { opacity: 0.4; transform: translateX(0); }
+            50% { opacity: 0.8; transform: translateX(3px); }
+        }
+
+        .pipeline-note {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* Domain Cards */
+        .domain-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+
+        .domain-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            transition: all var(--transition-normal);
+        }
+
+        .domain-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-border-active);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .domain-card h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-primary);
+        }
+
+        .domain-accel {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-velocity-light);
+            margin-bottom: var(--space-xs);
+        }
+
+        .domain-accel.constrained {
+            color: var(--color-danger);
+        }
+
+        .domain-ci {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-sm);
+        }
+
+        .domain-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Intervention List */
+        .intervention-list {
+            margin: var(--space-xl) 0;
+        }
+
+        .intervention-item {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-md);
+            display: flex;
+            gap: var(--space-md);
+            align-items: flex-start;
+            transition: all var(--transition-fast);
+        }
+
+        .intervention-item:hover {
+            border-color: var(--color-border-active);
+            background: var(--color-bg-hover);
+        }
+
+        .intervention-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .intervention-content h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            margin-bottom: var(--space-xs);
+            color: var(--color-text-primary);
+        }
+
+        .intervention-content p {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+
+        .intervention-roi {
+            font-size: 0.8rem;
+            color: var(--color-bio-light);
+            font-weight: 600;
+            margin-top: var(--space-sm);
+        }
+
+        /* Footer */
+        .article-footer {
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .footer-cta {
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer-cta h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-md);
+            color: var(--color-text-primary);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+            min-height: 44px;
+        }
+
+        .cta-btn:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+        }
+
+        .cta-btn.primary {
+            background: var(--gradient-acceleration);
+            color: white;
+        }
+
+        .cta-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--color-velocity-glow);
+        }
+
+        .cta-btn.secondary {
+            background: var(--color-bg-card);
+            color: var(--color-text-primary);
+            border: 1px solid var(--color-border);
+        }
+
+        .cta-btn.secondary:hover {
+            border-color: var(--color-velocity);
+            background: var(--color-bg-hover);
+        }
+
+        .footer-nav {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-nav a {
+            color: var(--color-velocity-light);
+            text-decoration: none;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-nav a:focus {
+            outline: 2px solid var(--color-velocity);
+            outline-offset: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 90px 20px 60px;
+            }
+
+            .article-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stat {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .hero-stat:first-child .hero-stat-value {
+                font-size: 3rem;
+            }
+
+            .domain-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .pipeline-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .pipeline-arrow {
+                transform: rotate(90deg);
+                text-align: center;
+            }
+
+            .intervention-item {
+                flex-direction: column;
+            }
+
+            .nav-progress {
+                width: 120px;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .article-nav,
+            .skip-link,
+            .cta-buttons {
+                display: none;
+            }
+
+            body {
+                background: white;
+                color: black;
+            }
+
+            .article-container {
+                padding: 20px;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="article-nav" aria-label="Article navigation">
+        <div class="nav-content">
+            <a href="blog.html" class="nav-back">
+                <span aria-hidden="true">←</span> Back to Blog
+            </a>
+            <div class="nav-progress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div class="nav-progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="article-container" id="main-content">
+        <header class="article-header">
+            <span class="article-tag">
+                <span aria-hidden="true">⚡</span> Technical Analysis
+            </span>
+            <h1>The 2.8x Ceiling</h1>
+            <p class="article-subtitle">Why 24x faster AI only yields 3x faster cures—and what we can do about it</p>
+            <div class="article-meta">
+                <span>18 min read</span>
+                <span>Technical Deep Dive</span>
+            </div>
+        </header>
+
+        <!-- TL;DR -->
+        <div class="tldr-box">
+            <h3>TL;DR</h3>
+            <ul>
+                <li><strong>2.8x acceleration by 2030</strong> — impressive, but less than headlines suggest</li>
+                <li><strong>The pipeline problem:</strong> AI excels at computation but can't speed up physical experiments</li>
+                <li><strong>Domain leaders:</strong> Structural biology (8.9x) vs Drug discovery (1.7x)</li>
+                <li><strong>The path forward:</strong> $5-10B in autonomous labs + regulatory innovation could unlock 4-5x</li>
+            </ul>
+        </div>
+
+        <!-- Hero Stats -->
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-value" data-target="2.8">0</div>
+                <div class="hero-stat-label">Overall Acceleration by 2030</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value" data-target="64">0</div>
+                <div class="hero-stat-label">Years of Progress Compressed</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value" data-target="35">0</div>
+                <div class="hero-stat-label">Years to Complete 100yr Work</div>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <h2 id="compressed-century">The Compressed Century</h2>
+
+            <p><strong>AI will accelerate biological research by roughly 2.8x by 2030</strong>—compressing what would have been a century of progress into approximately 35 years. That's <strong>64 years of human suffering prevented</strong>: diseases that would have killed people, disabilities that would have limited lives, mysteries that would have remained unsolved.</p>
+
+            <p>But 2.8x is far less than many expect. If AlphaFold predicts protein structures 24x faster than experiments, why isn't structural biology accelerating 24x? The answer reveals something fundamental about the nature of scientific progress—and points to exactly where we need to push to unlock more.</p>
+
+            <p>I call this the <strong>pipeline problem</strong>: the gap between how fast AI can perform individual computational tasks and how fast complete research programs actually move.</p>
+
+            <!-- Figure 1: Domain Overview -->
+            <div class="figure-container">
+                <img src="figures/fig1_domain_overview.png"
+                     alt="Bar chart showing AI-driven research acceleration by domain: Structural Biology at 8.9x, Protein Design at 5.5x, Clinical Genomics at 4.2x, Drug Discovery at 1.7x, and Materials Science at 1.3x"
+                     width="800" height="400"
+                     loading="eager"
+                     fetchpriority="high">
+                <p class="figure-caption"><strong>Figure 1.</strong> AI-driven research acceleration by domain (2030 projections). Structural biology leads (8.9x) while drug discovery (1.7x) and materials science (1.3x) are constrained by physical bottlenecks.</p>
+            </div>
+
+            <h2 id="pipeline-discount">The Pipeline Discount</h2>
+
+            <p>Here's a question that puzzled me: If AlphaFold predicts protein structures 24x faster than experimental methods, why isn't structural biology accelerating 24x?</p>
+
+            <p>The answer reveals something fundamental about how science actually works. Consider any research pipeline:</p>
+
+            <!-- Pipeline Visualization -->
+            <div class="pipeline-viz">
+                <div class="pipeline-title">The General Research Pipeline</div>
+                <div class="pipeline-row">
+                    <div class="pipeline-step">Physical Preparation</div>
+                    <span class="pipeline-arrow" aria-hidden="true">→</span>
+                    <div class="pipeline-step">Sample Processing</div>
+                    <span class="pipeline-arrow" aria-hidden="true">→</span>
+                    <div class="pipeline-step ai-accelerated">
+                        <span class="badge">AI: 10-1000x</span>
+                        Computational Analysis
+                    </div>
+                    <span class="pipeline-arrow" aria-hidden="true">→</span>
+                    <div class="pipeline-step">Validation</div>
+                    <span class="pipeline-arrow" aria-hidden="true">→</span>
+                    <div class="pipeline-step">Follow-up Experiments</div>
+                </div>
+                <p class="pipeline-note">AI dramatically accelerates computational steps, but physical steps remain unchanged. This creates the "pipeline discount."</p>
+            </div>
+
+            <p>AlphaFold revolutionizes the computational step. But the physical steps before and after? Largely unchanged. You still need to express proteins, validate predictions experimentally, and conduct follow-up studies. When you add up the full pipeline, that 24x speedup translates to roughly 9x acceleration for the overall research program.</p>
+
+            <div class="insight-box">
+                <h4>Key Concept</h4>
+                <p>The <em>pipeline discount factor</em> measures how much of an AI tool's raw speedup actually translates into faster research outcomes. A discount of 0.37 means only 37% of the task-level acceleration flows through to pipeline-level results.</p>
+            </div>
+
+            <!-- Pipeline Discount Table -->
+            <div class="data-table-container">
+                <div class="table-scroll">
+                    <table class="data-table" aria-label="Pipeline Discount by Domain">
+                        <caption class="sr-only">Pipeline discount factors showing how AI speedups translate to actual research acceleration</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Domain</th>
+                                <th scope="col">AI Task Speed</th>
+                                <th scope="col">Pipeline Discount</th>
+                                <th scope="col">Net Acceleration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr tabindex="0">
+                                <td><strong>Structural Biology</strong></td>
+                                <td>24x</td>
+                                <td>0.37</td>
+                                <td>
+                                    <div class="acceleration-bar" role="img" aria-label="8.9x acceleration, highest among all domains">
+                                        <div class="bar-visual" style="width: 100%;" aria-hidden="true"></div>
+                                        <span class="bar-label">8.9x</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr tabindex="0">
+                                <td><strong>Protein Design</strong></td>
+                                <td>8x</td>
+                                <td>0.69</td>
+                                <td>
+                                    <div class="acceleration-bar" role="img" aria-label="5.5x acceleration">
+                                        <div class="bar-visual" style="width: 62%;" aria-hidden="true"></div>
+                                        <span class="bar-label">5.5x</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr tabindex="0">
+                                <td><strong>Clinical Genomics</strong></td>
+                                <td>6x</td>
+                                <td>0.70</td>
+                                <td>
+                                    <div class="acceleration-bar" role="img" aria-label="4.2x acceleration">
+                                        <div class="bar-visual" style="width: 47%;" aria-hidden="true"></div>
+                                        <span class="bar-label">4.2x</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr tabindex="0">
+                                <td><strong>Drug Discovery</strong></td>
+                                <td>3x</td>
+                                <td>0.57</td>
+                                <td>
+                                    <div class="acceleration-bar" role="img" aria-label="1.7x acceleration, constrained by clinical trials">
+                                        <div class="bar-visual" style="width: 19%;" aria-hidden="true"></div>
+                                        <span class="bar-label">1.7x</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr tabindex="0">
+                                <td><strong>Materials Science</strong></td>
+                                <td>2000x+</td>
+                                <td>0.0007</td>
+                                <td>
+                                    <div class="acceleration-bar" role="img" aria-label="1.3x acceleration, severely constrained by synthesis capacity">
+                                        <div class="bar-visual" style="width: 15%;" aria-hidden="true"></div>
+                                        <span class="bar-label">1.3x</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2 id="bottlenecks">Why Bottlenecks Exist</h2>
+
+            <p>The pipeline discount isn't a temporary limitation that better AI will overcome. It reflects something fundamental about research: <strong>different stages have different susceptibility to computational acceleration</strong>.</p>
+
+            <h3>The Bits, Hybrid, and Atoms Framework</h3>
+
+            <p><strong>Bits-Only Tasks</strong> (Pure Computation) — Activities that happen entirely <em>in silico</em>: prediction, simulation, analysis. AI excels here, providing 10x, 100x, even 1000x speedups.</p>
+
+            <p><strong>Hybrid Tasks</strong> (Computationally-Guided Physical Work) — Physical experiments guided by computation. AI can make these 2-5x faster by making smarter choices, but you still need to do the experiment.</p>
+
+            <p><strong>Atoms-Bound Tasks</strong> (Irreducibly Physical) — Activities determined by physical, biological, or social processes that computation cannot alter. Clinical trials, chemical synthesis, regulatory review. Minimal acceleration regardless of AI capability.</p>
+
+            <div class="insight-box">
+                <h4>The Core Insight</h4>
+                <p>Improving AI further will have diminishing returns in domains where Atoms-Bound activities dominate. The bottleneck has shifted from computation to physical reality.</p>
+            </div>
+
+            <h2 id="materials-paradox">The Materials Science Paradox</h2>
+
+            <p>Look at that materials science row. GNoME, DeepMind's materials discovery system, can predict stable crystal structures <strong>2000x faster</strong> than traditional methods. It identified 2.2 million potentially stable materials—more than humanity had characterized in all of history.</p>
+
+            <p>Yet the pipeline discount is <strong>0.0007</strong>. Nearly zero. Why?</p>
+
+            <p>Because actually <em>synthesizing</em> those materials is painfully slow. The A-Lab at Lawrence Berkeley can synthesize ~1,000 new materials per year. At that rate, working through GNoME's predictions would take <strong>over 2,000 years</strong>.</p>
+
+            <blockquote>
+                <strong>The Ultimate Pipeline Discount:</strong> 2000x computational speedup becomes 1.3x real-world speedup. The discount factor is 0.0007—meaning 99.93% of the AI's speed advantage gets absorbed by physical reality.
+            </blockquote>
+
+            <!-- Figure 9: Bottleneck Transitions -->
+            <div class="figure-container">
+                <img src="figures/fig9_bottleneck_transitions.png"
+                     alt="Timeline showing bottleneck transitions from 2024-2040, with materials science remaining the primary bottleneck through 2035"
+                     width="800" height="400"
+                     loading="lazy"
+                     decoding="async">
+                <p class="figure-caption"><strong>Figure 9.</strong> Bottleneck transition timeline (2024-2040). Materials science remains the primary bottleneck through ~2035 due to synthesis capacity limitations.</p>
+            </div>
+
+            <h2 id="drug-discovery">Why Drug Discovery Is Constrained</h2>
+
+            <p>Drug discovery presents the starkest illustration of the pipeline problem. Clinical trials—testing drugs in actual humans—take up 60-70% of development time. And you <strong>cannot speed up biology</strong>.</p>
+
+            <p>If a drug prevents heart attacks, you need to wait years to see if fewer people have heart attacks. There's no shortcut. AI helps with the first 25% of drug development. It barely touches the last 75%.</p>
+
+            <div class="domain-cards">
+                <div class="domain-card">
+                    <h4>Early Stages (AI Helps)</h4>
+                    <div class="domain-accel">2-10x</div>
+                    <div class="domain-ci">Target ID, Lead Optimization</div>
+                    <p class="domain-desc">Virtual screening, generative chemistry, ADMET prediction. Represents ~25-30% of timeline.</p>
+                </div>
+                <div class="domain-card">
+                    <h4>Clinical Trials (AI Can't Help)</h4>
+                    <div class="domain-accel constrained">~1x</div>
+                    <div class="domain-ci">Phase I, II, III</div>
+                    <p class="domain-desc">Human biology must unfold. 8-10 years that computation cannot compress. Represents ~60-70% of timeline.</p>
+                </div>
+            </div>
+
+            <blockquote>
+                <strong>Key Implication:</strong> Regulatory innovation may ultimately matter more than AI innovation for drug development timelines.
+            </blockquote>
+
+            <h2 id="spillover">The Spillover Network</h2>
+
+            <p>Research domains don't evolve in isolation. Advances in one field create opportunities in others. Our analysis identifies eight major spillover pathways.</p>
+
+            <!-- Figure 3: Spillover Network -->
+            <div class="figure-container">
+                <img src="figures/fig3_spillover_network.png"
+                     alt="Network diagram showing knowledge spillovers between research domains, with Structural Biology to Drug Discovery being the strongest at 25%"
+                     width="800" height="400"
+                     loading="lazy"
+                     decoding="async">
+                <p class="figure-caption"><strong>Figure 3.</strong> Cross-domain spillover network. The dominant pathway is Structural Biology → Drug Discovery (25%). Total spillover contribution: 5-20% additional acceleration per domain.</p>
+            </div>
+
+            <p>The dominant spillover: <strong>Structural Biology → Drug Discovery (25%)</strong>. AlphaFold-predicted structures enable structure-based drug design, virtual screening, and binding site identification. This makes structural biology a high-leverage investment target—benefits flow not just to that field but across the biomedical ecosystem.</p>
+
+            <h2 id="interventions">What Would Change Everything</h2>
+
+            <p>If we want to accelerate beyond 2.8x, we need to address the physical bottlenecks:</p>
+
+            <!-- Figure 10: Policy ROI -->
+            <div class="figure-container">
+                <img src="figures/fig10_policy_roi.png"
+                     alt="Policy ROI analysis showing Autonomous Synthesis Facilities with highest return at 0.30 acceleration per billion dollars, followed by Regulatory Harmonization at 0.20"
+                     width="800" height="400"
+                     loading="lazy"
+                     decoding="async">
+                <p class="figure-caption"><strong>Figure 10.</strong> Policy ROI analysis. Highest returns: Autonomous Synthesis Facilities (0.30/$B) and Regulatory Harmonization (0.20/$B).</p>
+            </div>
+
+            <div class="intervention-list">
+                <div class="intervention-item">
+                    <div class="intervention-icon" aria-hidden="true">🤖</div>
+                    <div class="intervention-content">
+                        <h4>Autonomous Synthesis Facilities</h4>
+                        <p>Robot labs running 24/7 could increase materials throughput 10-50x. The A-Lab proves the concept; we need 50-100 facilities worldwide.</p>
+                        <div class="intervention-roi">Investment: $1-2B globally | ROI: 0.30 acceleration/$B</div>
+                    </div>
+                </div>
+                <div class="intervention-item">
+                    <div class="intervention-icon" aria-hidden="true">🔬</div>
+                    <div class="intervention-content">
+                        <h4>Cryo-EM Infrastructure Expansion</h4>
+                        <p>Let structural biology validation keep pace with AI predictions. The limiting resource is microscope time and trained operators.</p>
+                        <div class="intervention-roi">Investment: $200-500M | Impact: Enable full capture of 8.9x potential</div>
+                    </div>
+                </div>
+                <div class="intervention-item">
+                    <div class="intervention-icon" aria-hidden="true">📋</div>
+                    <div class="intervention-content">
+                        <h4>Clinical Trial Reform</h4>
+                        <p>Adaptive designs, surrogate endpoints, international harmonization. Could cut drug development timelines by 30-50%.</p>
+                        <div class="intervention-roi">Investment: Coordination cost | ROI: 0.20 acceleration/$B equivalent</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="scenarios">Scenario Analysis</h2>
+
+            <p>Our model examines five scenarios from pessimistic to breakthrough:</p>
+
+            <!-- Figure 4: Scenarios -->
+            <div class="figure-container">
+                <img src="figures/fig4_scenarios.png"
+                     alt="Scenario analysis showing system acceleration ranging from 1.7x (pessimistic) to 4.5x (breakthrough), with baseline at 2.8x"
+                     width="800" height="400"
+                     loading="lazy"
+                     decoding="async">
+                <p class="figure-caption"><strong>Figure 4.</strong> Scenario analysis spanning pessimistic (1.7x) to breakthrough (4.5x) conditions. The 2.7x range reflects genuine uncertainty about AI trajectories and infrastructure investment.</p>
+            </div>
+
+            <p>The breakthrough scenario (4.5x) requires specific prerequisites: major advances in robotic automation, regulatory innovations like adaptive trial designs, and continued scaling of foundation models. It's achievable—but not automatic.</p>
+
+            <h2 id="validation">Validation</h2>
+
+            <p>We validated our model against 15 historical case studies from 2022-2024, including AlphaFold2/3, ESMFold, GNoME, A-Lab, RFdiffusion, ProteinMPNN, ESM-3, and AlphaMissense.</p>
+
+            <!-- Figure 5: Validation -->
+            <div class="figure-container">
+                <img src="figures/fig5_validation.png"
+                     alt="Scatter plot showing predicted vs observed acceleration for 15 validation cases, with points clustering near the diagonal line indicating good calibration"
+                     width="800" height="400"
+                     loading="lazy"
+                     decoding="async">
+                <p class="figure-caption"><strong>Figure 5.</strong> Model validation. Mean log error: 0.21, indicating predictions typically within 25% of observed values. Points near diagonal indicate accurate predictions.</p>
+            </div>
+
+            <h2 id="path-forward">The Path Forward</h2>
+
+            <p>The pipeline problem is real, but it's not a reason for pessimism. It's a diagnosis that enables targeted treatment.</p>
+
+            <p>AI has given us extraordinary capabilities in prediction, analysis, and design. But to capture the full potential, we need to address the physical bottlenecks—synthesis capacity, validation infrastructure, clinical trial efficiency—that currently constrain translation from computational insight to practical impact.</p>
+
+            <p>A 2.8x acceleration is already worth celebrating—it represents tens of millions of lives improved through faster medical progress. But we shouldn't accept it as the ceiling. <strong>The pipeline problem tells us exactly where to push for more.</strong></p>
+
+            <!-- Figure 8: Summary -->
+            <div class="figure-container">
+                <img src="figures/fig8_summary.png"
+                     alt="Summary infographic showing 2.8x system acceleration, domain rankings, and key insight that physical bottlenecks dominate computational gains"
+                     width="800" height="400"
+                     loading="lazy"
+                     decoding="async">
+                <p class="figure-caption"><strong>Figure 8.</strong> Key findings summary: 2.8x system acceleration by 2030, +2.1M net jobs, 0.21 mean validation error, and the critical insight that physical bottlenecks now dominate computational gains.</p>
+            </div>
+        </div>
+
+        <footer class="article-footer">
+            <div class="footer-cta">
+                <h3>Dive Deeper</h3>
+                <div class="cta-buttons">
+                    <a href="manuscript.html" class="cta-btn primary">Read Full Manuscript</a>
+                    <a href="https://github.com/jang1563/ai-bio-acceleration" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+                        View Model on GitHub <span aria-hidden="true">↗</span>
+                        <span class="sr-only">(opens in new tab)</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="footer-nav" aria-label="Related content">
+                <p>Based on the AI Research Acceleration Model v1.1 | <a href="blog.html">Back to Blog</a> | <a href="post2_explainer_students.html">Student Guide</a></p>
+            </nav>
+        </footer>
+    </article>
+
+    <script>
+        // Throttled scroll handler for progress bar
+        let ticking = false;
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.querySelector('.nav-progress');
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = Math.round((winScroll / height) * 100);
+                    progressBar.style.width = scrolled + '%';
+                    progressContainer.setAttribute('aria-valuenow', scrolled);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Animated counters with requestAnimationFrame
+        const animateCounter = (el) => {
+            const target = parseFloat(el.getAttribute('data-target'));
+            const isDecimal = target % 1 !== 0;
+            const duration = 1500;
+            const start = performance.now();
+
+            // Respect reduced motion preference
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                el.textContent = isDecimal ? target.toFixed(1) : target;
+                return;
+            }
+
+            const step = (timestamp) => {
+                const progress = Math.min((timestamp - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                const current = eased * target;
+
+                el.textContent = isDecimal ? current.toFixed(1) : Math.round(current);
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    el.textContent = isDecimal ? target.toFixed(1) : target;
+                }
+            };
+
+            requestAnimationFrame(step);
+        };
+
+        // Intersection Observer for counter animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.hero-stat-value');
+                    counters.forEach(counter => animateCounter(counter));
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) {
+            counterObserver.observe(heroStats);
+        }
+    </script>
+</body>
+</html>
