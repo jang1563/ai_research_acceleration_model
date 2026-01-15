@@ -3,17 +3,17 @@
 AI Research Acceleration Model v1.1 - Publication Quality Visualizations
 =========================================================================
 
-High-impact journal style (Nature/Science/Cell aesthetic)
-- Clean, sophisticated design
+Dark theme aligned with AI Bio Acceleration blog style
+- Clean, sophisticated dark design
 - Publication-ready resolution (300 DPI)
-- Accessible color palette
+- Accessible color palette with high contrast
 - Clear data hierarchy
 
 Design principles:
 1. Data-ink ratio maximization (Tufte)
-2. Colorblind-safe palette
+2. Colorblind-safe palette with dark theme
 3. Consistent typography
-4. White space as design element
+4. Dark background matching blog theme
 5. Story-driven composition
 """
 
@@ -38,34 +38,35 @@ except ImportError:
 
 
 # =============================================================================
-# PUBLICATION STYLE CONFIGURATION
+# DARK THEME STYLE CONFIGURATION (Matches AI Bio Acceleration Blog)
 # =============================================================================
 
-# Nature/Science inspired color palette
+# Dark theme color palette - Velocity palette from blog theme
 COLORS = {
-    # Primary palette - sophisticated, muted
-    'structural_biology': '#2E5A87',    # Deep blue
-    'drug_discovery': '#B8433E',        # Muted red
-    'materials_science': '#5B8C5A',     # Forest green
-    'protein_design': '#8E6BBF',        # Soft purple
-    'clinical_genomics': '#D4873F',     # Warm orange
+    # Primary palette - vibrant on dark background
+    'structural_biology': '#3B82F6',    # Bright blue
+    'drug_discovery': '#EF4444',        # Bright red
+    'materials_science': '#10B981',     # Emerald green
+    'protein_design': '#A855F7',        # Purple
+    'clinical_genomics': '#F59E0B',     # Amber orange
 
-    # Accent colors
-    'highlight': '#E63946',             # Accent red
-    'positive': '#2A9D8F',              # Teal (positive)
-    'negative': '#E76F51',              # Coral (negative)
-    'neutral': '#6C757D',               # Gray
+    # Accent colors - Velocity palette
+    'highlight': '#0967d2',             # Velocity blue
+    'positive': '#0ca750',              # Velocity green
+    'negative': '#EF4444',              # Red (negative)
+    'neutral': '#8B8FA3',               # Muted gray
 
-    # Background/structural
-    'background': '#FAFAFA',
-    'grid': '#E5E5E5',
-    'text_primary': '#1A1A1A',
-    'text_secondary': '#4A4A4A',
-    'text_tertiary': '#7A7A7A',
+    # Background/structural - Dark theme
+    'background': '#0a0a12',            # Dark background (blog: --color-bg-primary)
+    'card': '#16162a',                  # Card background (blog: --color-bg-card)
+    'grid': '#2a2a4a',                  # Grid lines on dark
+    'text_primary': '#F1F5F9',          # Light text
+    'text_secondary': '#94A3B8',        # Muted text
+    'text_tertiary': '#64748B',         # Subtle text
 
-    # Confidence intervals
-    'ci_light': '#E8E8E8',
-    'ci_medium': '#CCCCCC',
+    # Confidence intervals - dark theme
+    'ci_light': '#1e1e3a',
+    'ci_medium': '#2a2a4a',
 }
 
 # Domain display configuration
@@ -148,12 +149,13 @@ def get_model_data():
 def figure1_domain_overview():
     """
     Main results figure showing acceleration by domain.
-    Nature-style horizontal bar chart with confidence intervals.
+    Horizontal bar chart with confidence intervals - dark theme.
     """
-    fig = plt.figure(figsize=(7, 5), facecolor='white', dpi=300)
+    fig = plt.figure(figsize=(7, 5), facecolor=COLORS['background'], dpi=300)
 
     # Create main axis with room for annotations
     ax = fig.add_axes([0.25, 0.12, 0.55, 0.78])
+    ax.set_facecolor(COLORS['background'])
 
     # Get model data
     model = get_model_data()
@@ -178,7 +180,7 @@ def figure1_domain_overview():
 
     # Plot horizontal bars
     bars = ax.barh(y_pos, accels, height=0.6, color=colors, alpha=0.85,
-                   edgecolor='white', linewidth=1)
+                   edgecolor=COLORS['background'], linewidth=1)
 
     # Add confidence intervals as error bars
     ax.errorbar(accels, y_pos, xerr=[np.array(accels) - np.array(ci_lows),
@@ -237,9 +239,9 @@ def figure1_domain_overview():
 def figure2_trajectories():
     """
     Time evolution showing S-curve trajectories for each domain.
-    Small multiples design for clarity.
+    Small multiples design for clarity - dark theme.
     """
-    fig, axes = plt.subplots(2, 3, figsize=(7, 5), facecolor='white', dpi=300)
+    fig, axes = plt.subplots(2, 3, figsize=(7, 5), facecolor=COLORS['background'], dpi=300)
     axes = axes.flatten()
 
     model = get_model_data()
@@ -259,6 +261,7 @@ def figure2_trajectories():
 
     for idx, domain in enumerate(domains):
         ax = axes[idx]
+        ax.set_facecolor(COLORS['background'])
         color = COLORS[domain]
 
         if model:
@@ -293,12 +296,12 @@ def figure2_trajectories():
 
         # Current marker (2024)
         ax.scatter([2024], [accels[0] if isinstance(accels, list) else accels[0]],
-                   color=color, s=30, zorder=5, edgecolor='white', linewidth=1)
+                   color=color, s=30, zorder=5, edgecolor=COLORS['background'], linewidth=1)
 
         # 2030 marker
         idx_2030 = 6
         ax.scatter([2030], [accels[idx_2030] if isinstance(accels, list) else accels[idx_2030]],
-                   color=color, s=40, zorder=5, edgecolor='white', linewidth=1.5, marker='D')
+                   color=color, s=40, zorder=5, edgecolor=COLORS['background'], linewidth=1.5, marker='D')
 
         # Domain title
         ax.set_title(DOMAINS[domain]['name'].replace('\n', ' '), fontsize=9,
@@ -316,18 +319,20 @@ def figure2_trajectories():
 
     # Use last panel for legend/annotation
     axes[5].axis('off')
+    axes[5].set_facecolor(COLORS['background'])
 
     # Legend in empty panel
     legend_elements = [
-        Line2D([0], [0], color=COLORS['text_secondary'], linewidth=2, label='Trajectory'),
-        plt.fill_between([], [], [], alpha=0.2, color=COLORS['text_secondary'], label='90% CI')[0]
-            if False else mpatches.Patch(alpha=0.2, color=COLORS['text_secondary'], label='90% CI'),
-        Line2D([0], [0], color=COLORS['text_secondary'], linestyle=':', linewidth=1, label='Ceiling'),
-        Line2D([0], [0], marker='D', color=COLORS['text_secondary'], linestyle='',
+        Line2D([0], [0], color=COLORS['text_primary'], linewidth=2, label='Trajectory'),
+        plt.fill_between([], [], [], alpha=0.2, color=COLORS['text_primary'], label='90% CI')[0]
+            if False else mpatches.Patch(alpha=0.2, color=COLORS['text_primary'], label='90% CI'),
+        Line2D([0], [0], color=COLORS['text_primary'], linestyle=':', linewidth=1, label='Ceiling'),
+        Line2D([0], [0], marker='D', color=COLORS['text_primary'], linestyle='',
                markersize=6, label='2030 Projection'),
     ]
 
-    axes[5].legend(handles=legend_elements[:4], loc='center', frameon=False, fontsize=8)
+    axes[5].legend(handles=legend_elements[:4], loc='center', frameon=False, fontsize=8,
+                   labelcolor=COLORS['text_primary'])
     axes[5].text(0.5, 0.15, 'Logistic growth model\n(Rogers, 2003)',
                  ha='center', va='center', fontsize=7, color=COLORS['text_tertiary'],
                  style='italic', transform=axes[5].transAxes)
@@ -350,9 +355,10 @@ def figure2_trajectories():
 def figure3_spillover_network():
     """
     Network visualization of cross-domain spillover effects.
-    Elegant node-link diagram with weighted edges.
+    Elegant node-link diagram with weighted edges - dark theme.
     """
-    fig, ax = plt.subplots(figsize=(6, 6), facecolor='white', dpi=300)
+    fig, ax = plt.subplots(figsize=(6, 6), facecolor=COLORS['background'], dpi=300)
+    ax.set_facecolor(COLORS['background'])
     ax.set_aspect('equal')
 
     # Node positions (pentagon layout)
@@ -394,7 +400,7 @@ def figure3_spillover_network():
             connectionstyle=style,
             arrowstyle='-|>',
             mutation_scale=10,
-            color=COLORS['text_secondary'],
+            color=COLORS['text_primary'],
             alpha=alpha,
             linewidth=linewidth,
             zorder=1
@@ -406,7 +412,7 @@ def figure3_spillover_network():
             mid_x = (x1 + x2) / 2 + 0.05 * np.sign(y1 - y2)
             mid_y = (y1 + y2) / 2 + 0.05 * np.sign(x2 - x1)
             ax.text(mid_x, mid_y, f'{coef:.0%}', fontsize=7,
-                    color=COLORS['text_secondary'], ha='center', va='center',
+                    color=COLORS['text_primary'], ha='center', va='center',
                     fontweight='bold', alpha=0.8)
 
     # Draw nodes
@@ -416,7 +422,7 @@ def figure3_spillover_network():
         color = COLORS[domain]
 
         # Node circle
-        circle = plt.Circle((x, y), node_size, color=color, ec='white',
+        circle = plt.Circle((x, y), node_size, color=color, ec=COLORS['background'],
                             linewidth=2, zorder=3)
         ax.add_patch(circle)
 
@@ -444,7 +450,7 @@ def figure3_spillover_network():
 
     # Key insight box
     box_text = 'Structural Biology → Drug Discovery\nis the dominant spillover pathway (25%)'
-    props = dict(boxstyle='round,pad=0.4', facecolor=COLORS['ci_light'],
+    props = dict(boxstyle='round,pad=0.4', facecolor=COLORS['card'],
                  edgecolor=COLORS['grid'], alpha=0.9)
     ax.text(0.5, 0.07, box_text, fontsize=8, ha='center', va='center',
             transform=ax.transAxes, bbox=props, color=COLORS['text_primary'])
@@ -465,16 +471,17 @@ def figure3_spillover_network():
 def figure4_scenarios():
     """
     Scenario comparison showing range of outcomes.
-    Elegant dot plot with scenario ranges.
+    Elegant dot plot with scenario ranges - dark theme.
     """
-    fig, ax = plt.subplots(figsize=(7, 4.5), facecolor='white', dpi=300)
+    fig, ax = plt.subplots(figsize=(7, 4.5), facecolor=COLORS['background'], dpi=300)
+    ax.set_facecolor(COLORS['background'])
 
     model = get_model_data()
 
     scenarios = ['pessimistic', 'conservative', 'baseline', 'optimistic', 'breakthrough']
     scenario_labels = ['Pessimistic\n(10%)', 'Conservative\n(20%)', 'Baseline\n(40%)',
                        'Optimistic\n(20%)', 'Breakthrough\n(10%)']
-    scenario_colors = ['#8B9DAF', '#6B8BA4', COLORS['text_primary'], '#5A9A6B', '#2A9D8F']
+    scenario_colors = ['#64748B', '#94A3B8', COLORS['text_primary'], '#10B981', '#0ca750']
 
     domains = ['structural_biology', 'drug_discovery', 'materials_science',
                'protein_design', 'clinical_genomics']
@@ -540,9 +547,11 @@ def figure4_scenarios():
 def figure5_validation():
     """
     Validation figure showing predicted vs observed.
-    Classic calibration plot with identity line.
+    Classic calibration plot with identity line - dark theme.
     """
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 3.5), facecolor='white', dpi=300)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 3.5), facecolor=COLORS['background'], dpi=300)
+    ax1.set_facecolor(COLORS['background'])
+    ax2.set_facecolor(COLORS['background'])
 
     # Validation data
     cases = [
@@ -566,10 +575,10 @@ def figure5_validation():
     # Panel A: Predicted vs Observed scatter
     for name, domain, obs, pred in cases:
         color = COLORS[domain]
-        ax1.scatter(obs, pred, c=color, s=50, alpha=0.8, edgecolor='white', linewidth=1, zorder=3)
+        ax1.scatter(obs, pred, c=color, s=50, alpha=0.8, edgecolor=COLORS['background'], linewidth=1, zorder=3)
 
     # Identity line
-    ax1.plot([0.5, 10], [0.5, 10], 'k--', linewidth=1, alpha=0.5, label='Perfect calibration')
+    ax1.plot([0.5, 10], [0.5, 10], color=COLORS['text_primary'], linestyle='--', linewidth=1, alpha=0.5, label='Perfect calibration')
 
     # ±0.3 log error bands
     x_line = np.linspace(0.5, 10, 100)
@@ -610,9 +619,9 @@ def figure5_validation():
         min_err = np.min(errors)
         max_err = np.max(errors)
 
-        ax2.barh(i, mean_err, height=0.6, color=color, alpha=0.7, edgecolor='white')
+        ax2.barh(i, mean_err, height=0.6, color=color, alpha=0.7, edgecolor=COLORS['background'])
         ax2.errorbar(mean_err, i, xerr=[[mean_err - min_err], [max_err - mean_err]],
-                     fmt='none', color=COLORS['text_secondary'], capsize=3, linewidth=1)
+                     fmt='none', color=COLORS['text_primary'], capsize=3, linewidth=1)
 
     # Threshold line
     ax2.axvline(x=0.30, color=COLORS['highlight'], linestyle='--', linewidth=1, alpha=0.7)
@@ -632,8 +641,8 @@ def figure5_validation():
     all_errors = [abs(np.log(p) - np.log(o)) for _, _, o, p in cases]
     stats_text = f'Mean log error: {np.mean(all_errors):.2f}\nMedian: {np.median(all_errors):.2f}\nn = {len(cases)} cases'
     ax2.text(0.95, 0.05, stats_text, transform=ax2.transAxes, fontsize=7,
-             ha='right', va='bottom', color=COLORS['text_tertiary'],
-             bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor=COLORS['grid']))
+             ha='right', va='bottom', color=COLORS['text_secondary'],
+             bbox=dict(boxstyle='round,pad=0.3', facecolor=COLORS['card'], edgecolor=COLORS['grid']))
 
     fig.text(0.02, 0.96, 'e', fontsize=14, fontweight='bold', color=COLORS['text_primary'])
 
@@ -648,9 +657,10 @@ def figure5_validation():
 
 def figure6_sensitivity():
     """
-    Tornado diagram showing parameter sensitivity.
+    Tornado diagram showing parameter sensitivity - dark theme.
     """
-    fig, ax = plt.subplots(figsize=(6, 4), facecolor='white', dpi=300)
+    fig, ax = plt.subplots(figsize=(6, 4), facecolor=COLORS['background'], dpi=300)
+    ax.set_facecolor(COLORS['background'])
 
     # Sensitivity data (parameter, low impact, high impact)
     parameters = [
@@ -679,8 +689,8 @@ def figure6_sensitivity():
             color = COLORS['clinical_genomics']
 
         # Draw bars from center
-        ax.barh(i, high, left=0, height=0.6, color=color, alpha=0.7, edgecolor='white')
-        ax.barh(i, abs(low), left=low, height=0.6, color=color, alpha=0.7, edgecolor='white')
+        ax.barh(i, high, left=0, height=0.6, color=color, alpha=0.7, edgecolor=COLORS['background'])
+        ax.barh(i, abs(low), left=low, height=0.6, color=color, alpha=0.7, edgecolor=COLORS['background'])
 
     # Center line
     ax.axvline(x=0, color=COLORS['text_primary'], linewidth=1)
@@ -715,9 +725,11 @@ def figure6_sensitivity():
 
 def figure7_workforce():
     """
-    Workforce impact visualization with uncertainty.
+    Workforce impact visualization with uncertainty - dark theme.
     """
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 3.5), facecolor='white', dpi=300)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 3.5), facecolor=COLORS['background'], dpi=300)
+    ax1.set_facecolor(COLORS['background'])
+    ax2.set_facecolor(COLORS['background'])
 
     model = get_model_data()
 
@@ -737,9 +749,9 @@ def figure7_workforce():
     width = 0.35
 
     bars1 = ax1.bar(x - width/2, displaced, width, label='Displaced',
-                    color=COLORS['negative'], alpha=0.8, edgecolor='white')
+                    color=COLORS['negative'], alpha=0.8, edgecolor=COLORS['background'])
     bars2 = ax1.bar(x + width/2, created, width, label='Created',
-                    color=COLORS['positive'], alpha=0.8, edgecolor='white')
+                    color=COLORS['positive'], alpha=0.8, edgecolor=COLORS['background'])
 
     ax1.set_ylabel('Jobs (Millions)', fontsize=9)
     ax1.set_xticks(x)
@@ -756,10 +768,10 @@ def figure7_workforce():
 
     colors = [COLORS[d] for d in domains]
 
-    bars = ax2.barh(x, net, height=0.6, color=colors, alpha=0.8, edgecolor='white')
+    bars = ax2.barh(x, net, height=0.6, color=colors, alpha=0.8, edgecolor=COLORS['background'])
     ax2.errorbar(net, x, xerr=[np.array(net) - np.array(net_low),
                                 np.array(net_high) - np.array(net)],
-                 fmt='none', color=COLORS['text_secondary'], capsize=3, linewidth=1)
+                 fmt='none', color=COLORS['text_primary'], capsize=3, linewidth=1)
 
     ax2.axvline(x=0, color=COLORS['text_tertiary'], linewidth=0.8)
     ax2.set_xlabel('Net Job Change (Millions)', fontsize=9)
@@ -790,9 +802,9 @@ def figure7_workforce():
 def figure8_summary_infographic():
     """
     Summary infographic combining key findings.
-    Magazine-style layout with key numbers.
+    Magazine-style layout with key numbers - dark theme.
     """
-    fig = plt.figure(figsize=(7, 8), facecolor='white', dpi=300)
+    fig = plt.figure(figsize=(7, 8), facecolor=COLORS['background'], dpi=300)
 
     # Main title
     fig.text(0.5, 0.97, 'AI Research Acceleration Model: Key Findings',
@@ -803,6 +815,7 @@ def figure8_summary_infographic():
     # =========== Section 1: Big Numbers ===========
     # System acceleration
     ax1 = fig.add_axes([0.08, 0.75, 0.25, 0.15])
+    ax1.set_facecolor(COLORS['background'])
     ax1.text(0.5, 0.7, '2.8×', fontsize=36, fontweight='bold', ha='center', va='center',
              color=COLORS['structural_biology'])
     ax1.text(0.5, 0.2, 'System\nAcceleration', fontsize=9, ha='center', va='center',
@@ -811,6 +824,7 @@ def figure8_summary_infographic():
 
     # Net jobs
     ax2 = fig.add_axes([0.38, 0.75, 0.25, 0.15])
+    ax2.set_facecolor(COLORS['background'])
     ax2.text(0.5, 0.7, '+2.1M', fontsize=36, fontweight='bold', ha='center', va='center',
              color=COLORS['positive'])
     ax2.text(0.5, 0.2, 'Net Jobs\nCreated', fontsize=9, ha='center', va='center',
@@ -819,6 +833,7 @@ def figure8_summary_infographic():
 
     # Validation
     ax3 = fig.add_axes([0.68, 0.75, 0.25, 0.15])
+    ax3.set_facecolor(COLORS['background'])
     ax3.text(0.5, 0.7, '0.21', fontsize=36, fontweight='bold', ha='center', va='center',
              color=COLORS['drug_discovery'])
     ax3.text(0.5, 0.2, 'Mean Log\nError', fontsize=9, ha='center', va='center',
@@ -827,6 +842,7 @@ def figure8_summary_infographic():
 
     # =========== Section 2: Domain Rankings ===========
     ax4 = fig.add_axes([0.1, 0.45, 0.8, 0.25])
+    ax4.set_facecolor(COLORS['background'])
 
     domains = ['structural_biology', 'protein_design', 'clinical_genomics',
                'drug_discovery', 'materials_science']
@@ -862,6 +878,7 @@ def figure8_summary_infographic():
     ]
 
     ax5 = fig.add_axes([0.1, 0.08, 0.8, 0.32])
+    ax5.set_facecolor(COLORS['background'])
 
     for i, (icon, title, detail) in enumerate(insights):
         y = 0.85 - i * 0.19
@@ -905,10 +922,12 @@ def figure8_summary_infographic():
 def figure9_bottleneck_transitions():
     """
     Bottleneck transition timeline showing when system bottlenecks shift.
-    Visualizes the evolution of constraints over time.
+    Visualizes the evolution of constraints over time - dark theme.
     """
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(7, 6), facecolor='white', dpi=300,
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(7, 6), facecolor=COLORS['background'], dpi=300,
                                     gridspec_kw={'height_ratios': [2, 1]})
+    ax1.set_facecolor(COLORS['background'])
+    ax2.set_facecolor(COLORS['background'])
 
     model = get_model_data()
     years = np.arange(2024, 2041)
@@ -972,7 +991,7 @@ def figure9_bottleneck_transitions():
             domain = bottleneck_domain[i]
             ax1.scatter([year], [domain_trajectories[domain][i]],
                        color=COLORS[domain], s=40, zorder=5,
-                       edgecolor='white', linewidth=1.5)
+                       edgecolor=COLORS['background'], linewidth=1.5)
 
     # Mark transition points
     transitions = []
@@ -1033,7 +1052,7 @@ def figure9_bottleneck_transitions():
         domain = period['domain']
         width = period['end'] - period['start'] + 1
         ax2.barh(y_pos, width, left=period['start'], height=0.6,
-                 color=COLORS[domain], alpha=0.85, edgecolor='white', linewidth=2)
+                 color=COLORS[domain], alpha=0.85, edgecolor=COLORS['background'], linewidth=2)
 
         # Label in center
         center_x = period['start'] + width / 2
@@ -1078,9 +1097,11 @@ def figure9_bottleneck_transitions():
 
 def figure10_policy_roi():
     """
-    Policy ROI visualization showing return on investment for different interventions.
+    Policy ROI visualization showing return on investment for different interventions - dark theme.
     """
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 4), facecolor='white', dpi=300)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 4), facecolor=COLORS['background'], dpi=300)
+    ax1.set_facecolor(COLORS['background'])
+    ax2.set_facecolor(COLORS['background'])
 
     # Policy intervention data (from enhanced_features.py)
     interventions = [
@@ -1106,7 +1127,7 @@ def figure10_policy_roi():
     y_pos = np.arange(len(names))
     colors = [COLORS[d] for d in domains]
 
-    bars = ax1.barh(y_pos, rois, height=0.7, color=colors, alpha=0.85, edgecolor='white')
+    bars = ax1.barh(y_pos, rois, height=0.7, color=colors, alpha=0.85, edgecolor=COLORS['background'])
 
     # Add cost labels
     for i, (roi, cost) in enumerate(zip(rois, costs)):
@@ -1204,7 +1225,7 @@ def generate_all_figures(output_dir: str = None):
         print(f"Generating {filename}...")
         fig = fig_func()
         fig.savefig(output_dir / filename, dpi=300, bbox_inches='tight',
-                    facecolor='white', edgecolor='none')
+                    facecolor=COLORS['background'], edgecolor='none')
         plt.close(fig)
         print(f"  Saved to {output_dir / filename}")
 

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Bio Acceleration Model - Design System Demo</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="ai-bio-theme.css">
+
+  <style>
+    /* Demo-specific styles */
+    .demo-section {
+      padding: var(--space-12) 0;
+      border-bottom: 1px solid var(--color-neutral-700);
+    }
+
+    .demo-section:last-child {
+      border-bottom: none;
+    }
+
+    .demo-title {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-widest);
+      color: var(--color-neutral-500);
+      margin-bottom: var(--space-6);
+    }
+
+    .color-swatch {
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .color-swatch__color {
+      height: 80px;
+    }
+
+    .color-swatch__info {
+      background: var(--color-neutral-800);
+      padding: var(--space-3);
+    }
+
+    .color-swatch__name {
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      color: var(--color-neutral-100);
+    }
+
+    .color-swatch__hex {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--color-neutral-400);
+    }
+
+    .type-sample {
+      margin-bottom: var(--space-4);
+    }
+
+    .type-label {
+      font-size: var(--text-xs);
+      color: var(--color-neutral-500);
+      font-family: var(--font-mono);
+      margin-bottom: var(--space-1);
+    }
+  </style>
+</head>
+<body class="theme-technical">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="/" class="nav__logo">
+        <span class="text-gradient">AI Bio</span> Model
+      </a>
+      <ul class="nav__links">
+        <li><a href="#" class="nav__link nav__link--active">Technical</a></li>
+        <li><a href="#" class="nav__link">Student Guide</a></li>
+        <li><a href="#" class="nav__link">Manuscript</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__bg-grid"></div>
+    <div class="hero__glow"></div>
+    <div class="container hero__content">
+      <h1 class="hero__title">
+        AI Accelerates Biology by
+        <span class="text-gradient pulse-acceleration">2.8x</span>
+      </h1>
+      <p class="hero__subtitle">
+        Understanding the gap between digital speed and physical constraints
+        in the biological research pipeline.
+      </p>
+      <div class="flex flex--center flex--gap">
+        <a href="#" class="btn btn--primary btn--lg">Read Research</a>
+        <a href="#" class="btn btn--ghost btn--lg">View Data</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- Color Palette Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Color Palette</div>
+
+      <h3>Primary - Velocity Blue</h3>
+      <div class="grid grid--4" style="margin-bottom: var(--space-8);">
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-primary-400);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Primary 400</div>
+            <div class="color-swatch__hex">#2186eb</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-primary-500);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Primary 500</div>
+            <div class="color-swatch__hex">#0967d2</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-primary-600);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Primary 600</div>
+            <div class="color-swatch__hex">#0552b5</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-primary-700);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Primary 700</div>
+            <div class="color-swatch__hex">#03449e</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Secondary - Bio Green</h3>
+      <div class="grid grid--4" style="margin-bottom: var(--space-8);">
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-secondary-400);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Secondary 400</div>
+            <div class="color-swatch__hex">#1db954</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-secondary-500);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Secondary 500</div>
+            <div class="color-swatch__hex">#0ca750</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-secondary-600);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Secondary 600</div>
+            <div class="color-swatch__hex">#058a42</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-secondary-700);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Secondary 700</div>
+            <div class="color-swatch__hex">#006c32</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Accent - Acceleration Gold & Constraint Red</h3>
+      <div class="grid grid--4">
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-accent-400);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Accent 400</div>
+            <div class="color-swatch__hex">#ffc21a</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-accent-500);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Accent 500</div>
+            <div class="color-swatch__hex">#f5a623</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-constraint-400);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Constraint 400</div>
+            <div class="color-swatch__hex">#ff2626</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__color" style="background: var(--color-constraint-500);"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Constraint 500</div>
+            <div class="color-swatch__hex">#e53e3e</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Typography</div>
+
+      <div class="type-sample">
+        <div class="type-label">--text-5xl / Space Grotesk Bold</div>
+        <h1 style="margin: 0;">2.8x Acceleration</h1>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-label">--text-4xl / Space Grotesk Bold</div>
+        <h2 style="margin: 0;">The Pipeline Problem</h2>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-label">--text-3xl / Space Grotesk Bold</div>
+        <h3 style="margin: 0;">Physical Bottlenecks</h3>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-label">--text-xl / Inter Regular (Lead)</div>
+        <p class="lead" style="margin: 0;">While AI can accelerate computational tasks by orders of magnitude, physical processes remain stubbornly resistant to speedup.</p>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-label">--text-base / Inter Regular (Body)</div>
+        <p style="margin: 0;">The key insight is that overall research acceleration is limited by the slowest stage in the pipeline. When AI speeds up data analysis from 6 months to 2 weeks, but clinical trials still take 3 years, the total time savings are modest.</p>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-label">--font-mono / JetBrains Mono</div>
+        <code>acceleration_factor = 2.8</code>
+      </div>
+    </section>
+
+    <!-- Gradient Text -->
+    <section class="demo-section">
+      <div class="demo-title">Gradient Effects</div>
+
+      <h2 class="text-gradient" style="font-size: var(--text-4xl);">
+        Bits vs Atoms: The Core Tension
+      </h2>
+
+      <div style="margin-top: var(--space-8);">
+        <div style="height: 80px; background: var(--gradient-acceleration); border-radius: var(--radius-lg); margin-bottom: var(--space-4);"></div>
+        <p class="text-sm text-muted">Acceleration Gradient (Primary to Secondary)</p>
+      </div>
+
+      <div style="margin-top: var(--space-4);">
+        <div style="height: 40px; background: var(--gradient-constraint); border-radius: var(--radius-lg); margin-bottom: var(--space-4);"></div>
+        <p class="text-sm text-muted">Constraint Gradient (Red to Gold)</p>
+      </div>
+    </section>
+
+    <!-- Buttons Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Buttons</div>
+
+      <div class="flex flex--gap" style="flex-wrap: wrap; margin-bottom: var(--space-6);">
+        <button class="btn btn--primary">Primary</button>
+        <button class="btn btn--secondary">Secondary</button>
+        <button class="btn btn--accent">Accent</button>
+        <button class="btn btn--ghost">Ghost</button>
+      </div>
+
+      <div class="flex flex--gap" style="flex-wrap: wrap;">
+        <button class="btn btn--primary btn--sm">Small</button>
+        <button class="btn btn--primary">Default</button>
+        <button class="btn btn--primary btn--lg">Large</button>
+      </div>
+    </section>
+
+    <!-- Cards Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Cards</div>
+
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card__header">
+            <h4 class="card__title">Standard Card</h4>
+            <p class="card__subtitle">Default styling</p>
+          </div>
+          <div class="card__body">
+            <p style="margin: 0;">Basic card component with header, body, and optional footer sections.</p>
+          </div>
+        </div>
+
+        <div class="card card--highlight">
+          <div class="card__header">
+            <h4 class="card__title">Highlighted Card</h4>
+            <p class="card__subtitle">Key information</p>
+          </div>
+          <div class="card__body">
+            <div class="stat">
+              <div class="stat__value stat__value--acceleration">2.8x</div>
+              <div class="stat__label">Acceleration</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card--constraint">
+          <div class="card__header">
+            <h4 class="card__title">Constraint Card</h4>
+            <p class="card__subtitle">Physical limitation</p>
+          </div>
+          <div class="card__body">
+            <p style="margin: 0;">Clinical trials cannot be accelerated beyond regulatory requirements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Statistics Display</div>
+
+      <div class="grid grid--4">
+        <div class="card">
+          <div class="stat">
+            <div class="stat__value stat__value--acceleration">2.8x</div>
+            <div class="stat__label">Overall Speedup</div>
+            <div class="stat__change stat__change--up">+15% YoY</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="stat">
+            <div class="stat__value text-primary">10x</div>
+            <div class="stat__label">Data Analysis</div>
+            <div class="stat__change stat__change--up">AI-Accelerated</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="stat">
+            <div class="stat__value text-secondary">5x</div>
+            <div class="stat__label">Literature Review</div>
+            <div class="stat__change stat__change--up">AI-Accelerated</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="stat">
+            <div class="stat__value text-constraint">1.0x</div>
+            <div class="stat__label">Clinical Trials</div>
+            <div class="stat__change stat__change--down">No Change</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Callouts Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Callouts</div>
+
+      <div class="callout callout--info">
+        <div class="callout__title">Key Finding</div>
+        <div class="callout__content">AI provides greatest acceleration in computational stages of the research pipeline.</div>
+      </div>
+
+      <div class="callout callout--success">
+        <div class="callout__title">Success Story</div>
+        <div class="callout__content">AlphaFold reduced protein structure prediction from months to hours.</div>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout__title">Important Note</div>
+        <div class="callout__content">Spillover effects may increase effective acceleration over time.</div>
+      </div>
+
+      <div class="callout callout--constraint">
+        <div class="callout__title">Physical Bottleneck</div>
+        <div class="callout__content">DNA synthesis, cell culture, and clinical trials remain time-bound by physical and regulatory constraints.</div>
+      </div>
+
+      <div class="callout callout--key-insight">
+        <div class="callout__title">Core Insight</div>
+        <div class="callout__content">The 2.8x figure represents total pipeline acceleration, not the acceleration of individual AI-enhanced stages. This distinction is critical for setting realistic expectations.</div>
+      </div>
+    </section>
+
+    <!-- Pipeline Stages Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Pipeline Visualization</div>
+
+      <div class="pipeline-stage pipeline-stage--fast">
+        <div class="pipeline-stage__icon">AI</div>
+        <div class="pipeline-stage__info">
+          <div class="pipeline-stage__name">Literature Review</div>
+          <div class="pipeline-stage__duration">2 days (was 3 weeks) - 10x acceleration</div>
+        </div>
+      </div>
+
+      <div class="pipeline-stage pipeline-stage--fast">
+        <div class="pipeline-stage__icon">AI</div>
+        <div class="pipeline-stage__info">
+          <div class="pipeline-stage__name">Data Analysis</div>
+          <div class="pipeline-stage__duration">2 weeks (was 6 months) - 12x acceleration</div>
+        </div>
+      </div>
+
+      <div class="pipeline-stage pipeline-stage--slow">
+        <div class="pipeline-stage__icon">Lab</div>
+        <div class="pipeline-stage__info">
+          <div class="pipeline-stage__name">Wet Lab Experiments</div>
+          <div class="pipeline-stage__duration">6 months (unchanged) - 1x acceleration</div>
+        </div>
+      </div>
+
+      <div class="pipeline-stage pipeline-stage--slow">
+        <div class="pipeline-stage__icon">Reg</div>
+        <div class="pipeline-stage__info">
+          <div class="pipeline-stage__name">Clinical Trials</div>
+          <div class="pipeline-stage__duration">3 years (unchanged) - 1x acceleration</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progress Bars Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Progress Indicators</div>
+
+      <p class="text-sm text-muted" style="margin-bottom: var(--space-2);">Overall Pipeline Progress</p>
+      <div class="progress" style="margin-bottom: var(--space-6);">
+        <div class="progress__bar" style="width: 35%;"></div>
+      </div>
+
+      <p class="text-sm text-muted" style="margin-bottom: var(--space-2);">AI Stage Completion</p>
+      <div class="progress" style="margin-bottom: var(--space-6);">
+        <div class="progress__bar" style="width: 90%;"></div>
+      </div>
+
+      <p class="text-sm text-muted" style="margin-bottom: var(--space-2);">Physical Stage Completion</p>
+      <div class="progress">
+        <div class="progress__bar" style="width: 15%; background: var(--gradient-constraint);"></div>
+      </div>
+    </section>
+
+    <!-- Table Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Data Tables</div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Research Stage</th>
+              <th>Traditional Duration</th>
+              <th>AI-Assisted Duration</th>
+              <th class="numeric">Acceleration Factor</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td>Literature Review</td>
+              <td>3 weeks</td>
+              <td>2 days</td>
+              <td class="numeric">10.5x</td>
+              <td><span class="text-primary">Computational</span></td>
+            </tr>
+            <tr class="highlight">
+              <td>Data Analysis</td>
+              <td>6 months</td>
+              <td>2 weeks</td>
+              <td class="numeric">12.0x</td>
+              <td><span class="text-primary">Computational</span></td>
+            </tr>
+            <tr class="highlight">
+              <td>Protein Prediction</td>
+              <td>2 months</td>
+              <td>4 hours</td>
+              <td class="numeric">360x</td>
+              <td><span class="text-primary">Computational</span></td>
+            </tr>
+            <tr>
+              <td>Lab Experiments</td>
+              <td>6 months</td>
+              <td>5.5 months</td>
+              <td class="numeric">1.1x</td>
+              <td><span class="text-secondary">Physical</span></td>
+            </tr>
+            <tr class="constraint">
+              <td>Clinical Trials</td>
+              <td>3 years</td>
+              <td>3 years</td>
+              <td class="numeric">1.0x</td>
+              <td><span class="text-constraint">Regulatory</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Code Block Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Code Display</div>
+
+      <pre><code># Calculate effective pipeline acceleration
+def calculate_acceleration(stages):
+    """
+    The overall acceleration is limited by the bottleneck stage.
+    This demonstrates the 'pipeline discount' effect.
+    """
+    traditional_total = sum(s['traditional'] for s in stages)
+    ai_total = sum(s['ai_assisted'] for s in stages)
+
+    return traditional_total / ai_total
+
+# Example: Research pipeline
+stages = [
+    {'name': 'Literature Review', 'traditional': 21, 'ai_assisted': 2},
+    {'name': 'Data Analysis', 'traditional': 180, 'ai_assisted': 14},
+    {'name': 'Lab Work', 'traditional': 180, 'ai_assisted': 165},
+    {'name': 'Clinical Trials', 'traditional': 1095, 'ai_assisted': 1095},
+]
+
+acceleration = calculate_acceleration(stages)
+print(f"Effective acceleration: {acceleration:.1f}x")  # Output: 2.8x</code></pre>
+    </section>
+
+    <!-- Animation Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Animation Effects</div>
+
+      <div class="card speed-lines" style="height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-6);">
+        <h3 class="text-gradient" style="margin: 0;">Speed Lines Effect</h3>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card gradient-animate" style="height: 150px; display: flex; align-items: center; justify-content: center;">
+          <p class="text-muted" style="margin: 0;">Animated Gradient Background</p>
+        </div>
+
+        <div class="card pulse-acceleration" style="height: 150px; display: flex; align-items: center; justify-content: center;">
+          <div class="stat__value stat__value--acceleration">2.8x</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blockquote Demo -->
+    <section class="demo-section">
+      <div class="demo-title">Blockquotes</div>
+
+      <blockquote>
+        "The rate of biological research is ultimately limited by the speed of physical processes - cells divide on their own timeline, drugs must be tested in real patients, and regulatory approval cannot be rushed."
+        <cite>Dr. Research Paper, 2025</cite>
+      </blockquote>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: var(--space-12) 0; border-top: 1px solid var(--color-neutral-700); margin-top: var(--space-16);">
+    <div class="container text-center">
+      <p class="text-muted">AI Bio Acceleration Model - Design System v1.0</p>
+      <p class="text-sm text-muted">A cohesive visual theme for scientific communication</p>
+    </div>
+  </footer>
+
+</body>
+</html>
